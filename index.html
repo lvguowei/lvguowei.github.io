@@ -1,158 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Border &amp; Radius Brewhouse - Great Food, Better Beer</title>
-    <link href="css/style.css" rel="stylesheet" />
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
-    <![endif]-->
-</head>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<body>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-<div id="wrap">
-    <!-- BEGIN HEADER -->
-    <header id="main">
-        <a href="#" id="better-beer"></a>
-        <h1 class="texthide"><a href="#" id="logo">Border &amp; Radius Brewhouse</a></h1>
-        <a href="#" id="menu-promo"></a>
-    </header>
-    <!-- END HEADER -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-    <!-- BEGIN NAVIGATION -->
-    <nav id="primary">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Food</a></li>
-            <li><a href="#">Beer</a></li>
-            <li><a href="#">Catering</a></li>
-            <li><a href="#">Locations</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    <!-- END NAVIGATION -->
+        <!-- Add your site or application content here -->
+        <p>Hello world! This is HTML5 Boilerplate.</p>
 
-    <!-- BEGIN PROMO SECTION -->
-    <section id="promotional">
-        <img src="images/featured.jpg" alt="Awesome Beer Image">
-        <div id="selections">
-            <ul>
-                <li>Beers <em>on</em> Tap <span>35</span></li>
-                <li class="bottle">Bottle Selections <span>150</span></li>
-                <li>Beers Brewed <em>on</em> Site <span>8</span></li>
-            </ul>
-        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
 
-        <a href="#" class="menu">View Our <span>Food</span> Menu</a>
-        <a href="#" class="menu">View Our <span>Beer</span> Menu</a>
-
-    </section>
-    <!-- END PROMO SECTION -->
-
-    <!-- BEGIN BLOCKS -->
-    <div id="blocks">
-        <!-- BEGIN LATEST NEWS -->
-        <section id="news" class="box">
-            <header><h1 class="script">Latest News</h1></header>
-            <article class="news-item">
-                <header>
-                    <h1><a href="#">Border &amp; Radius Named to City's Best List</a></h1>
-                </header>
-                <p><time datetime="2011-01-26" pubdate>Monday, January 26, 2011</time> | <span class="via">via</span> <a href="#">The Newspaper</a></p>
-            </article>
-            <article class="news-item">
-                <header>
-                    <h1><a href="#">Another Newsworthy Item Goes Here</a></h1>
-                </header>
-                <p><time datetime="2011-01-26" pubdate>Monday, January 26, 2011</time> | <span class="via">via</span> <a href="#">The Newspaper</a></p>
-            </article>
-            <article class="news-item">
-                <header>
-                    <h1><a href="#">Hey Look, We're In The News Again</a></h1>
-                </header>
-                <p><time datetime="2011-01-26" pubdate>Monday, January 26, 2011</time> | <span class="via">via</span> <a href="#">The Newspaper</a></p>
-            </article>
-            <article class="news-item">
-                <header>
-                    <h1><a href="#">I'll Have a Pint of Guinness Please</a></h1>
-                </header>
-                <p><time datetime="2011-01-26" pubdate>Monday, January 26, 2011</time> | <span class="via">via</span> <a href="#">The Newspaper</a></p>
-            </article>
-        </section>
-        <!-- END LATEST NEWS -->
-
-        <!-- BEGIN SPECIALS -->
-        <section id="specials" class="box">
-            <header><h1 class="script">Current Specials</h1></header>
-            <a href="#"><img class="price" src="images/price.png" alt="Price Image"></a>
-            <p>Order anything off the lunch menu and pair it with any one of our beers on tap for just $7.77 during lunch hours (11.30p - 2p)</p>
-        </section>
-        <!-- END SPECIALS -->
-
-        <!-- BEGIN NEWSLETTER -->
-        <section id="newsletter" class="box box-right">
-            <header><h1 class="script">Email Newsletter</h1></header>
-            <form id="sign-up">
-                <fieldset>
-                    <label for="news-name">Name</label>
-                    <input type="text" id="news-name" placeholder="What Shall We Call You" required />
-                </fieldset>
-                <fieldset>
-                    <label for="news-email">Email</label>
-                    <input type="email" id="news-email" placeholder="e.g. beerme@aol.com" required />
-                </fieldset>
-                <fieldset>
-                    <input type="submit" value="Subscribe" />
-                </fieldset>
-            </form>
-        </section>
-        <!-- END NEWSLETTER -->
-
-    </div>
-    <!-- END BLOCKS -->
-
-    <!-- BEGIN FOOTER -->
-    <footer id="primary-foot">
-        <section id="history">
-            <header><h1>Our History</h1></header>
-            <p>We have a pretty awesome story about how we came to be. It all started a long time ago, in a brewery far far away. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />
-                <a href="#">Read More</a></p>
-        </section>
-
-        <section id="info">
-            <nav id="footer-nav">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Cases</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Clients</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="copyright">
-                <div id="beer-bottle">
-                    <div id="bottle">
-                        <div id="contents"></div>
-                        <div id="outline"></div>
-                    </div>
-                    <div id="pour"><div></div></div>
-                    <div id="drip"></div>
-                    <div id="puddle"></div>
-                </div>
-
-                <p>&copy; 2011 <a href="http://codeschool.com">Codeschool.com</a>, A Product of <a href="http://envylabs.com">Envy Labs</a><br />
-                    This is a fictional case study, although the author does enjoy great food and better beer.</p>
-            </div>
-        </section>
-
-    </footer>
-    <!-- END FOOTER -->
-
-</div>
-
-</body>
-
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!--<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>-->
+    </body>
 </html>
