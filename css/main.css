@@ -164,6 +164,7 @@ ul {
     font: normal 36px "source_code_proregular";
     text-align: center;
     text-shadow: 3px 3px 3px #ccc;
+    color: #5e5e58;
 }
 
 #hero {
@@ -304,6 +305,17 @@ ul {
 .item li:hover {
     background: #d0d0c6;
     background: rgba(208, 208, 198, .5);
+}
+
+#hobby-project {
+    position: relative;
+}
+
+#hobby-project a img {
+    position: absolute;
+    right: 10px;
+    width: 100px;
+    height: auto;
 }
 
 
