@@ -257,6 +257,10 @@ a {
     color: #646459;
 }
 
+#detail-info span {
+    font: bold 13px "source_code_proregular";
+}
+
 #detail-info a {
     color: #646459;
     text-decoration: underline;
@@ -278,6 +282,12 @@ a {
 
 #detail-info section:last-child {
     margin-right: 0;
+}
+
+.box {
+    -webkit-box-shadow: 0 8px 6px -6px #ccc;
+    -moz-box-shadow: 0 8px 6px -6px #ccc;
+    box-shadow: 0 8px 6px -6px #ccc;
 }
 
 .box h1.script {
