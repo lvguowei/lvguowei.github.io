@@ -1,0 +1,12 @@
+# Site settings
+title: Guowei Lv's Blog
+email: lvguowei1002@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Welcome to Guowei's website! Grab some drink and enjoy your stay!
+baseurl: "/blog" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+#twitter_username: jekyllrb
+github_username: lvguowei
+
+# Build settings
+markdown: kramdown
