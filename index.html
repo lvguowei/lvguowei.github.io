@@ -1,140 +1,23 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: default
+---
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<div class="home">
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-</head>
-<body>
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
+  <h1 class="page-heading">Posts</h1>
 
-<!-- Add your site or application content here -->
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-<div id="wrapper">
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-    <!-- Begin of header -->
-    <header id="main-header">
-        <h1>Guowei's Happy World</h1>
-    </header>
-    <!-- End of header>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-    <!-- Begin of hero -->
-    <section id="hero" class="clearfix">
-        <section id="basic-info">
-            <ul>
-                <li>Name: <span>Guowei Lv</span></li>
-                <li>Address: <span>Helsinki, Finland</span></li>
-                <li>Mobile: <span>+358442222788</span></li>
-                <li>Nationality: <span>China</span></li>
-            </ul>
-        </section>
-        <img src="img/profile.jpg" alt="profile-image"/>
-        <a href="https://www.linkedin.com/in/lvguowei" target="_blank">LinkedIn</a>
-        <a href="https://github.com/lvguowei" target="_blank">Github</a>
-        <a href="http://lvguowei.deviantart.com/gallery/" target="_blank">DeviantArt</a>
-    </section>
-    <!-- End of hero -->
-
-    <!-- Begin detailed information -->
-    <div id="detail-info">
-        <section id="education" class="box">
-            <header><h1 class="script">Education</h1></header>
-            <ul>
-                <li class="item">
-                    <header><h1>09.2010 - 04.2014</h1></header>
-                    <ul>
-                        <li><span>Master, University of Helsinki</span></li>
-                        <li>Major: <span>Machine Learning and Algorithms</span></li>
-                        <li>GPA: <span>4.3</span></li>
-                    </ul>
-                </li>
-                <li class="item">
-                    <header><h1>09.2006 - 07.2010</h1></header>
-                    <ul>
-                        <li><span>Bachelor, North University of China</span></li>
-                        <li>Major: <span>Network Engineering</span></li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-        <section id="work-experience" class="box">
-            <header><h1 class="script">Work Experience</h1></header>
-            <ul>
-                <li class="item">
-                    <header><h1>12.2012 - present</h1></header>
-                    <ul>
-                        <li>Mobile and Web developer at <span><a href="http://www.hdmessaging.com/" target="_blank">HDmessaging Oy</a></span></li>
-                        <li>Subject:</li>
-                            <ul>
-                                <li>Android: <span>Bobsled</span></li>
-                                <li>Front-end: <span>AngularJS</span></li>
-                                <li><span>MagicWords project</span></li>
-                            </ul>
-                    </ul>
-                </li>
-                <li class="item">
-                    <header><h1>02.2012 -05.2012</h1></header>
-                    <ul>
-                        <li>Research Assistant at Helsinki University in Natural Language
-                            Processing Group
-                        </li>
-                        <li>
-                            Subject: <span><a href="http://etymon.cs.helsinki.fi/" target="_blank">Etymon project</a></span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-        <section id="hobby-project" class="box">
-            <header><h1 class="script">Hobby Project</h1></header>
-            <p>HSL Router is an easy-to-use android app for the public transportation
-                system HSL in Finland. You can see the stop list, stop code and
-                departure time. You can also see the whole travel line on the Google
-                Map with stop information tagged. If GPS is available then you can
-                track yourself on the go and never miss your destination stop. It is
-                published in Google Play. Has 5000+ downloads by far.
-            </p>
-            <a href="https://play.google.com/store/apps/details?id=com.guoweilv.hsldemo">
-                <img alt="Get it on Google Play"
-                     src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
-            </a>
-        </section>
-    </div>
 </div>
-
-<!-- End of detailed information -->
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<!--<script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='//www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-XXXXX-X');ga('send','pageview');
-</script>-->
-</body>
-</html>
