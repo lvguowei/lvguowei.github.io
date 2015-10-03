@@ -7,8 +7,6 @@ body {
   color: white;
 }
 
-
-
 h1, h3, h4, header .btn {
   font-weight: 700;
 }
@@ -110,7 +108,8 @@ nav li, .contact li {
 }
 
 nav li {
-  width: 50%;
+    font-weight: 600;
+    width: 50%;
 }
 
 nav a {
@@ -137,6 +136,15 @@ nav li:nth-child(2n+1) a:after {
 
 /* opening hours */
 .opening-hours {
+    ul {
+	list-style: none;
+	font-size: 18px;
+	font-style: italic;
+    }
+    h4 {
+	font-family: 'Metrophobic', Arial, serif;
+	font-weight: 400;
+    }
     margin-top: 50px;
     background: black;
     background: rgba(0,0,0,.3);
