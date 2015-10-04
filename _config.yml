@@ -1,19 +1,30 @@
 # Site settings
-
-title: Guowei Lv
-
+title: Happy Food Garden
 email: lvguowei1002@gmail.com
+url: https://lvguowei.github.io
+description: "A Chinese restaurant"
 
-description: > # this means to ignore newlines until "baseurl:"
-  Welcome to Guowei's home page, grab a drink and enjoy your stay!
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary-dark: '#000000'
+  links: '#219ab3'
 
-baseurl: "" # the subpath of your site, e.g. /blog/
+# Footer settings
+footer: Your Website
 
-url: "http://lvguowei.github.io"
-
-# twitter_username: jekyllrb
-
-github_username: lvguowei
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: twitter
+    url: https://twitter.com/SBootstrap
+  - title: facebook
+    url:
+  - title: stack-overflow
+    url: http://stackoverflow.com/questions/tagged/jekyll
+  - title: bitbucket
+    url: http://bitbucket.org/jekyll
+  - title: github
+    url: https://github.com/IronSummitMedia/startbootstrap
 
 # Build settings
 markdown: kramdown
+permalink: pretty
