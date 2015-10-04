@@ -36,13 +36,6 @@ p {
     line-height: 1.5;
 }
 
-@media(min-width:767px) {
-    p {
-        margin: 0 0 35px;
-        font-size: 20px;
-        line-height: 1.6;
-    }
-}
 
 a {
     color: {{ site.color.links }};
@@ -159,20 +152,6 @@ a:focus {
     font-size: 18px;
 }
 
-@media(min-width:767px) {
-    .intro {
-        height: 100%;
-        padding: 0;
-    }
-
-    .intro .intro-body .brand-heading {
-        font-size: 100px;
-    }
-
-    .intro .intro-body .intro-text {
-        font-size: 25px;
-    }
-}
 
 .btn-circle {
     width: 70px;
@@ -252,11 +231,69 @@ a:focus {
     padding-top: 100px;
 }
 
-.download-section {
+
+/* gallery */
+/* Portfolio */
+.gallery {
+    margin-top: 20px;
+}
+.gallery .col-md-4 {
+    
+    padding-right: 0;
+    padding-left: 0;
+}
+.gallery > figure {
+    position: relative;
+    overflow: hidden;
+}
+.gallery > figure img {
+    max-width: 100%;
+    display: block;
+}
+.gallery figcaption {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    left: 0;
+    top: 0;
+
+    background-color: rgba(58,63,67,.8);
+    padding: 10%;
+
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+
+    -webkit-transition: all 350ms;
+    -moz-transition: all 350ms;
+    -o-transition: all 350ms;
+    transition: all 350ms;
+}
+.gallery figcaption h4 {
+    color: #fff;
+}
+.gallery figcaption p {
+    font-size: 0.929em;
+    color: #fff;
+}
+.gallery > figure:hover figcaption {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+}
+
+
+.gallery-section {
     width: 100%;
     padding: 50px 0;
     color: #fff;
-    background: url(/img/downloads-bg.jpg) no-repeat center center scroll;
+    background: url(/img/gallery-bg.jpg) no-repeat center center scroll;
     background-color: {{ site.color.primary-dark }};
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -270,20 +307,6 @@ a:focus {
     margin-top: 100px;
 }
 
-@media(min-width:767px) {
-    .content-section {
-        padding-top: 200px;
-    }
-
-    .download-section {
-        padding: 100px 0;
-    }
-
-    #map {
-        height: 400px;
-        margin-top: 250px;
-    }
-}
 
 .btn {
     text-transform: uppercase;
@@ -316,9 +339,71 @@ ul.banner-social-buttons li {
     margin-bottom: 15px;
 }
 
-@media(max-width:1199px) {
+@media(max-width:960px) {
     ul.banner-social-buttons {
         margin-top: 15px;
+    }
+
+    .gallery > figure:before {
+	content: attr(data-category);
+	font-size: 1em;
+	padding: 8px;
+	width: 100%;
+	color: #fff;
+	display: block;
+	font-weight: bold;
+	text-transform: capitalize;
+	background-color: rgba(42,47,51,0.8);
+	position: absolute;
+    }
+    .gallery figcaption {
+	position: relative;
+	opacity: 1;
+
+	-webkit-transform: translateX(0%);
+	-moz-transform: translateX(0%);
+	-ms-transform: translateX(0%);
+	-o-transform: translateX(0%);
+	transform: translateX(0%);
+
+	background-color: #3a3f43;
+    }
+    .gallery figure:nth-child(odd) figcaption {
+	background-color: #2a2f33;
+    }
+}
+
+@media(min-width:767px) {
+
+    p {
+        margin: 0 0 35px;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .intro {
+        height: 100%;
+        padding: 0;
+    }
+
+    .intro .intro-body .brand-heading {
+        font-size: 100px;
+    }
+
+    .intro .intro-body .intro-text {
+        font-size: 25px;
+    }
+
+    .content-section {
+        padding-top: 200px;
+    }
+
+    .gallery-section {
+        padding: 100px 0;
+    }
+
+    #map {
+        height: 400px;
+        margin-top: 250px;
     }
 }
 
@@ -332,6 +417,7 @@ ul.banner-social-buttons li {
     ul.banner-social-buttons li:last-child {
         margin-bottom: 0;
     }
+
 }
 
 footer {
