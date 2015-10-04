@@ -421,7 +421,10 @@ body {
 
 
 @media only screen and (max-width: 1199px) {
-    .gallery  .col-md-4 { 
+    .gallery  .col-md-4 {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
     	width: 50%;
     }
     .gallery .all {
@@ -463,7 +466,12 @@ body {
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
-
+    .gallery  .col-md-4  {
+	img {
+	    margin: 0 auto;    
+	}
+    	width: 100%;
+    }
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
