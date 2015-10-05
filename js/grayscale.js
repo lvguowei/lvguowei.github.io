@@ -24,6 +24,12 @@ $(function() {
     });
 });
 
+// remove the focused state after click, otherwise bootstrap
+// bootstrap will still highlight the link
+$("a").mouseup(function(){
+    $(this).blur();
+})
+
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
