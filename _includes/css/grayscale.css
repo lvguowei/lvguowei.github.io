@@ -489,6 +489,9 @@ body {
 
     .intro {
 	background: url(/img/intro-bg-mobile.jpg) no-repeat fixed center / cover;
-        
+    }
+
+    .gallery-section {
+	background: url(/img/gallery-bg-mobile.jpg) no-repeat fixed center / cover;
     }
 }
