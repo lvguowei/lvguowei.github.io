@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "C++ Primer Exercise Answer"
-date:   2015-10-19
+title: "C++ Primer Exercise Answer"
+date: 2015-10-19
 categories: C++
 ---
 
