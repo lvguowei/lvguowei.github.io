@@ -17,3 +17,5 @@ github_username: lvguowei
 
 # Build settings
 markdown: kramdown
+
+excerpt_separator: ""

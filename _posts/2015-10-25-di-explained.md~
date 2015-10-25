@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "Dependency Injection Explained"
+date:   2015-10-25
+categories: programming, design pattern
+---
+
+
+{% highlight java %}
+@Foo
+public interface Server {
+
+    int port();
+}
+{% endhighlight %}
+
+sdf
