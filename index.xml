@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Guowei Lv</title>
-    <link>http://lvguowei.github.io/</link>
+    <link>http://replace-this-with-your-hugo-site.com/</link>
     <description>Recent content on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 30 Apr 2016 10:07:07 +0300</lastBuildDate>
-    <atom:link href="http://lvguowei.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://replace-this-with-your-hugo-site.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>C&#43;&#43; Primer Answers</title>
-      <link>http://lvguowei.github.io/post/C&#43;&#43;-Primer-Answers/</link>
+      <link>http://replace-this-with-your-hugo-site.com/post/C&#43;&#43;-Primer-Answers/</link>
       <pubDate>Sat, 30 Apr 2016 10:07:07 +0300</pubDate>
       
-      <guid>http://lvguowei.github.io/post/C&#43;&#43;-Primer-Answers/</guid>
+      <guid>http://replace-this-with-your-hugo-site.com/post/C&#43;&#43;-Primer-Answers/</guid>
       <description>
 
 &lt;div id=&#34;table-of-contents&#34;&gt;
@@ -146,10 +146,10 @@ p2 = p3; // correct
     
     <item>
       <title>Finnish learning diary</title>
-      <link>http://lvguowei.github.io/post/Finnish-learning-diary/</link>
+      <link>http://replace-this-with-your-hugo-site.com/post/Finnish-learning-diary/</link>
       <pubDate>Sat, 30 Apr 2016 09:57:12 +0300</pubDate>
       
-      <guid>http://lvguowei.github.io/post/Finnish-learning-diary/</guid>
+      <guid>http://replace-this-with-your-hugo-site.com/post/Finnish-learning-diary/</guid>
       <description>
 
 &lt;div id=&#34;table-of-contents&#34;&gt;
@@ -630,10 +630,10 @@ p2 = p3; // correct
     
     <item>
       <title>welcome</title>
-      <link>http://lvguowei.github.io/post/welcome/</link>
+      <link>http://replace-this-with-your-hugo-site.com/post/welcome/</link>
       <pubDate>Fri, 29 Apr 2016 22:15:01 +0300</pubDate>
       
-      <guid>http://lvguowei.github.io/post/welcome/</guid>
+      <guid>http://replace-this-with-your-hugo-site.com/post/welcome/</guid>
       <description>
 
 &lt;h1 id=&#34;nitro:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Nitro&lt;/h1&gt;
