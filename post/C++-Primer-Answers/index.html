@@ -98,88 +98,96 @@
 
 <h3 id="exercise-2-15-a-id-orgheadline1-a:cd3a3f120a2b59e540de04ca96c62534">Exercise 2.15<a id="orgheadline1"></a></h3>
 
-<pre><code>int ival = 1.01; // correct
-int &amp;rval1 = 1.01; // wrong, type error
-int &amp;rval2 = ival; // correct
-int &amp;rval3; // not initialized
-</code></pre>
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span></span><span class="kt">int</span> <span class="n">ival</span> <span class="o">=</span> <span class="mf">1.01</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">rval1</span> <span class="o">=</span> <span class="mf">1.01</span><span class="p">;</span> <span class="c1">// wrong, type error</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">rval2</span> <span class="o">=</span> <span class="n">ival</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">rval3</span><span class="p">;</span> <span class="c1">// not initialized</span>
+</code></pre></div>
+
 
 <h3 id="exercise-2-16-a-id-orgheadline2-a:cd3a3f120a2b59e540de04ca96c62534">Exercise 2.16<a id="orgheadline2"></a></h3>
 
-<pre><code>int i = 0, &amp;r1 = i; 
-double d = 0, &amp;r2 = d;
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r1</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> 
+<span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r2</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+    
+<span class="n">r2</span> <span class="o">=</span> <span class="mf">3.14159</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r1</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">r2</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span> <span class="c1">// correct</span>
+</code></pre></div>
 
-r2 = 3.14159; // correct
-r2 = r1; // correct
-i = r2; // correct
-r1 = d; // correct
-</code></pre>
 
 <h3 id="exercise-2-17-a-id-orgheadline3-a:cd3a3f120a2b59e540de04ca96c62534">Exercise 2.17<a id="orgheadline3"></a></h3>
 
-<pre><code>int i, &amp;ri = i;
-i = 5;
-ri = 10;
-std::cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; ri &lt;&lt; std::endl;
-</code></pre>
+<p><div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ri</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ri</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</code></pre></div>
+</p>
 
 <h2 id="section-2-3-2-a-id-orgheadline8-a:cd3a3f120a2b59e540de04ca96c62534">Section 2.3.2<a id="orgheadline8"></a></h2>
 
 <h3 id="exercise-2-18-a-id-orgheadline5-a:cd3a3f120a2b59e540de04ca96c62534">Exercise 2.18<a id="orgheadline5"></a></h3>
 
-<pre><code>int a = 1;
-int b = 2;
-int *p = &amp;a;
-p = &amp;b;
-*p = 3;
-std::cout &lt;&lt; *p;
-</code></pre>
+<p><div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+<span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</code></pre></div>
+</p>
 
 <h3 id="exercise-2-20-a-id-orgheadline6-a:cd3a3f120a2b59e540de04ca96c62534">Exercise 2.20<a id="orgheadline6"></a></h3>
 
-<pre><code>int i = 42;
-int *p1 = &amp;i;
-*p1 = *p1 * *p1;
-std::cout &lt;&lt; i;
-</code></pre>
+<p><div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+<span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">*</span><span class="n">p1</span> <span class="o">*</span> <span class="o">*</span><span class="n">p1</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">;</span>
+</code></pre></div>
+</p>
 
 <h3 id="exercise-2-21-a-id-orgheadline7-a:cd3a3f120a2b59e540de04ca96c62534">Exercise 2.21<a id="orgheadline7"></a></h3>
 
-<pre><code>int i = 0;
-double *dp = &amp;i; // error
-int *ip = i; // error
-int *p = &amp;i; // correct
-</code></pre>
+<p><div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">double</span> <span class="o">*</span><span class="n">dp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span> <span class="c1">// error</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">ip</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// error</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span> <span class="c1">// correct</span>
+</code></pre></div>
+</p>
 
 <h2 id="section-2-4-2-a-id-orgheadline10-a:cd3a3f120a2b59e540de04ca96c62534">Section 2.4.2<a id="orgheadline10"></a></h2>
 
 <h3 id="exercise-2-27-a-id-orgheadline9-a:cd3a3f120a2b59e540de04ca96c62534">Exercise 2.27<a id="orgheadline9"></a></h3>
 
-<pre><code>int a = -1, &amp;b = 0; // wrong, reference to a constant 0
-int c = 9, *const d = &amp;c; // correct
-const int e = -1, &amp;f = 0; // correct
-const int *const g = &amp;a; // correct
-const int *h = &amp;a; // correct
-const int &amp;const i; // wrong
-const int z = a, &amp;y = a; // correct
-</code></pre>
+<p><div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// wrong, reference to a constant 0</span>
+<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="o">*</span><span class="k">const</span> <span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">e</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="o">*</span><span class="k">const</span> <span class="n">g</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="o">*</span><span class="n">h</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="k">const</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// wrong</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// correct</span>
+</code></pre></div>
+</p>
 
 <h2 id="section-2-4-3-a-id-orgheadline12-a:cd3a3f120a2b59e540de04ca96c62534">Section 2.4.3<a id="orgheadline12"></a></h2>
 
 <h3 id="exercise-2-30-a-id-orgheadline11-a:cd3a3f120a2b59e540de04ca96c62534">Exercise 2.30<a id="orgheadline11"></a></h3>
 
-<pre><code>int i = 9;
-const int v2 = 0;
-int v1 = v2;
-int *p1 = &amp;v1, &amp;r1 = v1;
-const int *p2 = &amp;v2, *const p3 = &amp;i, &amp;r2 = v2;
+<p><div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">v2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">v2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">v1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r1</span> <span class="o">=</span> <span class="n">v1</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">v2</span><span class="p">,</span> <span class="o">*</span><span class="k">const</span> <span class="n">p3</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r2</span> <span class="o">=</span> <span class="n">v2</span><span class="p">;</span>
 
-r1 = v2; // correct
-p1 = p2; // wrong
-p2 = p1; // correct
-p1 = p3; // wrong
-p2 = p3; // correct
-</code></pre>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">v2</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">p2</span><span class="p">;</span> <span class="c1">// wrong</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">p1</span><span class="p">;</span> <span class="c1">// correct</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">p3</span><span class="p">;</span> <span class="c1">// wrong</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">p3</span><span class="p">;</span> <span class="c1">// correct</span>
+</code></pre></div>
+</p>
 
   </section>
 
