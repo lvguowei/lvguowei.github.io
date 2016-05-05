@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Simple example of recursion - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-05-05">May 05, 2016</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/recursion">recursion</a>
+
+        <a href="http://lvguowei.me/tags/scheme">scheme</a>
+
+        <a href="http://lvguowei.me/tags/sicp">SICP</a>
+
+        <a href="http://lvguowei.me/tags/functional-programming">functional programming</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Simple example of recursion</h1>
+  <section class="body" itemprop="articleBody">
+    <p>今天读到SICP里的一个介绍recursion的例子，用牛顿猜想来计算平方根。</p>
+
+<p>首先，介绍了计算机程序和数学方程的区别。数学方程大多用的是描述法（declarative）。比如说这个平方根，数学上只需要说：</p>
+
+<p>如果x的平方等于y，而且x大于0，那么x就是y的平方根。</p>
+
+<p>这是一种很高层次的描述，通过描述，来限制答案的域。如果能直接用到计算机里，问题就简单了。大概写出来的程序就是这个样子：</p>
+
+<p><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">func</span> <span class="nx">sqrt</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="o">:</span>
+ <span class="err">@</span> <span class="o">*</span> <span class="err">@</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+ <span class="err">@</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+ <span class="k">return</span> <span class="err">@</span><span class="p">;</span>
+</code></pre></div>
+
+让计算机去处理计算细节。这当然是一种理想的情况，如果都能这样写程序，那就完事大吉了。这就叫描述性编程(Declarative Programming)。</p>
+
+<p>当然现在还做不到这么绝对，所以我们只能自己写如何进行细节的计算来得到我们的结果。这就叫做命令式变成(Imperative Programming)。</p>
+
+<p>总体来说，描述性编程比命令式编程要容易理解的多，因为不用自己下达命令给计算机，只需要对问题进行描述，计算机自己会找到答案。典型的例子就是xml配置文件，人们把对系统的需求和配置写在一个单独的xml文件里面，然后让计算机自己去执行相应的命令。</p>
+
+<p>好了，现在进入正题。牛顿猜想的原理如下：</p>
+
+<p>要计算x的平方根，先猜想一个答案y，然后用</p>
+
+<p>(y + x / y) / 2</p>
+
+<p>来得到新的优化过猜想。反复进行，知道得到满意的猜想。</p>
+
+<p>首先，我们先来定义一些辅助方程。</p>
+
+<div class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nb">abs </span><span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">x</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">(</span><span class="nb">- </span><span class="nv">x</span><span class="p">)</span>
+      <span class="nv">x</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">square</span> <span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">* </span><span class="nv">x</span> <span class="nv">x</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">average</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">+ </span><span class="nv">x</span> <span class="nv">y</span><span class="p">)</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+
+
+<p>接下来我们来写主程序。</p>
+
+<div class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">sqrt-iter</span> <span class="nv">guess</span> <span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">good-enough?</span> <span class="nv">guess</span> <span class="nv">x</span><span class="p">)</span>
+      <span class="nv">guess</span>
+      <span class="p">(</span><span class="nf">sqrt-iter</span> <span class="p">(</span><span class="nf">improve</span> <span class="nv">guess</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">x</span><span class="p">)))</span>
+</code></pre></div>
+
+
+<p>这个程序用第归的方法实现了牛顿猜想。</p>
+
+<p>现在就来分别定义good-enough? 和 improve 两个方程。</p>
+
+<p><div class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">good-enough?</span> <span class="nv">guess</span> <span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">&lt; </span><span class="p">(</span><span class="nb">abs </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nf">square</span> <span class="nv">guess</span><span class="p">)</span> <span class="nv">x</span><span class="p">))</span> <span class="mf">0.001</span><span class="p">))</span>
+
+
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">improve</span> <span class="nv">guess</span> <span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">average</span> <span class="nv">guess</span> <span class="p">(</span><span class="nb">/ </span><span class="nv">x</span> <span class="nv">guess</span><span class="p">)))</span>
+</code></pre></div>
+</p>
+
+<p>最后来定义入口方程。</p>
+
+<p><div class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nb">sqrt </span><span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">sqrt-iter</span> <span class="mf">1.0</span> <span class="nv">x</span><span class="p">))</span>
+</code></pre></div>
+</p>
+
+<p>这就大功告成了。</p>
+
+<p>下面我们来看看，如果不用第归（recursion），这个程序应该如何写。</p>
+
+<p><div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kt">int</span> <span class="nf">sqrt</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">guess</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">;</span>
+	<span class="k">while</span> <span class="o">(!</span><span class="n">good</span><span class="o">-</span><span class="n">enough</span><span class="o">(</span><span class="n">guess</span><span class="o">,</span> <span class="n">x</span><span class="o">))</span> <span class="o">{</span>
+	    <span class="n">guess</span> <span class="o">=</span> <span class="n">improve</span><span class="o">(</span><span class="n">guess</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="k">return</span> <span class="n">guess</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>
+</p>
+
+<p>大多数人可能第一个会想到的就是这个实现，用一个loop来不停的更新guess，知道满意为止，然后返回guess。</p>
+
+<p>下面就来说一说这两种实现的区别。</p>
+
+<p>非第归实现的原理其实就是利用一个变量，通过不断改变变量的值来进行计算。
+而第归的实现，没有变量！怎么会这样，确实，那么新的guess哪去了？注意，我们的确也计算了新的guess，但我们没有把它赋予任何一个变量，而是直接又用它调用了方程。也就是说，又产生了一个新的guess。每一次第归调用sqrt都会产生一个新的guess，而老的guess的值则留在了上一层调用里。</p>
+
+<p>换句话说，第归调用没有赋值运算！所有的值都在内存里。这也就是为什么说第归费内存的原因。但现在内存这么便宜，费就费点儿吧。</p>
+
+<p>既然都能算出结果，那么第归不第归有什么差别吗？这就要讲到Functional Programming的概念了。</p>
+
+<p>Functional Programming 和 Object Oriented Programming的一个重要区别就是用来描述世界的模型不同。OO认为，任何东西都是一个对象，比如说一个房子，不管10年20年，变成什么样子，那个房子还是那个房子。但FP认为，不可能两次踏进同一个小溪。10年前的房子和现在的房子不是一个房子。</p>
+
+<p>FP这样的模型有什么好处呢？很简单，任何东西，都被赋予了时间的意义，也就是说，有了历史的概念。当一个东西有了时间的属性，处理起来就容易多了，比如可以说这个十年前的房子是白色的，现在的房子是灰色的。用OO的话就很难描述这类问题，因为房子颜色的属性没有历史记录。如果在系统里看到房子是白色的，只可以断定房子现在是白色的，什么时候变成白色的谁也不知道。</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/recursion-example\/';
+    var disqus_title = 'Simple example of recursion';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/recursion-example\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2016  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

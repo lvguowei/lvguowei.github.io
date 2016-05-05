@@ -28,6 +28,21 @@
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/recursion-example/">Simple example of recursion</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-05-05">May 05, 2016</time></span>
+
+  </div>
+  <section class="summary">
+    今天读到SICP里的一个介绍recursion的例子，用牛顿猜想来计算平方根。 首先，介绍了计算机程序和数学方程的区别。数学方程大多用的是描述法（declarative）。比如说这个平方根，数学上只需要说： 如果x的平方等于y，而且x大于0，那么x就是y的平方根。 这是一种很高层次的描述，通过描述，来限制答案的域。如果能直接用到计算机里，问题就简单了。大概写出来的程序就是这个样子： func sqrt(x): @ * @ = x; @ &gt; 0; return @; 让计算机去处理计算细节。这当然是一种理想的情况，如果都能这样写程序，那就完事大吉了。这就叫描述性编程(Declarative Programming)。 当然现在还做不到这么绝对，所以我们只能自己写如何进行细节的计算来得到我们的结果。这就叫做命令式变成(Imperative Programming)。 总体来说，描述性编程比命令式编程要容易理解的多，因为不用自己下达命令给计算机，只需要对问题进行描述，计算机自己会找到答案。典型的例子就是xml配置文件，人们把对系统的需求和配置写在一个单独的xml文件里面，然后让计算机自己去执行相应的命令。 好了，现在进入正题。牛顿猜想的原理如下： 要计算x的平方根，先猜想一个答案y，然后用 (y + x / y) / 2 来得到新的优化过猜想。反复进行，知道得到满意的猜想。 首先，我们先来定义一些辅助方程。 (define (abs x) (if (&lt; x 0) (- x) x)) (define (square x) (* x x)) (define (average x y) (/ (+ x y) 2)) 接下来我们来写主程序。 (define (sqrt-iter guess x) (if (good-enough? guess x) guess (sqrt-iter (improve guess x) x))) 这个程序用第归的方法实现了牛顿猜想。 现在就来分别定义good-enough?  <a href="http://lvguowei.me/post/recursion-example/">Read More...</a>
+  </section>
+</article>
+
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/keep-it-fun/">keep it fun</a></h2>
   <div class="meta">
 
