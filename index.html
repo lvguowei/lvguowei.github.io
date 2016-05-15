@@ -43,6 +43,21 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Old and New For Loop in C&#43;&#43;</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-05-15">May 15, 2016</time></span>
+
+  </div>
+  <section class="summary">
+    The difference between the subscription based for loop and the newly introduced range based loop may be a bit confusing. Let&rsquo;s clear things up. Here are some sample code: void testFor() { cout &lt;&lt; &quot;--- For loop ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // subscription can modify for (string::size_type i = 0; i &lt; s.size (); i++) { s[i] = toupper (s[i]); } cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; // subscription can modify for (vector&lt;int&gt;::size_type i = 0; i &lt; v.size (); i++) { v[i] = v[i] + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; endl; } } void testRangeFor() { cout &lt;&lt; &quot;--- Range For ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // i is a value copy of the corresponding char for (auto i : s) { i = toupper (i); } // so s doesn&#39;t change cout &lt;&lt; s &lt;&lt; endl; // i is a reference of the corresponding char for (auto &amp; i : s) { i = toupper (i); } // now s has been changed cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; for (auto i : v) { i = i + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; &quot; &quot;; } cout &lt;&lt; endl; for (auto &amp; i : v) { i = i + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; &quot; &quot;; } } Basically, you can modify the item by subscription based for loop, but you cannot directly modify item by using ranged for loop.  <a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Read More...</a>
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/cpp-answer-2-5-2/">C&#43;&#43; Primer Exercise Answer (Section 2.5.2)</a></h2>
   <div class="meta">
 
@@ -71,21 +86,6 @@
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/keep-it-fun/">keep it fun</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2016-05-04">May 04, 2016</time></span>
-
-  </div>
-  <section class="summary">
-    最近因为工作的原因在学clojure，其实我一直都想学一个LISP语言，现在终于有人付钱让我学啦，呵呵。 最早接触到LISP是因为Emacs。当年在研究生时给大学的自然语言研究组帮忙的时候，教授就是Emacs的资深（20年+）用户，我也就开始一点一点的接触了，后来经过一段时间的压迫性的苦练，终于入门了。有一天无意中发现了Emacs Lisp Intro，就开始学习emacs lisp，可惜半途而废了。 因为clojure还比较新，所以没有什么太多资料。我就买了一些关于LISP的经典书籍，比如这个 《Structure and Interpretation of Computer Programs》。但由于本人的拖延症的病情，所以打算从今天开始读第一章了（第二遍尝试）。。。 在开篇有一段引言如下： ``I think that it&rsquo;s extraordinarily important that we in computer science keep fun in computing. When it started out, it was an awful lot of fun. Of course, the paying customers got shafted every now and then, and after a while we began to take their complaints seriously. We began to feel as if we really were responsible for the successful, error-free perfect use of these machines.  <a href="http://lvguowei.me/post/keep-it-fun/">Read More...</a>
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -101,7 +101,7 @@
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(4)</small>
+      <small>(5)</small>
     </h2>
     
   </section>
@@ -126,12 +126,12 @@
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/cpp">cpp</a>
-      <small>(1)</small>
+      <small>(2)</small>
     </span>
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/cpp-primer">cpp-primer</a>
-      <small>(1)</small>
+      <small>(2)</small>
     </span>
     
     <span class="tag">

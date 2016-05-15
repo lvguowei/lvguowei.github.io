@@ -28,6 +28,21 @@
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Old and New For Loop in C&#43;&#43;</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-05-15">May 15, 2016</time></span>
+
+  </div>
+  <section class="summary">
+    The difference between the subscription based for loop and the newly introduced range based loop may be a bit confusing. Let&rsquo;s clear things up. Here are some sample code: void testFor() { cout &lt;&lt; &quot;--- For loop ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // subscription can modify for (string::size_type i = 0; i &lt; s.size (); i++) { s[i] = toupper (s[i]); } cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; // subscription can modify for (vector&lt;int&gt;::size_type i = 0; i &lt; v.size (); i++) { v[i] = v[i] + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; endl; } } void testRangeFor() { cout &lt;&lt; &quot;--- Range For ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // i is a value copy of the corresponding char for (auto i : s) { i = toupper (i); } // so s doesn&#39;t change cout &lt;&lt; s &lt;&lt; endl; // i is a reference of the corresponding char for (auto &amp; i : s) { i = toupper (i); } // now s has been changed cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; for (auto i : v) { i = i + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; &quot; &quot;; } cout &lt;&lt; endl; for (auto &amp; i : v) { i = i + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; &quot; &quot;; } } Basically, you can modify the item by subscription based for loop, but you cannot directly modify item by using ranged for loop.  <a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Read More...</a>
+  </section>
+</article>
+
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/C&#43;&#43;-Primer-Answers/">C&#43;&#43; Primer Answers</a></h2>
   <div class="meta">
 
