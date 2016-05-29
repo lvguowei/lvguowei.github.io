@@ -28,6 +28,21 @@
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/Time-and-Space-of-Recursion/">Time and Space of Recursion</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-05-29">May 29, 2016</time></span>
+
+  </div>
+  <section class="summary">
+    今天通过一个例子，来谈一谈第归的时间和空间效应。 例子很简单，计算 a 的 n 次方。 我们来对比一下两种第归算法的时间和空间的消耗。 第一个方法很直接。思想就是要计算 a 的 n 次方， 只要计算 a 的 (n - 1) 次方， 然后结果在乘以 a 。如下： (define (expt a n) (if (= n 0) 1 (* a (expt a (- n 1))))) 为了更直观的理解这个算法，我们来计算一个例子， 2 的 3 次方。 (expt 2 3) (* 2 (expt 2 2)) (* 2 (* 2 (expt 2 1))) (* 2 (* 2 (* 2 (expt 2 0)))) (* 2 (*  <a href="http://lvguowei.me/post/Time-and-Space-of-Recursion/">Read More...</a>
+  </section>
+</article>
+
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/recursion-example/">Simple example of recursion</a></h2>
   <div class="meta">
 
