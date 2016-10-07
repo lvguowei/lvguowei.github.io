@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.16" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>matrix concentric shift - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-10-06">October 06, 2016</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/algorithms">algorithms</a>
+
+        <a href="http://lvguowei.me/tags/coding-challenge">coding challenge</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">matrix concentric shift</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Problem</a></li>
+<li><a href="#orgheadline2">2. Analysis</a></li>
+<li><a href="#orgheadline3">3. Source Code</a></li>
+<li><a href="#orgheadline4">4. Build script</a></li>
+<li><a href="#orgheadline5">5. How to run</a></li>
+</ul>
+</div>
+</div>
+
+<p>I suck at algorithms, even though I have a Machine Learning and Algorithms master degree.
+It makes me frown everytime in coding interviews.
+So I decided to practice more often, hope that I can get better at it.
+At least not afraid of it.
+Now this is the first one.</p>
+
+<h1 id="problem-a-id-orgheadline1-a">Problem<a id="orgheadline1"></a></h1>
+
+<p>Rotate a square matrix clockwise concentrically by 1. For example:</p>
+
+<pre><code>1 2 3
+4 5 6
+7 8 9
+</code></pre>
+
+<p>will become</p>
+
+<pre><code>4 1 2
+7 5 3
+8 9 6
+</code></pre>
+
+<h1 id="analysis-a-id-orgheadline2-a">Analysis<a id="orgheadline2"></a></h1>
+
+<p>Ok, the problem in question is quite easy to understand, but instinct tells me that there maybe multiple ways to solve, but maybe no one will be substaintially easier than the rest.
+So where to start? Let&rsquo;s start by thinking out loud. Let&rsquo;s assume we use java here.</p>
+
+<p>First, two dimension array is probably most familiar to people as for presenting matrix. Um.. I couldn&rsquo;t think of any other options yet so let&rsquo;s use that for now.
+Well, if the data is stored as two dimension array, then the rotation seems to be a bit hard to manipulate, since it is by 1 slot instead of, for example by 90 degree.
+And the rotation is concentric, feels it&rsquo;s gonna be a whole lot of index manipulations. <em>sigh</em>, I hate complex index games like this. But let&rsquo;s see how hard can it be.</p>
+
+<p><em>10 minutes passed while staring at the paper&#x2026;</em></p>
+
+<p>That&rsquo;s enough staring to give me the conviction that I can&rsquo;t solve it that easily. So, maybe some drawing and doodling could help? Let&rsquo;s try. Having one thing in my mind, which is
+trying to find some rules related to indexes, I came up with the following doodle:</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/matrix-rotation-1.jpg" />
+    
+    
+</figure>
+
+
+<p>If we can find for each position, where the new value will come from, then we can create a new matrix and pick the correctly value from the old matrix.
+Not hard to see that there are 5 categories, which are:
+(1) get the new value from left
+(2) get the new value from right
+(3) get the new value from top
+(4) get the new value from below
+(5) new value is itself</p>
+
+<p>Now the problem is to find out how to make this classification through code. After some thinking, I came up with the next doodle:</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/matrix-rotation-2.jpg" />
+    
+    
+</figure>
+
+
+<p>The two diagonal lines seem to put the elements into the correct category perfectly, but why is this, what is so special about the diagonal lines? Well, if you have some basic math
+knowledge, it will occur to you that the green line means something like: <code>i = j</code>, and the yellow line means something like: <code>i + j = n</code>. So now it is very clear that each line divides
+the matrix into 2 parts. The yellow line: <code>i + j &gt; n</code> and <code>i + j &lt; n</code>, (n is the dimension of the matrix), and the green line <code>i &gt; j</code> and <code>i &lt; j</code>. Em, seems we are very close now.
+Each category is the intersection of two of the 4 parts. If we can translate that into some if and else clauses, I guess we have found a solution!</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/matrix-rotation-3.jpg" />
+    
+    
+</figure>
+
+
+<h1 id="source-code-a-id-orgheadline3-a">Source Code<a id="orgheadline3"></a></h1>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span>    <span class="kn">package</span> <span class="nn">com.coding.challenges.concentricmatrix</span><span class="o">;</span>
+    
+    <span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+    
+    <span class="kd">class</span> <span class="nc">Main</span>
+    <span class="o">{</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">convertStrArr2IntArr</span><span class="o">(</span><span class="kt">int</span> <span class="n">len</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">len</span><span class="o">];</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+        <span class="o">}</span>
+    
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">readInLines</span><span class="o">(</span><span class="kt">int</span> <span class="n">lineNum</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">data</span><span class="o">,</span> <span class="n">Scanner</span> <span class="n">scanner</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">scanner</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+            <span class="n">String</span><span class="o">[]</span> <span class="n">lSplit</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
+            <span class="kt">int</span> <span class="n">colNum</span> <span class="o">=</span> <span class="n">lSplit</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+            <span class="n">data</span><span class="o">[</span><span class="n">lineNum</span><span class="o">]</span> <span class="o">=</span> <span class="n">convertStrArr2IntArr</span><span class="o">(</span><span class="n">colNum</span><span class="o">,</span> <span class="n">lSplit</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span>
+        <span class="o">{</span>
+            <span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+            <span class="kt">int</span>  <span class="n">numberOfLines</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">sc</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+            <span class="kt">int</span><span class="o">[][]</span> <span class="n">data</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">numberOfLines</span><span class="o">][];</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">numberOfLines</span><span class="o">;</span> <span class="n">t</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">readInLines</span><span class="o">(</span><span class="n">t</span><span class="o">,</span> <span class="n">data</span><span class="o">,</span> <span class="n">sc</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">validateSqr</span><span class="o">(</span><span class="n">data</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR&quot;</span><span class="o">);</span>
+                <span class="k">return</span><span class="o">;</span>
+            <span class="o">}</span>
+    
+            <span class="n">printResult</span><span class="o">(</span><span class="n">rotate</span><span class="o">(</span><span class="n">numberOfLines</span><span class="o">,</span> <span class="n">data</span><span class="o">));</span>
+        <span class="o">}</span>
+    
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">rotate</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span><span class="o">[][]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="n">fill</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">result</span><span class="o">,</span> <span class="n">data</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+        <span class="o">}</span>
+    
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">fill</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">result</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">data</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">validateSqr</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">xLen</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">aData</span> <span class="o">:</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">yLen</span> <span class="o">=</span> <span class="n">aData</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">yLen</span> <span class="o">!=</span> <span class="n">xLen</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+    
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printResult</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">aData</span> <span class="o">:</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">anAData</span> <span class="o">:</span> <span class="n">aData</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">anAData</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="o">);</span>
+                <span class="o">}</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div>
+
+
+<h1 id="build-script-a-id-orgheadline4-a">Build script<a id="orgheadline4"></a></h1>
+
+<p><div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span></span>    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="o">}</span>
+    
+    <span class="n">apply</span> <span class="nl">plugin:</span> <span class="s2">&quot;java&quot;</span>
+    
+    <span class="n">sourceSets</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">java</span><span class="o">.</span><span class="na">srcDir</span> <span class="s2">&quot;src&quot;</span>
+    <span class="o">}</span>
+    
+    <span class="n">jar</span> <span class="o">{</span>
+        <span class="n">manifest</span><span class="o">.</span><span class="na">attributes</span> <span class="s2">&quot;Main-Class&quot;</span><span class="o">:</span> <span class="s2">&quot;com.coding.challenges.concentricmatrix.Main&quot;</span>
+    <span class="o">}</span>
+</code></pre></div>
+</p>
+
+<h1 id="how-to-run-a-id-orgheadline5-a">How to run<a id="orgheadline5"></a></h1>
+
+<p>Press <code>C-c C-c</code> on the code block below.</p>
+
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span></span>    <span class="o">;;</span> <span class="n">tangle</span> <span class="n">the</span> <span class="n">source</span> <span class="n">code</span>
+    <span class="o">(</span><span class="n">org</span><span class="o">-</span><span class="n">babel</span><span class="o">-</span><span class="n">tangle</span><span class="o">)</span>
+    <span class="o">;;</span> <span class="n">export</span> <span class="n">to</span> <span class="n">pdf</span>
+    <span class="o">(</span><span class="n">org</span><span class="o">-</span><span class="n">latex</span><span class="o">-</span><span class="n">export</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">pdf</span><span class="o">)</span>
+    <span class="o">;;</span> <span class="n">build</span>
+    <span class="o">(</span><span class="n">shell</span><span class="o">-</span><span class="n">command</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">string</span> <span class="s2">&quot;gradle jar&quot;</span><span class="o">)</span>
+</code></pre></div>
+
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/matrix-concentric-shift\/';
+    var disqus_title = 'matrix concentric shift';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/matrix-concentric-shift\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2016  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

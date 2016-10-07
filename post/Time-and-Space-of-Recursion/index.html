@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.15" />
+<meta name="generator" content="Hugo 0.16" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -107,7 +107,7 @@
 
 <p>这个算法和前一个很不一样，它引入了两个临时变量一样的值， 一个 counter 一个 product。我们一样来计算一下前面的例子。</p>
 
-<p><div class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span></span><span class="p">(</span><span class="nf">expt-iter</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span></span><span class="p">(</span><span class="nf">expt-iter</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">(</span><span class="nf">expt-iter</span> <span class="mi">2</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">* </span><span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>
 <span class="p">(</span><span class="nf">expt-iter</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">)</span>
 <span class="p">(</span><span class="nf">expt-iter</span> <span class="mi">2</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">* </span><span class="mi">2</span> <span class="mi">2</span><span class="p">))</span>
@@ -116,7 +116,7 @@
 <span class="p">(</span><span class="nf">expt-iter</span> <span class="mi">2</span> <span class="mi">0</span> <span class="mi">8</span><span class="p">)</span>
 <span class="mi">8</span>
 </code></pre></div>
-</p>
+
 
 <p>首先我们看到的是这个算法的“形状”和上一个很不一样，程直线型，也就是说空间消耗并没有随着 n 的增大而增大。
 等一下，这个模式好像在哪见过， 没错，就是普通的for循环啊！</p>

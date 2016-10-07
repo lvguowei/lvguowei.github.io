@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.15" />
+<meta name="generator" content="Hugo 0.16" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -43,6 +43,36 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/matrix-concentric-shift/">matrix concentric shift</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-10-06">October 06, 2016</time></span>
+
+  </div>
+  <section class="summary">
+    Table of Contents 1. Problem 2. Analysis 3. Source Code 4. Build script 5. How to run I suck at algorithms, even though I have a Machine Learning and Algorithms master degree. It makes me frown everytime in coding interviews. So I decided to practice more often, hope that I can get better at it. At least not afraid of it. Now this is the first one. Problem Rotate a square matrix clockwise concentrically by 1.  <a href="http://lvguowei.me/post/matrix-concentric-shift/">Read More...</a>
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/percy-jackson/">Percy Jackson Series</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-07-09">July 09, 2016</time></span>
+
+  </div>
+  <section class="summary">
+    断断续续的看这个 Percy Jackson 系列已经有很长时间了，第一本和第二本都是在电子书上看完的，最近看到书店在打折，正好有全套在卖，就买了，现在正在看第四本。虽然封面是丑了一点，但是半价的话也就忍了先。 典型的少年读物，情节紧凑，到处都是怪物和神啊什么的，小孩看了应该很激动。不过练习英语还不错，生词量不多。这个是9岁+读物啊。。。 
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/Time-and-Space-of-Recursion/">Time and Space of Recursion</a></h2>
   <div class="meta">
 
@@ -52,36 +82,6 @@
   </div>
   <section class="summary">
     今天通过一个例子，来谈一谈第归的时间和空间效应。 例子很简单，计算 a 的 n 次方。 我们来对比一下两种第归算法的时间和空间的消耗。 第一个方法很直接。思想就是要计算 a 的 n 次方， 只要计算 a 的 (n - 1) 次方， 然后结果在乘以 a 。如下： (define (expt a n) (if (= n 0) 1 (* a (expt a (- n 1))))) 为了更直观的理解这个算法，我们来计算一个例子， 2 的 3 次方。 (expt 2 3) (* 2 (expt 2 2)) (* 2 (* 2 (expt 2 1))) (* 2 (* 2 (* 2 (expt 2 0)))) (* 2 (*  <a href="http://lvguowei.me/post/Time-and-Space-of-Recursion/">Read More...</a>
-  </section>
-</article>
-
-    
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Old and New For Loop in C&#43;&#43;</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2016-05-15">May 15, 2016</time></span>
-
-  </div>
-  <section class="summary">
-    The difference between the subscription based for loop and the newly introduced range based loop may be a bit confusing. Let&rsquo;s clear things up. Here are some sample code: void testFor() { cout &lt;&lt; &quot;--- For loop ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // subscription can modify for (string::size_type i = 0; i &lt; s.size (); i++) { s[i] = toupper (s[i]); } cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; // subscription can modify for (vector&lt;int&gt;::size_type i = 0; i &lt; v.size (); i++) { v[i] = v[i] + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; endl; } } void testRangeFor() { cout &lt;&lt; &quot;--- Range For ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // i is a value copy of the corresponding char for (auto i : s) { i = toupper (i); } // so s doesn&#39;t change cout &lt;&lt; s &lt;&lt; endl; // i is a reference of the corresponding char for (auto &amp; i : s) { i = toupper (i); } // now s has been changed cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; for (auto i : v) { i = i + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; &quot; &quot;; } cout &lt;&lt; endl; for (auto &amp; i : v) { i = i + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; &quot; &quot;; } } Basically, you can modify the item by subscription based for loop, but you cannot directly modify item by using ranged for loop.  <a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Read More...</a>
-  </section>
-</article>
-
-    
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/cpp-answer-2-5-2/">C&#43;&#43; Primer Exercise Answer (Section 2.5.2)</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2016-05-08">May 08, 2016</time></span>
-
-  </div>
-  <section class="summary">
-    #include &lt;iostream&gt; using namespace std; int main(int argc, char *argv[]) { int i = 0, &amp;r = i; auto a = r; const int ci = i, &amp;cr = ci; auto b = ci; auto c = cr; auto d = &amp;i; auto e = &amp;ci; const auto f = ci; auto &amp;g = ci; //auto &amp;h = 42; const auto &amp;j = 42; a = 42; // ok b  <a href="http://lvguowei.me/post/cpp-answer-2-5-2/">Read More...</a>
   </section>
 </article>
 
@@ -101,7 +101,7 @@
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(6)</small>
+      <small>(7)</small>
     </h2>
     
   </section>
@@ -115,12 +115,22 @@
   <section class="tags">
     
     <span class="tag">
-      <a href="http://lvguowei.me/tags/c">c</a>
+      <a href="http://lvguowei.me/tags/algorithms">algorithms</a>
       <small>(1)</small>
     </span>
     
     <span class="tag">
-      <a href="http://lvguowei.me/tags/c-primer">c-primer</a>
+      <a href="http://lvguowei.me/tags/c&#43;&#43;">c&#43;&#43;</a>
+      <small>(1)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/c&#43;&#43;-primer">c&#43;&#43;-primer</a>
+      <small>(1)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/coding-challenge">coding-challenge</a>
       <small>(1)</small>
     </span>
     
@@ -192,7 +202,7 @@ ga('send', 'pageview');
 </div>
 <footer>
   <div class="container">
-    <span class="copyright">&copy; 2016 Guowei Lv</span>
+    <span class="copyright">&copy; 2016  Guowei Lv</span>
   </div>
 </footer>
 
