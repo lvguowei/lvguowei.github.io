@@ -6,8 +6,55 @@
     <description>Recent content on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Oct 2016 09:40:46 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 15 Oct 2016 19:38:57 +0300</lastBuildDate>
     <atom:link href="http://lvguowei.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Replace Nested Conditional With Guard Clauses</title>
+      <link>http://lvguowei.me/post/replace-nested-conditional-with-guard-clauses/</link>
+      <pubDate>Sat, 15 Oct 2016 19:38:57 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/replace-nested-conditional-with-guard-clauses/</guid>
+      <description>&lt;p&gt;I couldn&amp;rsquo;t remember who said that one of his favorite refactoring techniques is &lt;em&gt;Replace Nested Conditional with Guard Clauses&lt;/em&gt;. When I looked into it, it did put a smile on my face despite its simplicity.&lt;/p&gt;
+
+&lt;p&gt;This is NOT about coding aesthetics, this is all about clarity.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A method has conditional behavior that does not make clear
+the normal path of execution.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Use guard clauses for all the special cases.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getPayAmount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isDead&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deadAmount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isSeparated&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;separatedAmount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isRetired&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;retiredAmount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;normalPayment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getPayAmount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isDead&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deadAmount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isSeparated&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;separatedAmount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt; 
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isRetired&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;retiredAmount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+  
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;normalPayment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+  
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So much better!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Unidirectional to Bidirectional</title>
@@ -814,169 +861,6 @@ Let&amp;rsquo;s clear things up.&lt;/p&gt;
 &lt;p&gt;其实两种人的本质的区别就是出发点不同。魔法师认为自己的魔法最重要，能变出来兔子也只是by product罢了，有人想买那我就收点钱。企业级工程师认为作出产品创造价值最重要，程序什么的只不过是一些烦人的不得不做好的东西罢了。&lt;/p&gt;
 
 &lt;p&gt;都有各自的道理。都有存在的价值。也没有谁对谁错。遇见两种品质都具备的人就录取了吧。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Finnish learning diary 5</title>
-      <link>http://lvguowei.me/post/Finnish-learning-diary-5/</link>
-      <pubDate>Sat, 30 Apr 2016 18:21:42 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/Finnish-learning-diary-5/</guid>
-      <description>
-
-&lt;div id=&#34;table-of-contents&#34;&gt;
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;div id=&#34;text-table-of-contents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#orgheadline1&#34;&gt;1. Conversation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#orgheadline2&#34;&gt;2. Vocabulary&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#orgheadline3&#34;&gt;3. Sample sentences&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&#34;conversation-a-id-orgheadline1-a&#34;&gt;Conversation&lt;a id=&#34;orgheadline1&#34;&gt;&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;E: Tule jo!&lt;/p&gt;
-
-&lt;p&gt;H: Odota vähän, puen vain takin.&lt;/p&gt;
-
-&lt;p&gt;E: Jussi, anna tuo kirja.&lt;/p&gt;
-
-&lt;p&gt;J: Ole hyvä.&lt;/p&gt;
-
-&lt;p&gt;E: Kiitos.&lt;/p&gt;
-
-&lt;p&gt;J: Älä unohda huhelinta.&lt;/p&gt;
-
-&lt;h1 id=&#34;vocabulary-a-id-orgheadline2-a&#34;&gt;Vocabulary&lt;a id=&#34;orgheadline2&#34;&gt;&lt;/a&gt;&lt;/h1&gt;
-
-&lt;table border=&#34;2&#34; cellspacing=&#34;0&#34; cellpadding=&#34;6&#34; rules=&#34;groups&#34; frame=&#34;hsides&#34;&gt;
-
-
-&lt;colgroup&gt;
-&lt;col  class=&#34;org-left&#34; /&gt;
-
-&lt;col  class=&#34;org-left&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th scope=&#34;col&#34; class=&#34;org-left&#34;&gt;Finnish&lt;/th&gt;
-&lt;th scope=&#34;col&#34; class=&#34;org-left&#34;&gt;English&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;odottaa&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;to wait&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;vähän&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;a bit&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;takki&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;jacket, coat&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;tulla&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;to come&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;puhelin&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;telephone&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;jo&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;already&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;pukea&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;to put on clothes&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;vain&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;only just&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;antaa&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;to give&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;unohtaa&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;to forget&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&#34;sample-sentences-a-id-orgheadline3-a&#34;&gt;Sample sentences&lt;a id=&#34;orgheadline3&#34;&gt;&lt;/a&gt;&lt;/h1&gt;
-
-&lt;table border=&#34;2&#34; cellspacing=&#34;0&#34; cellpadding=&#34;6&#34; rules=&#34;groups&#34; frame=&#34;hsides&#34;&gt;
-
-
-&lt;colgroup&gt;
-&lt;col  class=&#34;org-left&#34; /&gt;
-
-&lt;col  class=&#34;org-left&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th scope=&#34;col&#34; class=&#34;org-left&#34;&gt;Finnish&lt;/th&gt;
-&lt;th scope=&#34;col&#34; class=&#34;org-left&#34;&gt;English&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Odotan sinua puistossa.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;I wil wait you in the park&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Saisinko vähän teetä?&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;May I have a little tea?&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Onko tämä takki lämmin?&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;Is this coat warm?&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Tuo puhelin ei toimi.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;That phone doesn&#39;t work&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Tulen huomenna.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;I will come tomorrow.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 </description>
     </item>
     

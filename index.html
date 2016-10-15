@@ -46,6 +46,21 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/replace-nested-conditional-with-guard-clauses/">Replace Nested Conditional With Guard Clauses</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-10-15">October 15, 2016</time></span>
+
+  </div>
+  <section class="summary">
+    I couldn&rsquo;t remember who said that one of his favorite refactoring techniques is Replace Nested Conditional with Guard Clauses. When I looked into it, it did put a smile on my face despite its simplicity. This is NOT about coding aesthetics, this is all about clarity. A method has conditional behavior that does not make clear the normal path of execution. Use guard clauses for all the special cases. double getPayAmount() { double result; if (isDead) { result = deadAmount(); } else if (isSeparated) { result = separatedAmount(); } else if (isRetired) { result = retiredAmount(); } else { result = normalPayment(); } } double getPayAmount() { if (isDead) return deadAmount(); if (isSeparated) return separatedAmount(); if (isRetired) return retiredAmount(); return normalPayment(); } So much better! 
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/unidirectional-to-bidirectional/">Unidirectional to Bidirectional</a></h2>
   <div class="meta">
 
@@ -74,21 +89,6 @@
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/choco-musk-review/">Choco Musk by Al Rehab</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2016-10-09">October 09, 2016</time></span>
-
-  </div>
-  <section class="summary">
-    This is my first perfume oil/attar, I have to say I am quite impressed by it. I adore oriental culture. I prefer sophiscation over simplicity. I like dark, dense, rich scent, which shows marks of history. And I am very bored with the western happy and fresh mall scents, yet not satisfied by the so call &ldquo;oriental accord&rdquo; interpreted by western perfumery. So I went online and searched &ldquo;middle east perfume&rdquo;, and what I found truely suprised me.  <a href="http://lvguowei.me/post/choco-musk-review/">Read More...</a>
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -109,7 +109,7 @@
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(10)</small>
+      <small>(11)</small>
     </h2>
     
   </section>
@@ -229,7 +229,7 @@
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/refactoring">refactoring</a>
-      <small>(2)</small>
+      <small>(3)</small>
     </span>
     
     <span class="tag">
