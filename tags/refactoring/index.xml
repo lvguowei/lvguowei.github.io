@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Refactoring on Guowei Lv</title>
+    <link>http://lvguowei.me/tags/refactoring/</link>
+    <description>Recent content in Refactoring on Guowei Lv</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Oct 2016 05:35:31 +0300</lastBuildDate>
+    <atom:link href="http://lvguowei.me/tags/refactoring/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Duplicate Observed Data</title>
+      <link>http://lvguowei.me/post/duplicate-observed-data/</link>
+      <pubDate>Sat, 15 Oct 2016 05:35:31 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/duplicate-observed-data/</guid>
+      <description>&lt;p&gt;This is from the famous Refactoring book by Martin Fowler. When I was reading it, it feels very similar to the very popular MVP or MVVM.&lt;/p&gt;
+
+&lt;p&gt;The key idea is that in system that has user interface, the business logic should be separated from the user interface.&lt;/p&gt;
+
+&lt;p&gt;One example I can think of is the registration form, where there are input fields like username, email, phone number and password.
+We can have some logic that disable the Register button until all fields are filled and the phone number and email valid.
+We can of course put everything in the UI (probably an Activity or Fragment in Android), but it doesn&amp;rsquo;t feel very elegant.
+So we create a new RegisterModel class, create 4 private String fields - username, email, phone number and password.
+Then we create getter and setter for these fields. When in the Activity the user changed one of the fields, we directly call the
+corresponding setter function in the model, and the model can do the calculation and validation and whatnot, then use some PubSub
+mechanism to notify the view.&lt;/p&gt;
+
+&lt;p&gt;I created an Android project out of the example in the book.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/refactoring/tree/master/DuplicateObservedData&#34; title=&#34;Github&#34;&gt;Android Example&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

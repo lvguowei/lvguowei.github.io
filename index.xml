@@ -6,8 +6,32 @@
     <description>Recent content on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Oct 2016 21:23:38 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 15 Oct 2016 05:35:31 +0300</lastBuildDate>
     <atom:link href="http://lvguowei.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Duplicate Observed Data</title>
+      <link>http://lvguowei.me/post/duplicate-observed-data/</link>
+      <pubDate>Sat, 15 Oct 2016 05:35:31 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/duplicate-observed-data/</guid>
+      <description>&lt;p&gt;This is from the famous Refactoring book by Martin Fowler. When I was reading it, it feels very similar to the very popular MVP or MVVM.&lt;/p&gt;
+
+&lt;p&gt;The key idea is that in system that has user interface, the business logic should be separated from the user interface.&lt;/p&gt;
+
+&lt;p&gt;One example I can think of is the registration form, where there are input fields like username, email, phone number and password.
+We can have some logic that disable the Register button until all fields are filled and the phone number and email valid.
+We can of course put everything in the UI (probably an Activity or Fragment in Android), but it doesn&amp;rsquo;t feel very elegant.
+So we create a new RegisterModel class, create 4 private String fields - username, email, phone number and password.
+Then we create getter and setter for these fields. When in the Activity the user changed one of the fields, we directly call the
+corresponding setter function in the model, and the model can do the calculation and validation and whatnot, then use some PubSub
+mechanism to notify the view.&lt;/p&gt;
+
+&lt;p&gt;I created an Android project out of the example in the book.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/refactoring/tree/master/DuplicateObservedData&#34; title=&#34;Github&#34;&gt;Android Example&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Choco Musk by Al Rehab</title>
@@ -1073,197 +1097,6 @@ Let&amp;rsquo;s clear things up.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td class=&#34;org-left&#34;&gt;Isä lukee lehden aamulla.&lt;/td&gt;
 &lt;td class=&#34;org-left&#34;&gt;Dad reads the newspaper in the morning&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Finnish learning diary 3</title>
-      <link>http://lvguowei.me/post/Finnish-learning-diary-3/</link>
-      <pubDate>Sat, 30 Apr 2016 18:19:04 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/Finnish-learning-diary-3/</guid>
-      <description>
-
-&lt;div id=&#34;table-of-contents&#34;&gt;
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;div id=&#34;text-table-of-contents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#orgheadline1&#34;&gt;1. Conversation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#orgheadline2&#34;&gt;2. Vocabulary&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#orgheadline3&#34;&gt;3. Sample sentences&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&#34;conversation-a-id-orgheadline1-a&#34;&gt;Conversation&lt;a id=&#34;orgheadline1&#34;&gt;&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;H: Millainen sää tänään on?&lt;/p&gt;
-
-&lt;p&gt;J: En tiedä. Hetki, katson ennustetta.&lt;/p&gt;
-
-&lt;p&gt;H: Tarvitsenko sateenvarjoa?&lt;/p&gt;
-
-&lt;p&gt;J: Et tarvitse. Tänään ei sada.&lt;/p&gt;
-
-&lt;p&gt;H: Hyvä. En kaipaa sadetta.&lt;/p&gt;
-
-&lt;h1 id=&#34;vocabulary-a-id-orgheadline2-a&#34;&gt;Vocabulary&lt;a id=&#34;orgheadline2&#34;&gt;&lt;/a&gt;&lt;/h1&gt;
-
-&lt;table border=&#34;2&#34; cellspacing=&#34;0&#34; cellpadding=&#34;6&#34; rules=&#34;groups&#34; frame=&#34;hsides&#34;&gt;
-
-
-&lt;colgroup&gt;
-&lt;col  class=&#34;org-left&#34; /&gt;
-
-&lt;col  class=&#34;org-left&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th scope=&#34;col&#34; class=&#34;org-left&#34;&gt;Finnish&lt;/th&gt;
-&lt;th scope=&#34;col&#34; class=&#34;org-left&#34;&gt;English&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;tänään&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;today&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;hetki&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;moment&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;sateenvarjo&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;umbrella&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;millainen&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;what kind of&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;sää&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;weather&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;katsoa&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;look&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;ennuste&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;forecast&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;sataa&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;rain&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;kaivata&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;to need, to miss&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&#34;sample-sentences-a-id-orgheadline3-a&#34;&gt;Sample sentences&lt;a id=&#34;orgheadline3&#34;&gt;&lt;/a&gt;&lt;/h1&gt;
-
-&lt;table border=&#34;2&#34; cellspacing=&#34;0&#34; cellpadding=&#34;6&#34; rules=&#34;groups&#34; frame=&#34;hsides&#34;&gt;
-
-
-&lt;colgroup&gt;
-&lt;col  class=&#34;org-left&#34; /&gt;
-
-&lt;col  class=&#34;org-left&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th scope=&#34;col&#34; class=&#34;org-left&#34;&gt;Finnish&lt;/th&gt;
-&lt;th scope=&#34;col&#34; class=&#34;org-left&#34;&gt;English&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Olen tänään kiireinen&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;I&#39;m busy today&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Hetki, tulen pian&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;Just a moment, I&#39;ll come soon&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Saisinko tuon sateenvarjon?&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;May I have that umbrella, please?&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Millainen koulua Helen käy?&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;What kind of school does Helen go?&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Sade alkaa aamulla.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;The rain will start in the morning.&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Sade putoaa kadulle.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;The rain is falling on the street.&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Eilen oli hyvä sää.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;The weather was nice yesterday.&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Maiju katsoo elokuvaa.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;Maiju is watching a movie.&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;Ennuste ei lupaa hyvää.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;The forecase doesn&#39;t promise well.&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;En mene ulos, siellä sataa.&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;I&#39;m not going out, it&#39;s raining&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td class=&#34;org-left&#34;&gt;En kaipaa neuvoja&lt;/td&gt;
-&lt;td class=&#34;org-left&#34;&gt;I don&#39;t want any advice.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
