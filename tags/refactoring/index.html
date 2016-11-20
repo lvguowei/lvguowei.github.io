@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="generator" content="Hugo 0.16" />
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.17" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -39,7 +39,10 @@
 
   </div>
   <section class="summary">
-    I couldn&rsquo;t remember who said that one of his favorite refactoring techniques is Replace Nested Conditional with Guard Clauses. When I looked into it, it did put a smile on my face despite its simplicity. This is NOT about coding aesthetics, this is all about clarity. A method has conditional behavior that does not make clear the normal path of execution. Use guard clauses for all the special cases. double getPayAmount() { double result; if (isDead) { result = deadAmount(); } else if (isSeparated) { result = separatedAmount(); } else if (isRetired) { result = retiredAmount(); } else { result = normalPayment(); } } double getPayAmount() { if (isDead) return deadAmount(); if (isSeparated) return separatedAmount(); if (isRetired) return retiredAmount(); return normalPayment(); } So much better! 
+    I couldn&rsquo;t remember who said that one of his favorite refactoring techniques is Replace Nested Conditional with Guard Clauses. When I looked into it, it did put a smile on my face despite its simplicity.
+This is NOT about coding aesthetics, this is all about clarity.
+ A method has conditional behavior that does not make clear the normal path of execution.
+Use guard clauses for all the special cases.  <a href="http://lvguowei.me/post/replace-nested-conditional-with-guard-clauses/">Read More...</a>
   </section>
 </article>
 
@@ -54,7 +57,9 @@
 
   </div>
   <section class="summary">
-    It is very common in relational database that we have the following structure: A customer table has columns: customer-id, name. And an order table has columns: order-id, customer-id, order-date. See that there is a customer-id in the order table, so that we can use it to get orders belongs to a certain customer. But there is no knowledge about the orders in customer table. This is fine with database, but if we try to map this directly to java classes, we may end up with something like this: class Customer { private String id; private String name; // ...  <a href="http://lvguowei.me/post/unidirectional-to-bidirectional/">Read More...</a>
+    It is very common in relational database that we have the following structure: A customer table has columns: customer-id, name. And an order table has columns: order-id, customer-id, order-date.
+See that there is a customer-id in the order table, so that we can use it to get orders belongs to a certain customer. But there is no knowledge about the orders in customer table.
+This is fine with database, but if we try to map this directly to java classes, we may end up with something like this:  <a href="http://lvguowei.me/post/unidirectional-to-bidirectional/">Read More...</a>
   </section>
 </article>
 
@@ -69,7 +74,9 @@
 
   </div>
   <section class="summary">
-    This is from the famous Refactoring book by Martin Fowler. When I was reading it, it feels very similar to the very popular MVP or MVVM. The key idea is that in system that has user interface, the business logic should be separated from the user interface. One example I can think of is the registration form, where there are input fields like username, email, phone number and password. We can have some logic that disable the Register button until all fields are filled and the phone number and email valid.  <a href="http://lvguowei.me/post/duplicate-observed-data/">Read More...</a>
+    This is from the famous Refactoring book by Martin Fowler. When I was reading it, it feels very similar to the very popular MVP or MVVM.
+The key idea is that in system that has user interface, the business logic should be separated from the user interface.
+One example I can think of is the registration form, where there are input fields like username, email, phone number and password. We can have some logic that disable the Register button until all fields are filled and the phone number and email valid.  <a href="http://lvguowei.me/post/duplicate-observed-data/">Read More...</a>
   </section>
 </article>
 

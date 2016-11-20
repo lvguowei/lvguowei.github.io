@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="generator" content="Hugo 0.16" />
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.17" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -39,7 +39,7 @@
 
   </div>
   <section class="summary">
-    #include &lt;iostream&gt; using namespace std; int main(int argc, char *argv[]) { int i = 0, &amp;r = i; auto a = r; const int ci = i, &amp;cr = ci; auto b = ci; auto c = cr; auto d = &amp;i; auto e = &amp;ci; const auto f = ci; auto &amp;g = ci; //auto &amp;h = 42; const auto &amp;j = 42; a = 42; // ok b  <a href="http://lvguowei.me/post/cpp-answer-2-5-2/">Read More...</a>
+    #include &lt;iostream&gt; using namespace std; int main(int argc, char *argv[]) { int i = 0, &amp;r = i; auto a = r; const int ci = i, &amp;cr = ci; auto b = ci; auto c = cr; auto d = &amp;i; auto e = &amp;ci; const auto f = ci; auto &amp;g = ci; //auto &amp;h = 42; const auto &amp;j = 42; a = 42; // ok b = 42; // ok c = 42; // ok d = 42; // no, d is a pointer e = 42; // no, e is a pointer g = 42; // no, g is a reference cannot rebind return 0; }   
   </section>
 </article>
 

@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="generator" content="Hugo 0.16" />
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.17" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -46,6 +46,22 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/payroll-case-study/">Payroll Case Study</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-11-20">November 20, 2016</time></span>
+
+  </div>
+  <section class="summary">
+    I was watching some Uncle Bob video some day which talked about how to design the architecture of a system. In that video, he gave a case study of a payroll system, I found the souce code and it is actually implemented in C++, so I ported a Java version.
+This is a very good example because it feels more realistic than most dummy demos out there. It also shows how to use POJO classes to layout the foundation without going too much into peripheral details like database.  <a href="http://lvguowei.me/post/payroll-case-study/">Read More...</a>
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/Finnish-learning-diary-10/">Finnish learning diary 10</a></h2>
   <div class="meta">
 
@@ -54,7 +70,7 @@
 
   </div>
   <section class="summary">
-     
+       
   </section>
 </article>
 
@@ -69,22 +85,7 @@
 
   </div>
   <section class="summary">
-     
-  </section>
-</article>
-
-    
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/replace-nested-conditional-with-guard-clauses/">Replace Nested Conditional With Guard Clauses</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2016-10-15">October 15, 2016</time></span>
-
-  </div>
-  <section class="summary">
-    I couldn&rsquo;t remember who said that one of his favorite refactoring techniques is Replace Nested Conditional with Guard Clauses. When I looked into it, it did put a smile on my face despite its simplicity. This is NOT about coding aesthetics, this is all about clarity. A method has conditional behavior that does not make clear the normal path of execution. Use guard clauses for all the special cases. double getPayAmount() { double result; if (isDead) { result = deadAmount(); } else if (isSeparated) { result = separatedAmount(); } else if (isRetired) { result = retiredAmount(); } else { result = normalPayment(); } } double getPayAmount() { if (isDead) return deadAmount(); if (isSeparated) return separatedAmount(); if (isRetired) return retiredAmount(); return normalPayment(); } So much better! 
+       
   </section>
 </article>
 
@@ -109,7 +110,7 @@
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(11)</small>
+      <small>(12)</small>
     </h2>
     
   </section>
@@ -121,6 +122,11 @@
   <h1 class="headline">Tags</h1>
 
   <section class="tags">
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/agile">agile</a>
+      <small>(1)</small>
+    </span>
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/al-rehab">al-rehab</a>
@@ -139,6 +145,11 @@
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/arabic">arabic</a>
+      <small>(1)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/architecture">architecture</a>
       <small>(1)</small>
     </span>
     
@@ -208,12 +219,22 @@
     </span>
     
     <span class="tag">
+      <a href="http://lvguowei.me/tags/java">java</a>
+      <small>(1)</small>
+    </span>
+    
+    <span class="tag">
       <a href="http://lvguowei.me/tags/lisp">lisp</a>
       <small>(1)</small>
     </span>
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/mumble">mumble</a>
+      <small>(1)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/payroll">payroll</a>
       <small>(1)</small>
     </span>
     
@@ -240,6 +261,11 @@
     <span class="tag">
       <a href="http://lvguowei.me/tags/sicp">sicp</a>
       <small>(2)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/uncle-bob">uncle-bob</a>
+      <small>(1)</small>
     </span>
     
   </section>

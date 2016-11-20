@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on Guowei Lv</title>
-    <link>http://lvguowei.me/categories/programming/</link>
-    <description>Recent content in Programming on Guowei Lv</description>
+    <title>Guowei Lv</title>
+    <link>http://lvguowei.me/categories/programming/index.xml</link>
+    <description>Recent content on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Oct 2016 19:38:57 +0300</lastBuildDate>
     <atom:link href="http://lvguowei.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Payroll Case Study</title>
+      <link>http://lvguowei.me/post/payroll-case-study/</link>
+      <pubDate>Sun, 20 Nov 2016 14:51:39 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/payroll-case-study/</guid>
+      <description>&lt;p&gt;I was watching some Uncle Bob video some day which talked about how to design the architecture of a system. In that video, he gave a case study of a payroll system, I found the souce code and it is actually implemented in C++, so I ported a Java version.&lt;/p&gt;
+
+&lt;p&gt;This is a very good example because it feels more realistic than most dummy demos out there. It also shows how to use POJO classes to layout the foundation without going too much into peripheral details like database.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/Payroll&#34;&gt;Souce Code in Github&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Replace Nested Conditional With Guard Clauses</title>

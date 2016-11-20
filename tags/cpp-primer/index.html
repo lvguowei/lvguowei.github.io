@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="generator" content="Hugo 0.16" />
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.17" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -39,7 +39,9 @@
 
   </div>
   <section class="summary">
-    The difference between the subscription based for loop and the newly introduced range based loop may be a bit confusing. Let&rsquo;s clear things up. Here are some sample code: void testFor() { cout &lt;&lt; &quot;--- For loop ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // subscription can modify for (string::size_type i = 0; i &lt; s.size (); i++) { s[i] = toupper (s[i]); } cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; // subscription can modify for (vector&lt;int&gt;::size_type i = 0; i &lt; v.size (); i++) { v[i] = v[i] + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; endl; } } void testRangeFor() { cout &lt;&lt; &quot;--- Range For ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // i is a value copy of the corresponding char for (auto i : s) { i = toupper (i); } // so s doesn&#39;t change cout &lt;&lt; s &lt;&lt; endl; // i is a reference of the corresponding char for (auto &amp; i : s) { i = toupper (i); } // now s has been changed cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; for (auto i : v) { i = i + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; &quot; &quot;; } cout &lt;&lt; endl; for (auto &amp; i : v) { i = i + 1; } for (auto i : v) { cout &lt;&lt; i &lt;&lt; &quot; &quot;; } } Basically, you can modify the item by subscription based for loop, but you cannot directly modify item by using ranged for loop.  <a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Read More...</a>
+    The difference between the subscription based for loop and the newly introduced range based loop may be a bit confusing. Let&rsquo;s clear things up.
+Here are some sample code:
+void testFor() { cout &lt;&lt; &quot;--- For loop ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // subscription can modify for (string::size_type i = 0; i &lt; s.size (); i++) { s[i] = toupper (s[i]); } cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; // subscription can modify for (vector&lt;int&gt;::size_type i = 0; i &lt; v.  <a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Read More...</a>
   </section>
 </article>
 
@@ -54,7 +56,7 @@
 
   </div>
   <section class="summary">
-    Table of Contents 1. C++ Primer Exercises Answers 1.1. Section 2.3.1 1.1.1. Exercise 2.15 1.1.2. Exercise 2.16 1.1.3. Exercise 2.17 1.2. Section 2.3.2 1.2.1. Exercise 2.18 1.2.2. Exercise 2.20 1.2.3. Exercise 2.21 1.3. Section 2.4.2 1.3.1. Exercise 2.27 1.4. Section 2.4.3 1.4.1. Exercise 2.30 C++ Primer Exercises Answers Section 2.3.1 Exercise 2.15 int ival = 1.01; // correct int &amp;rval1 = 1.01; // wrong, type error int &amp;rval2 = ival;  <a href="http://lvguowei.me/post/C&#43;&#43;-Primer-Answers/">Read More...</a>
+    Table of Contents  1. C++ Primer Exercises Answers  1.1. Section 2.3.1  1.1.1. Exercise 2.15 1.1.2. Exercise 2.16 1.1.3. Exercise 2.17   1.2. Section 2.3.2  1.2.1. Exercise 2.18 1.2.2. Exercise 2.20 1.2.3. Exercise 2.21   1.3. Section 2.4.2  1.3.1. Exercise 2.27   1.4. Section 2.4.3  1.4.1. Exercise 2.30        C++ Primer Exercises Answers Section 2.3.1 Exercise 2.  <a href="http://lvguowei.me/post/C&#43;&#43;-Primer-Answers/">Read More...</a>
   </section>
 </article>
 
