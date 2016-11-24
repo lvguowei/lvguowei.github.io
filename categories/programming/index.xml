@@ -58,6 +58,10 @@ The rules are the following:&lt;/p&gt;
 &lt;p&gt;Since the center of the program is the game engine, let&amp;rsquo;s implement enough &lt;code&gt;GameEngine&lt;/code&gt; so that we can pass the test &lt;code&gt;gotItOnFirstGuess&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/d72116eb3c870484c138e211cd7d0d0f6cee6d3f&#34;&gt;source code version 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And it&amp;rsquo;s not very hard to pass the test of &lt;code&gt;gotItOnSecondGuess&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/82fca579aab74908c16cd578499351e2d281cc7f&#34;&gt;source code version 2&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
