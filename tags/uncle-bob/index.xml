@@ -66,6 +66,11 @@ The rules are the following:&lt;/p&gt;
 &lt;p&gt;Then the test of &lt;code&gt;neverGetIt&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/89a50b4965f83fcaf1132096d3164344695234c4&#34;&gt;source code version 3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s write tests for the &lt;code&gt;Guesser&lt;/code&gt;.
+If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should return null.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/bebf02418fe686953f09c1bf650284106e579871&#34;&gt;source code version 4&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
