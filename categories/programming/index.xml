@@ -79,6 +79,10 @@ If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should re
 &lt;p&gt;Next, test how the &lt;code&gt;Guesser&lt;/code&gt; generate guesses.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/f8f7ce8a6e76be745ca135f0e5e087498e561fe6&#34;&gt;source code version 6&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Tests for the &lt;code&gt;Scorer&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/4ef948e41c6d8e996435c72cd4aa3e795138cc77&#34;&gt;source code version 7&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
