@@ -84,6 +84,9 @@ If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should re
 &lt;p&gt;Tests for the &lt;code&gt;Scorer&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/4ef948e41c6d8e996435c72cd4aa3e795138cc77&#34;&gt;source code version 7&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, tests for &lt;code&gt;RememberingGuessChecker&lt;/code&gt;.
+&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/5e52719cb3324b0a10371dd52dfa522433a04780&#34;&gt;source code version 8&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
