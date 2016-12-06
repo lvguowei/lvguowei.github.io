@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guowei Lv</title>
+    <link>http://lvguowei.me/tags/design-pattern/index.xml</link>
+    <description>Recent content on Guowei Lv</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://lvguowei.me/tags/design-pattern/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Expense Report Case Study</title>
+      <link>http://lvguowei.me/post/expense-report-case-study/</link>
+      <pubDate>Tue, 06 Dec 2016 12:16:53 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/expense-report-case-study/</guid>
+      <description>&lt;p&gt;One day, I was watching another Uncle Bob&amp;rsquo;s video (yes, they are addictive), when I see one example he gave when talking about open closed principle, it ringed a bell in my head. This looked familiar! The &lt;code&gt;type&lt;/code&gt; in some data classes, some &lt;code&gt;switch&lt;/code&gt;s or &lt;code&gt;if&lt;/code&gt;s, some &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;s and &lt;code&gt;||&lt;/code&gt;s all dancing around in the class. I can almost hear them teasing: &amp;ldquo;Come and catch me! Come and catch me!&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;I think OK, it&amp;rsquo;s time to get this fixed.&lt;/p&gt;
+
+&lt;p&gt;Now I present you the messy smelly piece of ssssss&amp;hellip;..source code as the original design(with some tests amazingly).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/57e89c5a3d464e7f7ca6aca3d63b8a51c40b29ee&#34;&gt;version 0&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Very easily, we can extract out some functions like &lt;code&gt;isMeal&lt;/code&gt; and &lt;code&gt;isOverage&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/51c0c79ab143859fd2ddce898e7f8daf87ff6aa5&#34;&gt;version 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you may smell feature envy as I did, so let&amp;rsquo;s move those methods into &lt;code&gt;Expense&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/131ac2d05c8912e7a1cab773acafb0470a80a5fe&#34;&gt;version 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, replace &lt;code&gt;type&lt;/code&gt; with polymorphism, which means create more subclasses of &lt;code&gt;Expense&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/68a3d85e5b1bc1c4b5a1e0dbb38012551894c200&#34;&gt;version 3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We can now separate printing logic out of the &lt;code&gt;Expense&lt;/code&gt; class and into some &lt;code&gt;ExpenseReporter&lt;/code&gt; and &lt;code&gt;ReportNamer&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;You may ask, why do we need the &lt;code&gt;ExpenseNamer&lt;/code&gt; abstraction, why not just put some &lt;code&gt;getName&lt;/code&gt; method into the &lt;code&gt;Expense&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;To anwser your question, consider this: different actors may need different names for the same Expense. The reporter may need totally different names than the UI.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/1e4d81b10aec46df4f05dbac40171ee2b3b779aa&#34;&gt;version 4&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We are at the end of this fantastic soothing and comforting refactoring session habibi, enjoy life and beautiful code.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/expense.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.17" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Expense Report Case Study - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-12-06">December 06, 2016</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/design-pattern">Design Pattern</a>
+
+        <a href="http://lvguowei.me/tags/solid-principle">SOLID Principle</a>
+
+        <a href="http://lvguowei.me/tags/uncle-bob">uncle bob</a>
+
+        <a href="http://lvguowei.me/tags/refactoring">refactoring</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Expense Report Case Study</h1>
+  <section class="body" itemprop="articleBody">
+    <p>One day, I was watching another Uncle Bob&rsquo;s video (yes, they are addictive), when I see one example he gave when talking about open closed principle, it ringed a bell in my head. This looked familiar! The <code>type</code> in some data classes, some <code>switch</code>s or <code>if</code>s, some <code>&amp;&amp;</code>s and <code>||</code>s all dancing around in the class. I can almost hear them teasing: &ldquo;Come and catch me! Come and catch me!&rdquo;.</p>
+
+<p>I think OK, it&rsquo;s time to get this fixed.</p>
+
+<p>Now I present you the messy smelly piece of ssssss&hellip;..source code as the original design(with some tests amazingly).</p>
+
+<p><a href="https://github.com/lvguowei/expense-report-case-study/commit/57e89c5a3d464e7f7ca6aca3d63b8a51c40b29ee">version 0</a></p>
+
+<p>Very easily, we can extract out some functions like <code>isMeal</code> and <code>isOverage</code>.</p>
+
+<p><a href="https://github.com/lvguowei/expense-report-case-study/commit/51c0c79ab143859fd2ddce898e7f8daf87ff6aa5">version 1</a></p>
+
+<p>Now you may smell feature envy as I did, so let&rsquo;s move those methods into <code>Expense</code> class.</p>
+
+<p><a href="https://github.com/lvguowei/expense-report-case-study/commit/131ac2d05c8912e7a1cab773acafb0470a80a5fe">version 2</a></p>
+
+<p>Next, replace <code>type</code> with polymorphism, which means create more subclasses of <code>Expense</code>.</p>
+
+<p><a href="https://github.com/lvguowei/expense-report-case-study/commit/68a3d85e5b1bc1c4b5a1e0dbb38012551894c200">version 3</a></p>
+
+<p>We can now separate printing logic out of the <code>Expense</code> class and into some <code>ExpenseReporter</code> and <code>ReportNamer</code> class.</p>
+
+<p>You may ask, why do we need the <code>ExpenseNamer</code> abstraction, why not just put some <code>getName</code> method into the <code>Expense</code> class.</p>
+
+<p>To anwser your question, consider this: different actors may need different names for the same Expense. The reporter may need totally different names than the UI.</p>
+
+<p><a href="https://github.com/lvguowei/expense-report-case-study/commit/1e4d81b10aec46df4f05dbac40171ee2b3b779aa">version 4</a></p>
+
+<p>We are at the end of this fantastic soothing and comforting refactoring session habibi, enjoy life and beautiful code.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/expense.png" />
+    
+    
+</figure>
+
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/expense-report-case-study\/';
+    var disqus_title = 'Expense Report Case Study';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/expense-report-case-study\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2016  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

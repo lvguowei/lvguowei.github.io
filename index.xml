@@ -6,8 +6,55 @@
     <description>Recent content on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Dec 2016 18:50:50 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 06 Dec 2016 12:16:53 +0200</lastBuildDate>
     <atom:link href="http://lvguowei.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Expense Report Case Study</title>
+      <link>http://lvguowei.me/post/expense-report-case-study/</link>
+      <pubDate>Tue, 06 Dec 2016 12:16:53 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/expense-report-case-study/</guid>
+      <description>&lt;p&gt;One day, I was watching another Uncle Bob&amp;rsquo;s video (yes, they are addictive), when I see one example he gave when talking about open closed principle, it ringed a bell in my head. This looked familiar! The &lt;code&gt;type&lt;/code&gt; in some data classes, some &lt;code&gt;switch&lt;/code&gt;s or &lt;code&gt;if&lt;/code&gt;s, some &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;s and &lt;code&gt;||&lt;/code&gt;s all dancing around in the class. I can almost hear them teasing: &amp;ldquo;Come and catch me! Come and catch me!&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;I think OK, it&amp;rsquo;s time to get this fixed.&lt;/p&gt;
+
+&lt;p&gt;Now I present you the messy smelly piece of ssssss&amp;hellip;..source code as the original design(with some tests amazingly).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/57e89c5a3d464e7f7ca6aca3d63b8a51c40b29ee&#34;&gt;version 0&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Very easily, we can extract out some functions like &lt;code&gt;isMeal&lt;/code&gt; and &lt;code&gt;isOverage&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/51c0c79ab143859fd2ddce898e7f8daf87ff6aa5&#34;&gt;version 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you may smell feature envy as I did, so let&amp;rsquo;s move those methods into &lt;code&gt;Expense&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/131ac2d05c8912e7a1cab773acafb0470a80a5fe&#34;&gt;version 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, replace &lt;code&gt;type&lt;/code&gt; with polymorphism, which means create more subclasses of &lt;code&gt;Expense&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/68a3d85e5b1bc1c4b5a1e0dbb38012551894c200&#34;&gt;version 3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We can now separate printing logic out of the &lt;code&gt;Expense&lt;/code&gt; class and into some &lt;code&gt;ExpenseReporter&lt;/code&gt; and &lt;code&gt;ReportNamer&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;You may ask, why do we need the &lt;code&gt;ExpenseNamer&lt;/code&gt; abstraction, why not just put some &lt;code&gt;getName&lt;/code&gt; method into the &lt;code&gt;Expense&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;To anwser your question, consider this: different actors may need different names for the same Expense. The reporter may need totally different names than the UI.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/1e4d81b10aec46df4f05dbac40171ee2b3b779aa&#34;&gt;version 4&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We are at the end of this fantastic soothing and comforting refactoring session habibi, enjoy life and beautiful code.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/expense.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
     
     <item>
       <title>Moomin</title>
@@ -421,56 +468,6 @@ They do it like commodity not luxury, which I respect a lot.&lt;/p&gt;
     
 &lt;/figure&gt;
 
-</description>
-    </item>
-    
-    <item>
-      <title>Do you have a good taste of what you are doing?</title>
-      <link>http://lvguowei.me/post/good-taste/</link>
-      <pubDate>Sat, 08 Oct 2016 14:17:40 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/good-taste/</guid>
-      <description>&lt;p&gt;There is this stereotype impression about technology industry, that it is a cruel game only
-for energetic and ambitious young men, when you get old, you will be kicked out mercilessly.&lt;/p&gt;
-
-&lt;p&gt;This doesn&amp;rsquo;t bother me so much since I was still young a few years ago, but since now I am getting older it
-starts to act as a background noise that grabbed me more and more attention.&lt;/p&gt;
-
-&lt;p&gt;Is this the truth? Do I have to quit at , say 35 years old or move to some kind of manager?&lt;/p&gt;
-
-&lt;p&gt;I guess the anwser to this question really depends on what type of person you find yourself really are during all the
-years of experience.&lt;/p&gt;
-
-&lt;p&gt;Some people starts as a tech professional, and over 5 years of doing developing work, finds out that he hates it.
-But then since he now has that 5 years of experience anyway, the best for him would be to move to management, well, probably.&lt;/p&gt;
-
-&lt;p&gt;So there is nothing wrong for developers to move to management positions, as long as they are happy with it.&lt;/p&gt;
-
-&lt;p&gt;But what about the developers that know by heart that they don&amp;rsquo;t want to manage other people or the business? Is tech a deadend in the end?&lt;/p&gt;
-
-&lt;p&gt;Well, maybe let&amp;rsquo;s think of it in another angle. What makes you more valuable over the years of experience?&lt;/p&gt;
-
-&lt;p&gt;Is it that the new framework just comes out?
-No, since you&amp;rsquo;ve probabaly never heard of it.&lt;/p&gt;
-
-&lt;p&gt;Is it your coding velocity?
-No, you are not a typist for god&amp;rsquo;s sake.&lt;/p&gt;
-
-&lt;p&gt;Well, you may say it must be all the experience, right?&lt;/p&gt;
-
-&lt;p&gt;But what is so special about the experience? what is the essence of it?&lt;/p&gt;
-
-&lt;p&gt;I think it&amp;rsquo;s all about good taste.&lt;/p&gt;
-
-&lt;p&gt;When you see more, experience more, do more, you gradually acquire a good taste.
-You can tell good things from bad ones. You can sense what we should do next.
-You can predict the failure we are running into.&lt;/p&gt;
-
-&lt;p&gt;Now thinking of it, it is actually true in other industries as well. It is all about good taste. It is even more important than the skills you have.
-(You have to have skills in the first place to get a good taste anyway)&lt;/p&gt;
-
-&lt;p&gt;But what tastes good can change over time, so we just keep ajusting our taste, that is also important to keep in mind.
-What look sleek and cool 20 years ago may be totally irrelavent nowadays!&lt;/p&gt;
 </description>
     </item>
     
