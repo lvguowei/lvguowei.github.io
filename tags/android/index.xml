@@ -9,6 +9,58 @@
     <atom:link href="http://lvguowei.me/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Use Interface Segregation Principle to Implement an Android Logger</title>
+      <link>http://lvguowei.me/post/interface-segregation-principle-android-logger/</link>
+      <pubDate>Thu, 08 Dec 2016 21:34:15 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/interface-segregation-principle-android-logger/</guid>
+      <description>
+
+&lt;p&gt;Recently at work we has been talking about implementing some kind of Analytic interface for all the analytic libraries we are using, like Localytics and Firebase and so on.
+Basically it is just a fat interface with a long list of event logging functions, like &lt;code&gt;logSignIn()&lt;/code&gt;, &lt;code&gt;logSignOut()&lt;/code&gt;, &lt;code&gt;logSellProduct()&lt;/code&gt;, &lt;code&gt;logOpenMap()&lt;/code&gt; and so on. There are about 40 such methods in that interface. So this is how we implemented it in the first place.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/analytics.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Based on the spirit of the &lt;strong&gt;Interface Segregation Principle&lt;/strong&gt;: don&amp;rsquo;t depend on things you don&amp;rsquo;t need, there seems to be a lot of room to improve.&lt;/p&gt;
+
+&lt;h2 id=&#34;proposal-1&#34;&gt;Proposal 1&lt;/h2&gt;
+
+&lt;p&gt;We gotta separate that interface! This seems the obvious and reasonable thing to do, and different modules can only use the interface that they need. But, with only one problem, there seems to be too many classes!&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/analytics2.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;proposal-2&#34;&gt;Proposal 2&lt;/h2&gt;
+
+&lt;p&gt;We can use multiple inheritance to solve this problem.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/analytics3.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Now all problem solved, modules only depend on interface they need, and there are reasonable amount of classes.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Duplicate Observed Data</title>
       <link>http://lvguowei.me/post/duplicate-observed-data/</link>
       <pubDate>Sat, 15 Oct 2016 05:35:31 +0300</pubDate>

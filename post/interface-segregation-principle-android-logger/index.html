@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.17" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Use Interface Segregation Principle to Implement an Android Logger - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-12-08">December 08, 2016</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/design-pattern">Design Pattern</a>
+
+        <a href="http://lvguowei.me/tags/solid-principle">SOLID Principle</a>
+
+        <a href="http://lvguowei.me/tags/uncle-bob">uncle bob</a>
+
+        <a href="http://lvguowei.me/tags/refactoring">refactoring</a>
+
+        <a href="http://lvguowei.me/tags/android">Android</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Use Interface Segregation Principle to Implement an Android Logger</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<p>Recently at work we has been talking about implementing some kind of Analytic interface for all the analytic libraries we are using, like Localytics and Firebase and so on.
+Basically it is just a fat interface with a long list of event logging functions, like <code>logSignIn()</code>, <code>logSignOut()</code>, <code>logSellProduct()</code>, <code>logOpenMap()</code> and so on. There are about 40 such methods in that interface. So this is how we implemented it in the first place.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/analytics.png" />
+    
+    
+</figure>
+
+
+<p>Based on the spirit of the <strong>Interface Segregation Principle</strong>: don&rsquo;t depend on things you don&rsquo;t need, there seems to be a lot of room to improve.</p>
+
+<h2 id="proposal-1">Proposal 1</h2>
+
+<p>We gotta separate that interface! This seems the obvious and reasonable thing to do, and different modules can only use the interface that they need. But, with only one problem, there seems to be too many classes!</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/analytics2.png" />
+    
+    
+</figure>
+
+
+<h2 id="proposal-2">Proposal 2</h2>
+
+<p>We can use multiple inheritance to solve this problem.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/analytics3.png" />
+    
+    
+</figure>
+
+
+<p>Now all problem solved, modules only depend on interface they need, and there are reasonable amount of classes.</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/interface-segregation-principle-android-logger\/';
+    var disqus_title = 'Use Interface Segregation Principle to Implement an Android Logger';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/interface-segregation-principle-android-logger\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2016  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
