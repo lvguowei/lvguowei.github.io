@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.17" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Coffee Maker - An OOD case study - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-12-18">December 18, 2016</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/ood">OOD</a>
+
+        <a href="http://lvguowei.me/tags/uncle-bob">uncle bob</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Coffee Maker - An OOD case study</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<p>This case study is to show case how to design classes that interact with each other to form a component.</p>
+
+<p>The problem is to implement a software component that controls a coffee maker.</p>
+
+<h1 id="requirement">Requirement</h1>
+
+<blockquote>
+<p>The Mark IV Special makes up to 12 cups of coffee at a time. The user places a filter
+in the filter holder, fills the filter with coffee grounds, and slides the filter holder into its receptacle. The user then pours up to 12 cups of water into the water strainer and presses
+the Brew button. The water is heated until boiling. The pressure of the evolving steam
+forces the water to be sprayed over the coffee grounds, and coffee drips through the filter
+into the pot. The pot is kept warm for extended periods by a warmer plate, which only
+turns on if there is coffee in the pot. If the pot is removed from the warmer plate while
+water is being sprayed over the grounds, the flow of water is stopped so that brewed coffee
+does not spill on the warmer plate. The following hardware needs to be monitored or controlled:</p>
+
+<ul>
+<li>The heating element for the boiler. It can be turned on or off.</li>
+<li>The heating element for the warmer plate. It can be turned on or off.</li>
+<li>The sensor for the warmer plate. It has three states: warmerEmpty, potEmpty, potNotEmpty .</li>
+<li>A sensor for the boiler, which determines whether there is water present. It has two states: boilerEmpty or boilerNotEmpty .</li>
+<li>The Brew button. This is a momentary button that starts the brewing cycle. It has an indicator that lights up when the brewing cycle is over and the coffee is ready.</li>
+<li>A pressure-relief valve that opens to reduce the pressure in the boiler. The drop in pressure stops the flow of water to the filter. It can be opened or closed.</li>
+</ul>
+</blockquote>
+
+<h1 id="a-bad-design">A Bad Design</h1>
+
+<p>The most common mistake is to design the objects as a direct map to the Mark IV Offee Maker as following.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/coffee-maker-bad.jpg" />
+    
+    
+</figure>
+
+
+<p>There are several problems about this design:</p>
+
+<h2 id="missing-methods">Missing methods</h2>
+
+<p>In the diagram there is no methods. When there is no methods shown in the diagrams, the system is not partitioned based on behaviour, which can leads to big mistakes.</p>
+
+<h2 id="vapor-classes">Vapor classes</h2>
+
+<p>Take a closer look at class <code>Light</code>, it might look something like this:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Light</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">on</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">CoffeeMakerAPI</span><span class="o">.</span><span class="na">api</span><span class="o">.</span>
+        <span class="nf">setIndicatorState</span><span class="o">(</span><span class="n">CoffeeMakerAPI</span><span class="o">.</span><span class="na">INDICATOR_ON</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">off</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">CoffeeMakerAPI</span><span class="o">.</span><span class="na">api</span><span class="o">.</span>
+        <span class="nf">setIndicatorState</span><span class="o">(</span><span class="n">CoffeeMakerAPI</span><span class="o">.</span><span class="na">INDICATOR_OFF</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>This class simply forwards the API calls and there are no variables.
+The same applies to other classes as well, they don&rsquo;t have much value to exist. The <code>CoffeeMaker</code> class can call the api methods directly anyway.</p>
+
+<h2 id="imaginary-abstractions">Imaginary Abstractions</h2>
+
+<p>It is quite obvious that the interfaces in this design are pretty useless and poor.
+First of all, no other classes use these interfaces, they only use the implementations of these interfaces.</p>
+
+<p>Then, there are no common code in those interfaces.</p>
+
+<h2 id="god-class">God class</h2>
+
+<p>If there are a lot of vapor classes and useless interfaces, then the true logit must be all in the <code>CoffeeMaker</code> class, which makes it a God class.</p>
+
+<p>The reason that leads to this bad design is to simply find some verbs and nouns in the description and map them to classes without analyzing and abstracting the behaviour of the system.</p>
+
+<h1 id="a-better-design">A Better Design</h1>
+
+<p>First we have to forget about Mark IV Coffee Maker and thinking only about high level coffee making.</p>
+
+<p>We will have 3 classes: <code>UserInterface</code>, <code>HotWaterSource</code> and <code>ContainmentVessel</code>.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/coffee-maker-good.jpg" />
+    
+    
+</figure>
+
+
+<p>For the complete implementation please check <a href="https://github.com/lvguowei/coffee-maker-case-study">source code with tests</a>.</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/coffee-maker\/';
+    var disqus_title = 'Coffee Maker - An OOD case study';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/coffee-maker\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2016  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
