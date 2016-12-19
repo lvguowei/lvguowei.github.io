@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.17" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Are Stubs and Mocks Harmful? - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-12-18">December 18, 2016</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/tdd">TDD</a>
+
+        <a href="http://lvguowei.me/tags/mocks">mocks</a>
+
+        <a href="http://lvguowei.me/tags/stubs">stubs</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Are Stubs and Mocks Harmful?</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<p>I stumbled upon this <a href="https://www.youtube.com/watch?v=EaxDl5NPuCA">video</a>, and boy it is so amazing! (if you ignore the annoying audience asking non-stop some annoying questions). This is clearly one of the most inspiring videos I have ever watched. So I must take some notes down and spread the idea as well.</p>
+
+<p>I deeply believe that it is actually easy to make things complicated, on the contrary, it is hard to make things simple and elegant. I found some resonance from the speaker.</p>
+
+<p>Why the speaker thinks that using stubs and mocks are actually harmful?</p>
+
+<h2 id="stubs-v-s-mocks">Stubs v.s. Mocks</h2>
+
+<p>There is a great <a href="http://martinfowler.com/articles/mocksArentStubs.html">essay</a> by Martin Fowler about this topic, go read it before you continue if you haven&rsquo;t done so.</p>
+
+<h2 id="case-study-1-clumsy-input">Case study 1: Clumsy Input</h2>
+
+<p>Here is a bloated configuration interface.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Config</span> <span class="o">{</span>
+
+  <span class="c1">// Database stuff</span>
+  <span class="n">String</span> <span class="nf">getDBHost</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getDBPort</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getMaxThreads</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getConnectionTimeout</span><span class="o">();</span>
+  
+  <span class="c1">// Potato settings</span>
+  <span class="n">String</span> <span class="nf">getDefaultPotatoVarieties</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getMaxPotatoes</span><span class="o">();</span>
+  <span class="kt">double</span> <span class="nf">getPotatoShinniness</span><span class="o">();</span>
+  
+  <span class="c1">// Sacrificial settings</span>
+  <span class="kt">int</span> <span class="nf">getBSGoadCount</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getBSChickenCount</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getBSSheepCount</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>Here is a class that uses the configuration interface.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PotatoService</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="nf">PotatoService</span><span class="o">(</span><span class="n">Config</span> <span class="n">config</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">potatoVariety</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="na">getDefaultPotatoVarieties</span><span class="o">();</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">maxPotatoes</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="na">getMaxPotatoes</span><span class="o">();</span>
+  <span class="o">}</span>
+  
+  <span class="kd">public</span> <span class="n">Salad</span> <span class="nf">makePotatoSalad</span><span class="o">()</span> <span class="o">{...}</span>
+  
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>Now we want to test the <code>makePotatoSalad</code> function in <code>PotatoService</code>. One can easily think of using a <code>Config</code> stub.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PotatoServiceTest</span> <span class="o">{</span>
+  <span class="n">Config</span> <span class="n">config</span> <span class="o">=</span> <span class="n">Mock</span><span class="o">(</span><span class="n">Config</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  
+  <span class="nd">@Before</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// This is a stub</span>
+    <span class="n">when</span><span class="o">(</span><span class="n">config</span><span class="o">.</span><span class="na">getDefaultPotatoVarieties</span><span class="o">()).</span><span class="na">thenReturn</span><span class="o">(</span><span class="s">&quot;pontiac&quot;</span><span class="o">);</span>
+    <span class="n">when</span><span class="o">(</span><span class="n">config</span><span class="o">.</span><span class="na">getMaxPotatoes</span><span class="o">()).</span><span class="na">thenReturn</span><span class="o">(</span><span class="mi">33</span><span class="o">);</span>
+  <span class="o">}</span>
+  
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testMakingSalad</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">PotatoService</span> <span class="n">service</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PotatoService</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">service</span><span class="o">.</span><span class="na">makePotatoSalad</span><span class="o">(),</span> <span class="o">...);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>There are several observations.</p>
+
+<p>First, we stub out the config because it is hard to create and contains stuff that the SUT(System Under Test) doesn&rsquo;t care. So it is better to break up the fat interface into smaller ones.
+But this is not the end of the story.</p>
+
+<p>Stare at the <code>PotatoService</code> class a bit harder we will find that it actually needs only two things: <code>potatoVariety</code> and <code>maxPotatoes</code>. Does it matter where they come from? Why does this class needs to know about the <code>Config</code> at all?</p>
+
+<p>We can rewrite the <code>PotatoService</code> as follows:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PotatoService</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="nf">PotatoService</span><span class="o">(</span><span class="n">String</span> <span class="n">variety</span><span class="o">,</span> <span class="kt">int</span> <span class="n">max</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">potatoVariety</span> <span class="o">=</span> <span class="n">variety</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">maxPotatoes</span> <span class="o">=</span> <span class="n">max</span><span class="o">;</span>
+  <span class="o">}</span>
+  
+  <span class="kd">public</span> <span class="n">Salad</span> <span class="nf">makePotatoSalad</span><span class="o">()</span> <span class="o">{...}</span>
+  
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>How to pass in the <code>variety</code> and <code>max</code> is someone else&rsquo;s business, probably some factory or DI framework. And here is the test:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PotatoServiceTest</span> <span class="o">{</span>
+  
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testMakingSalad</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// No stubs anymore!</span>
+    <span class="n">PotatoService</span> <span class="n">service</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PotatoService</span><span class="o">(</span><span class="s">&quot;pontiac&quot;</span><span class="o">,</span> <span class="mi">33</span><span class="o">);</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">service</span><span class="o">.</span><span class="na">makePotatoSalad</span><span class="o">(),</span> <span class="o">...);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<h2 id="case-study-2-unnecessary-mutable-state">Case study 2: Unnecessary Mutable State</h2>
+
+<p>In this example, a <code>Customer</code> can buy from some <code>VendingMachine</code> from his <code>Wallet</code>.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Wallet</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="nf">removeCoins</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">);</span>
+  <span class="kt">int</span> <span class="nf">getAmount</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">VendingMachine</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">insertCoins</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">);</span>
+  <span class="n">Can</span> <span class="nf">collectCan</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getStoredCash</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Customer</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">buyDrink</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>The tests look like this:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomerTest</span> <span class="o">{</span>
+  <span class="n">Wallet</span> <span class="n">wallet</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">Wallet</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="n">VendingMachine</span> <span class="n">vendingMachine</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">VendingMachine</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  
+  <span class="nd">@Before</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// These are stubs</span>
+    <span class="n">when</span><span class="o">(</span><span class="n">wallet</span><span class="o">.</span><span class="na">removeCoins</span><span class="o">(</span><span class="mi">3</span><span class="o">)).</span><span class="na">thenReturn</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">when</span><span class="o">(</span><span class="n">vendingMachine</span><span class="o">.</span><span class="na">collectCan</span><span class="o">()).</span><span class="na">thenReturn</span><span class="o">(</span><span class="k">new</span> <span class="n">CokeCan</span><span class="o">());</span>
+  <span class="o">}</span>
+  
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testBuyDrink</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Customer</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">(</span><span class="n">wallet</span><span class="o">,</span> <span class="n">vendingMachine</span><span class="o">);</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">buyDrink</span><span class="o">();</span>
+    <span class="c1">// These are mocks</span>
+    <span class="n">verify</span><span class="o">(</span><span class="n">wallet</span><span class="o">).</span><span class="na">removeCoins</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">verify</span><span class="o">(</span><span class="n">vendingMachine</span><span class="o">).</span><span class="na">insertCoins</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">verify</span><span class="o">(</span><span class="n">vendingMachine</span><span class="o">).</span><span class="na">collectCan</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>Here the SUT is separated, but the stubs and mocks are being too tied to the implementation details. These tests are testing behaviours rather than the final states. What we really care is after all these, what are the final state of the wallet, the vendingMachine and the customer. The wallet and vendingMachine must have the correct amount of money in the end, and the customer gets a can of drink. We care less about what functions are called in what order and such.</p>
+
+<p>The true reason we need the stubs and mocks to help us is that these classes are mutable, then change. So we need to catch the trace of how they changed over time. But if they immutable. then we don&rsquo;t need to trace anymore, we can just see its values. This concept should be very familiar to you if you have some functional programming background. So these classes can be rewritten as follows:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Wallet</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="nf">getAmount</span><span class="o">();</span>
+  <span class="n">Wallet</span> <span class="nf">removeCoins</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">VendingMachine</span> <span class="o">{</span>
+  <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Can</span><span class="o">&gt;</span> <span class="nf">getCanInTray</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getStoredCash</span><span class="o">();</span>
+  <span class="n">VendingMachine</span> <span class="nf">insertCoins</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">);</span>
+  <span class="n">VendingMachine</span> <span class="nf">collectCan</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Customer</span> <span class="o">{</span>
+  <span class="n">Wallet</span> <span class="nf">getWallet</span><span class="o">();</span>
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">Can</span><span class="o">&gt;</span> <span class="nf">getCansHeld</span><span class="o">();</span>
+  <span class="n">Pair</span><span class="o">&lt;</span><span class="n">VendingMachine</span><span class="o">,</span> <span class="n">Customer</span><span class="o">&gt;</span> <span class="nf">buyDrink</span><span class="o">(</span><span class="n">VendingMachine</span> <span class="n">vendingMachine</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>Then the tests becomes this:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomerTest</span> <span class="o">{</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testBuyDrink</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Customer</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">(</span><span class="k">new</span> <span class="n">Wallet</span><span class="o">(</span><span class="mi">23</span><span class="o">));</span>
+    <span class="n">VendingMachine</span> <span class="n">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendingMachine</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
+    
+    <span class="n">Pair</span><span class="o">&lt;</span><span class="n">VendingMachine</span><span class="o">,</span> <span class="n">Customer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">buyDrink</span><span class="o">(</span><span class="n">vm</span><span class="o">);</span>
+    <span class="n">Customer</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">second</span><span class="o">();</span>
+    <span class="n">VendingMachine</span> <span class="n">vm2</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">first</span><span class="o">();</span>
+    
+    <span class="n">Assert</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span> <span class="n">c2</span><span class="o">.</span><span class="na">getWallet</span><span class="o">().</span><span class="na">getAmount</span><span class="o">());</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">9</span><span class="o">,</span> <span class="n">vm2</span><span class="o">.</span><span class="na">getCanInTray</span><span class="o">().</span><span class="na">size</span><span class="o">());</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">33</span><span class="o">,</span> <span class="n">vm2</span><span class="o">.</span><span class="na">getStoredCash</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<h2 id="case-study-3-essential-effects">Case study 3: Essential effects</h2>
+
+<p>This example shows how to finally deal with the side effects. Sending emails, writing databases and such. We cannot or don&rsquo;t want to test them directly, so using mocks can be helpful here. Like the following example:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmailSender</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">sendEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">address</span><span class="o">,</span> <span class="n">Email</span> <span class="n">email</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpecialOffers</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">EmailSender</span> <span class="n">sender</span><span class="o">;</span>
+  
+  <span class="kt">void</span> <span class="nf">sendSpecialOffers</span><span class="o">(</span><span class="n">Customer</span> <span class="n">customer</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">customer</span><span class="o">.</span><span class="na">isUnsubscribed</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">content</span> <span class="o">=</span> <span class="s">&quot;Something...&quot;</span><span class="o">;</span>
+      <span class="n">sender</span><span class="o">.</span><span class="na">sendEmail</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getEmailAddress</span><span class="o">(),</span> <span class="k">new</span> <span class="n">Email</span><span class="o">(</span><span class="n">content</span><span class="o">));</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>When we test, we don&rsquo;t really want to send out emails, so we are going to mock the email sender.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpecialOfferTest</span> <span class="o">{</span>
+  <span class="n">EmailSender</span> <span class="n">sender</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">EmailSender</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  
+  <span class="kd">public</span> <span class="nf">testSendEmail</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">SpeicalOffers</span> <span class="n">offers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpeicalOffers</span><span class="o">(</span><span class="n">sender</span><span class="o">);</span>
+    
+    <span class="n">offers</span><span class="o">.</span><span class="na">sendSpecialOffers</span><span class="o">(</span><span class="k">new</span> <span class="n">Customer</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="s">&quot;Bob&quot;</span><span class="o">,</span> <span class="s">&quot;foo@bar.com&quot;</span><span class="o">));</span>
+    
+    <span class="c1">// mock</span>
+    <span class="n">verify</span><span class="o">(</span><span class="n">sender</span><span class="o">).</span><span class="na">send</span><span class="o">(</span><span class="s">&quot;foo@bar.com&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">Email</span><span class="o">(</span><span class="s">&quot;Something...&quot;</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>So what we really want to test is the <strong>intent</strong> of sending an email. Can we separate out the <strong>intent</strong> by itself?</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">SendEmailIntent</span> <span class="o">{</span>
+  <span class="n">String</span> <span class="nf">getAddress</span><span class="o">();</span>
+  <span class="n">Email</span> <span class="nf">getEmail</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">interpreter</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">interpret</span><span class="o">(</span><span class="n">SendEmailIntent</span> <span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpecialOffers</span> <span class="o">{</span>
+  <span class="n">Optional</span><span class="o">&lt;</span><span class="n">SendEmailIntent</span><span class="o">&gt;</span> <span class="nf">sendSpecialOffers</span><span class="o">(</span><span class="n">Customer</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">c</span><span class="o">.</span><span class="na">isUnsubscribed</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">content</span> <span class="o">=</span> <span class="s">&quot;Something...&quot;</span><span class="o">;</span>
+      <span class="k">return</span> <span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="n">SendEmailIntent</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getEmailAddress</span><span class="o">(),</span> <span class="k">new</span> <span class="n">Email</span><span class="o">(</span><span class="n">content</span><span class="o">)));</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>Now the tests become:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpecialOfferTest</span> <span class="o">{</span>
+  
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSendEmail</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">SpecialOffers</span> <span class="n">offers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpeicalOffers</span><span class="o">();</span>
+    
+    <span class="n">SendEmailIntent</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">offers</span><span class="o">.</span><span class="na">sendEmail</span><span class="o">(</span><span class="k">new</span> <span class="n">Customer</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="s">&quot;Bob&quot;</span><span class="o">,</span> <span class="s">&quot;foo@bar.com&quot;</span><span class="o">)).</span><span class="na">get</span><span class="o">();</span>
+    
+    <span class="n">Assert</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;foo@bar.com&quot;</span><span class="o">,</span> <span class="n">intent</span><span class="o">.</span><span class="na">getAddress</span><span class="o">());</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;Something...&quot;</span><span class="o">,</span> <span class="n">intent</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">getText</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>These examples really opened my eye as to how you can leverage some of the good parts from FP into OO programming.</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/stub-and-mock-harmful\/';
+    var disqus_title = 'Are Stubs and Mocks Harmful?';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/stub-and-mock-harmful\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2016  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
