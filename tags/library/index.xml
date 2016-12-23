@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Library on Guowei Lv</title>
+    <link>http://lvguowei.me/tags/library/index.xml</link>
+    <description>Recent content in Library on Guowei Lv</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://lvguowei.me/tags/library/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My first Android library!</title>
+      <link>http://lvguowei.me/post/first-android-lib/</link>
+      <pubDate>Fri, 23 Dec 2016 12:25:51 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/first-android-lib/</guid>
+      <description>&lt;p&gt;I published my first android library for creating customized progressbar.&lt;/p&gt;
+
+&lt;p&gt;Go check &lt;a href=&#34;https://github.com/lvguowei/SpinningProgressBar&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/android-lib.gif&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

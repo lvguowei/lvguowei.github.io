@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lvguowei.me/</loc>
-    <lastmod>2016-12-18T19:53:45+02:00</lastmod>
+    <loc>http://lvguowei.me/post/first-android-lib/</loc>
+    <lastmod>2016-12-23T12:25:51+02:00</lastmod>
   </url>
   
   <url>
@@ -164,6 +164,310 @@
   <url>
     <loc>http://lvguowei.me/post/Finnish-learning-diary-1/</loc>
     <lastmod>2016-04-30T09:57:12+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/agile/</loc>
+    <lastmod>2016-11-20T14:51:39+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/al-rehab/</loc>
+    <lastmod>2016-10-09T21:23:38+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/algorithms/</loc>
+    <lastmod>2016-10-06T19:46:09+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/android/</loc>
+    <lastmod>2016-12-23T12:25:51+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/arabic/</loc>
+    <lastmod>2016-10-09T21:23:38+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/architecture/</loc>
+    <lastmod>2016-11-20T14:51:39+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/attar/</loc>
+    <lastmod>2016-10-09T21:23:38+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/ayumi-hamasaki/</loc>
+    <lastmod>2016-12-05T18:30:50+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/c&#43;&#43;/</loc>
+    <lastmod>2016-05-08T19:59:59+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/c&#43;&#43;-primer/</loc>
+    <lastmod>2016-05-08T19:59:59+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/choco-musk/</loc>
+    <lastmod>2016-10-09T21:23:38+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/coding-challenge/</loc>
+    <lastmod>2016-10-06T19:46:09+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/corel-painter/</loc>
+    <lastmod>2016-12-05T18:40:50+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/cpp/</loc>
+    <lastmod>2016-05-15T20:46:45+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/cpp-primer/</loc>
+    <lastmod>2016-05-15T20:46:45+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/cursive/</loc>
+    <lastmod>2016-10-16T14:11:16+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/design-pattern/</loc>
+    <lastmod>2016-12-08T21:34:15+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/digital-painting/</loc>
+    <lastmod>2016-12-05T18:50:50+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/emacs/</loc>
+    <lastmod>2016-05-04T20:13:51+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/categories/finnish-learning/</loc>
+    <lastmod>2016-10-16T14:11:16+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/finnishpod101/</loc>
+    <lastmod>2016-10-16T14:11:16+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/categories/fragrance/</loc>
+    <lastmod>2016-10-09T21:23:38+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/functional-programming/</loc>
+    <lastmod>2016-05-29T21:32:14+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/</loc>
+    <lastmod>2016-12-23T12:25:51+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/handwriting/</loc>
+    <lastmod>2016-10-16T14:11:16+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/ittar/</loc>
+    <lastmod>2016-10-09T21:23:38+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/java/</loc>
+    <lastmod>2016-11-21T21:29:52+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/krita/</loc>
+    <lastmod>2016-12-05T18:50:50+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/library/</loc>
+    <lastmod>2016-12-23T12:25:51+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/lisp/</loc>
+    <lastmod>2016-05-04T20:13:51+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/mastermind/</loc>
+    <lastmod>2016-11-21T21:29:52+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/mocks/</loc>
+    <lastmod>2016-12-18T19:53:45+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/moomin/</loc>
+    <lastmod>2016-12-05T18:50:50+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/mumble/</loc>
+    <lastmod>2016-10-08T14:17:40+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/ood/</loc>
+    <lastmod>2016-12-18T09:54:57+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/open-source/</loc>
+    <lastmod>2016-12-23T12:25:51+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/categories/painting/</loc>
+    <lastmod>2016-12-05T18:50:50+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/payroll/</loc>
+    <lastmod>2016-11-20T14:51:39+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/perfume-oil/</loc>
+    <lastmod>2016-10-09T21:23:38+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/post/</loc>
+    <lastmod>2016-12-23T12:25:51+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/categories/programming/</loc>
+    <lastmod>2016-12-23T12:25:51+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/recursion/</loc>
+    <lastmod>2016-05-29T21:32:14+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/refactoring/</loc>
+    <lastmod>2016-12-08T21:34:15+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/scheme/</loc>
+    <lastmod>2016-05-29T21:32:14+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/sicp/</loc>
+    <lastmod>2016-05-29T21:32:14+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/solid-principle/</loc>
+    <lastmod>2016-12-08T21:34:15+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/stubs/</loc>
+    <lastmod>2016-12-18T19:53:45+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/tdd/</loc>
+    <lastmod>2016-12-18T19:53:45+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/uncle-bob/</loc>
+    <lastmod>2016-12-18T09:54:57+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>
