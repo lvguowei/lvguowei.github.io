@@ -6,8 +6,29 @@
     <description>Recent content in Posts on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Dec 2016 12:25:51 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 26 Dec 2016 10:23:15 +0200</lastBuildDate>
     <atom:link href="http://lvguowei.me/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My Second Android Library</title>
+      <link>http://lvguowei.me/post/second-android-lib/</link>
+      <pubDate>Mon, 26 Dec 2016 10:23:15 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/second-android-lib/</guid>
+      <description>&lt;p&gt;I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.&lt;/p&gt;
+
+&lt;p&gt;Go check it out &lt;a href=&#34;https://github.com/lvguowei/CombinedDateTimePickerDialog&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/android-lib2.gif&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
     
     <item>
       <title>My first Android library!</title>
@@ -797,30 +818,6 @@ orders field in the customer, isn&amp;rsquo;t it?&lt;/p&gt;
 
 &lt;p&gt;Here is the code:
 &lt;a href=&#34;https://github.com/lvguowei/refactoring/tree/master/unidirectionalToBidirectional&#34; title=&#34;Github&#34;&gt;Sample Project&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Duplicate Observed Data</title>
-      <link>http://lvguowei.me/post/duplicate-observed-data/</link>
-      <pubDate>Sat, 15 Oct 2016 05:35:31 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/duplicate-observed-data/</guid>
-      <description>&lt;p&gt;This is from the famous Refactoring book by Martin Fowler. When I was reading it, it feels very similar to the very popular MVP or MVVM.&lt;/p&gt;
-
-&lt;p&gt;The key idea is that in system that has user interface, the business logic should be separated from the user interface.&lt;/p&gt;
-
-&lt;p&gt;One example I can think of is the registration form, where there are input fields like username, email, phone number and password.
-We can have some logic that disable the Register button until all fields are filled and the phone number and email valid.
-We can of course put everything in the UI (probably an Activity or Fragment in Android), but it doesn&amp;rsquo;t feel very elegant.
-So we create a new RegisterModel class, create 4 private String fields - username, email, phone number and password.
-Then we create getter and setter for these fields. When in the Activity the user changed one of the fields, we directly call the
-corresponding setter function in the model, and the model can do the calculation and validation and whatnot, then use some PubSub
-mechanism to notify the view.&lt;/p&gt;
-
-&lt;p&gt;I created an Android project out of the example in the book.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/refactoring/tree/master/DuplicateObservedData&#34; title=&#34;Github&#34;&gt;Android Example&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

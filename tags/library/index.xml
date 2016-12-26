@@ -9,6 +9,27 @@
     <atom:link href="http://lvguowei.me/tags/library/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>My Second Android Library</title>
+      <link>http://lvguowei.me/post/second-android-lib/</link>
+      <pubDate>Mon, 26 Dec 2016 10:23:15 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/second-android-lib/</guid>
+      <description>&lt;p&gt;I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.&lt;/p&gt;
+
+&lt;p&gt;Go check it out &lt;a href=&#34;https://github.com/lvguowei/CombinedDateTimePickerDialog&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/android-lib2.gif&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>My first Android library!</title>
       <link>http://lvguowei.me/post/first-android-lib/</link>
       <pubDate>Fri, 23 Dec 2016 12:25:51 +0200</pubDate>
