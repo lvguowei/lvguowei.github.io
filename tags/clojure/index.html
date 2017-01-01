@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
 <link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
-<title>Arabic - Guowei Lv</title>
+<title>Clojure - Guowei Lv</title>
 </head>
 <body>
 
@@ -27,21 +27,20 @@
 <div class="container">
 
 <main role="main" class="article-list">
-  <h1 class="list-title">Arabic</h1>
+  <h1 class="list-title">Clojure</h1>
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/choco-musk-review/">Choco Musk by Al Rehab</a></h2>
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/">Why component dependency cycle is bad</a></h2>
   <div class="meta">
 
     <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2016-10-09">October 09, 2016</time></span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-01-01">January 01, 2017</time></span>
 
   </div>
   <section class="summary">
-    This is my first perfume oil/attar, I have to say I am quite impressed by it.
-I adore oriental culture. I prefer sophiscation over simplicity.
-I like dark, dense, rich scent, which shows marks of history. And I am very bored with the western happy and fresh mall scents, yet not satisfied by the so call &ldquo;oriental accord&rdquo; interpreted by western perfumery. So I went online and searched &ldquo;middle east perfume&rdquo;, and what I found truely suprised me.  <a href="http://lvguowei.me/post/choco-musk-review/">Read More...</a>
+    I have been working on some Clojure project at work for several months now, one little thing bothers me now and then is that it doesn&rsquo;t allow dependency cycle in project. For example if a.clj requires b.clj, b.clj requires c.clj, then c.clj cannot require a.clj, in other words, c.clj cannot use anything inside a.clj.
+At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in a while we have to solve such problems by creating a new namespace and move the common function into it.  <a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/">Read More...</a>
   </section>
 </article>
 
@@ -51,7 +50,7 @@ I like dark, dense, rich scent, which shows marks of history. And I am very bore
 </div>
 <footer>
   <div class="container">
-    <span class="copyright">&copy; 2016  Guowei Lv</span>
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
   </div>
 </footer>
 

@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="Guowei Lv">
-<meta name="generator" content="Hugo 0.18" />
+<meta name="generator" content="Hugo 0.18.1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -28,6 +28,22 @@
 
 <main role="main" class="article-list">
   <h1 class="list-title">Programming</h1>
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/">Why component dependency cycle is bad</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-01-01">January 01, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    I have been working on some Clojure project at work for several months now, one little thing bothers me now and then is that it doesn&rsquo;t allow dependency cycle in project. For example if a.clj requires b.clj, b.clj requires c.clj, then c.clj cannot require a.clj, in other words, c.clj cannot use anything inside a.clj.
+At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in a while we have to solve such problems by creating a new namespace and move the common function into it.  <a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/">Read More...</a>
+  </section>
+</article>
+
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
@@ -361,7 +377,7 @@ func sqrt(x): @ * @ = x; @ &gt; 0; return @;  让计算机去处理计算细节�
 </div>
 <footer>
   <div class="container">
-    <span class="copyright">&copy; 2016  Guowei Lv</span>
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
   </div>
 </footer>
 

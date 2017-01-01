@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.18.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Why component dependency cycle is bad - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-01-01">January 01, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/component">component</a>
+
+        <a href="http://lvguowei.me/tags/clojure">clojure</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Why component dependency cycle is bad</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<p>I have been working on some Clojure project at work for several months now, one little thing bothers me now and then is that it doesn&rsquo;t allow dependency cycle in project. For example if <code>a.clj</code> requires <code>b.clj</code>, <code>b.clj</code> requires <code>c.clj</code>, then <code>c.clj</code> cannot require <code>a.clj</code>, in other words, <code>c.clj</code> cannot use anything inside <code>a.clj</code>.</p>
+
+<p>At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in a while we have to solve such problems by creating a new namespace and move the common function into it. I asked my colleagues and still couldn&rsquo;t find a very satisfying explanation. Until I learned about the Acyclic Dependency Principle.</p>
+
+<blockquote>
+<p>The acyclic dependencies principle (ADP) is a software design principle that states that &ldquo;the dependency graph of packages or components should have no cycles&rdquo;. This implies that the dependencies form a directed acyclic graph.</p>
+</blockquote>
+
+<p>Let&rsquo;s look at an example to see why it is not desirable to have cycles in the dependency graph.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/acyclic-dependency.jpg" />
+    
+    
+</figure>
+
+
+<p>The original graph contains all the black arrows. The red arrow is added as a shortcut to use some display function in the <code>User Interface</code> component.</p>
+
+<p>This is bad in several ways.</p>
+
+<h2 id="it-s-bad-for-release">It&rsquo;s bad for release</h2>
+
+<p>Let&rsquo;s assume that the system now is under v1.0 and planing to make the release of v1.1.</p>
+
+<h3 id="without-the-cycle">Without the cycle</h3>
+
+<p>The project manager can take the following approach: <code>ErrorHandler</code> and <code>DBModel</code>teams can work on v1.1 first and make their releases. After that they may start working on already v1.2. Then <code>Deposit</code> and <code>Database</code> can be worked on based on the v1.1 <code>ErrorHandler</code> and <code>DBModel</code>. And finally the <code>UserInterface</code> component can be worked on. This is like a wave traveling upwards the dependency graph, and every component can be still independently developed.</p>
+
+<h3 id="with-the-cycle">With the cycle</h3>
+
+<p>Now with that dependency cycle, it is not very clear where should we start! Say we want to start from <code>ErrorHandler</code>. In order to make v1.1 of <code>ErrorHandler</code>, we need v1.1 of <code>User Interface</code>, which needs v1.1 of <code>Deposit</code>, which need v1.1 of <code>ErrorHandler</code>. So the only way is to group together all three components and develop them together for the new v1.1, since they all depend on each other. We lose the independent developability here.</p>
+
+<h2 id="the-system-is-now-more-coupled">The system is now more coupled</h2>
+
+<p>Let&rsquo;s take a closer look at the <code>ErrorHandler</code> component again, what does it depend upon?</p>
+
+<h3 id="without-the-cycle-1">Without the cycle</h3>
+
+<p>Nothing.</p>
+
+<h3 id="with-the-cycle-1">With the cycle</h3>
+
+<p>Everything!</p>
+
+<p>OK, now we are convinced that this is a bad idea but how can we fix this?</p>
+
+<h2 id="move-the-common-part-into-a-new-component">Move the common part into a new component</h2>
+
+<p>The most straightforward way is to create a new component, moves the part that used by both <code>UserInterface</code> and <code>ErrorHandler</code> into it.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/acyclic-dependency2.jpg" />
+    
+    
+</figure>
+
+
+<h2 id="use-dependency-inversion-principle">Use Dependency Inversion Principle</h2>
+
+<p>Use the good old DIP.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/acyclic-dependency3.jpg" />
+    
+    
+</figure>
+
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/why-component-dependency-cycle-is-bad\/';
+    var disqus_title = 'Why component dependency cycle is bad';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/why-component-dependency-cycle-is-bad\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
