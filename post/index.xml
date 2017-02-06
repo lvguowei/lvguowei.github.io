@@ -6,8 +6,46 @@
     <description>Recent content in Posts on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Feb 2017 20:36:18 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 06 Feb 2017 20:42:29 +0200</lastBuildDate>
     <atom:link href="http://lvguowei.me/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Programming Kata</title>
+      <link>http://lvguowei.me/post/programming-kata/</link>
+      <pubDate>Mon, 06 Feb 2017 20:42:29 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata/</guid>
+      <description>&lt;p&gt;From today, I will practice one programming kata per day and post the content here.&lt;/p&gt;
+
+&lt;p&gt;Here goes the first one:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;My friend John likes to go to the cinema. He can choose between system A and system B.&lt;/p&gt;
+
+&lt;p&gt;System A : buy a ticket (15 dollars) every time&lt;/p&gt;
+
+&lt;p&gt;System B : buy a card (500 dollars) and every time
+buy a ticket the price of which is 0.90 times the price he paid for the previous one.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;p&gt;System A : 15 * 3 = 45&lt;/p&gt;
+
+&lt;p&gt;System B : 500 + 15 * 0.90 + (15 * 0.90) * 0.90 + (15 * 0.90 * 0.90) * 0.90 ( = 536.5849999999999, no rounding for each ticket)&lt;/p&gt;
+
+&lt;p&gt;John wants to know how many times he must go to the cinema so that the final result of System B, when rounded up to the next dollar, will be cheaper than System A.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;movie&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;card&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ticket&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;perc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;loop &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+         &lt;span class=&#34;nv&#34;&gt;b-price&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;* &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;ticket&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;perc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;&amp;lt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Math/ceil&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;+ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;card&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;b-price&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;* &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;ticket&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+      &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;recur&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;inc &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;+ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;b-price&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;* &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;ticket&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Math/pow&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;perc&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;inc &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))))))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+    </item>
     
     <item>
       <title>Nested For Loops in Clojure</title>
@@ -834,23 +872,6 @@ If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should re
 &lt;figure &gt;
     
         &lt;img src=&#34;http://lvguowei.me/img/finnishpod-s1-17.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>Finnish learning diary 9</title>
-      <link>http://lvguowei.me/post/Finnish-learning-diary-9/</link>
-      <pubDate>Sun, 16 Oct 2016 09:34:04 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/Finnish-learning-diary-9/</guid>
-      <description>
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/finnishpod-s1-18.jpg&#34; /&gt;
     
     
 &lt;/figure&gt;
