@@ -46,6 +46,22 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-2/">Programming Kata Day 2</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-07">February 07, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem: Write a function to calculate fibonacci number in constant space complexity.
+(defn fib [n] (loop [a 0 b 1 i n] (if (= 0 i) a (recur b (+ a b) (dec i)))))   
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata/">Programming Kata</a></h2>
   <div class="meta">
 
@@ -79,22 +95,6 @@ Problem: Given an array of numbers, find the biggest sum of any two numbers. The
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/">Why component dependency cycle is bad</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-01-01">January 01, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    I have been working on some Clojure project at work for several months now, one little thing bothers me now and then is that it doesn&rsquo;t allow dependency cycle in project. For example if a.clj requires b.clj, b.clj requires c.clj, then c.clj cannot require a.clj, in other words, c.clj cannot use anything inside a.clj.
-At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in a while we have to solve such problems by creating a new namespace and move the common function into it.  <a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/">Read More...</a>
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -120,7 +120,7 @@ At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(22)</small>
+      <small>(23)</small>
     </h2>
     
   </section>
@@ -190,7 +190,7 @@ At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/clojure">clojure</a>
-      <small>(3)</small>
+      <small>(4)</small>
     </span>
     
     <span class="tag">
@@ -320,7 +320,7 @@ At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/programming-kata">programming-kata</a>
-      <small>(1)</small>
+      <small>(2)</small>
     </span>
     
     <span class="tag">
