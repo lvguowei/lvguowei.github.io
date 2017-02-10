@@ -46,6 +46,25 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-3/">programming kata day 3</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-10">February 10, 2017</time></span>
+
+  </div>
+  <section class="summary">
+     Problem Trolls are attacking your comment section!
+A common way to deal with this situation is to remove all of the vowels from the trolls&rsquo; comments, neutralizing the threat.
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+For example, the string &ldquo;This website is for losers LOL!&rdquo; would become &ldquo;Ths wbst s fr lsrs LL!&rdquo;.
+Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\A \E \I \O \U \a \e \i \o \u} next) result (str result next))) &quot;&quot; string))  Solution 2 (defn disemvowel [string] (apply str (remove (set &quot;AEIOUaeiou&quot;) string)))   
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-2/">Programming Kata Day 2</a></h2>
   <div class="meta">
 
@@ -75,22 +94,6 @@ Here goes the first one:
  My friend John likes to go to the cinema. He can choose between system A and system B.
 System A : buy a ticket (15 dollars) every time
 System B : buy a card (500 dollars) and every time buy a ticket the price of which is 0.90 times the price he paid for the previous one.  <a href="http://lvguowei.me/post/programming-kata/">Read More...</a>
-  </section>
-</article>
-
-    
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/nested-for-loops-in-clojure/">Nested For Loops in Clojure</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-03">February 03, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    One awkwardness I haven&rsquo;t really get rid of when using Clojure is for loops. Especially nested for loops that modifies some global variables. I find some solutions online where people use nested recursion or atoms, but can we just use one level of recursion? Let&rsquo;s try out with a coding kata.
-Problem: Given an array of numbers, find the biggest sum of any two numbers. The same item in array cannot be used twice.  <a href="http://lvguowei.me/post/nested-for-loops-in-clojure/">Read More...</a>
   </section>
 </article>
 

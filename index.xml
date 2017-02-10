@@ -6,8 +6,51 @@
     <description>Recent content on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Feb 2017 19:34:17 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 10 Feb 2017 20:31:01 +0200</lastBuildDate>
     <atom:link href="http://lvguowei.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>programming kata day 3</title>
+      <link>http://lvguowei.me/post/programming-kata-day-3/</link>
+      <pubDate>Fri, 10 Feb 2017 20:31:01 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata-day-3/</guid>
+      <description>
+
+&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+
+&lt;p&gt;Trolls are attacking your comment section!&lt;/p&gt;
+
+&lt;p&gt;A common way to deal with this situation is to remove all of the vowels from the trolls&amp;rsquo; comments, neutralizing the threat.&lt;/p&gt;
+
+&lt;p&gt;Your task is to write a function that takes a string and return a new string with all vowels removed.&lt;/p&gt;
+
+&lt;p&gt;For example, the string &amp;ldquo;This website is for losers LOL!&amp;rdquo; would become &amp;ldquo;Ths wbst s fr lsrs LL!&amp;rdquo;.&lt;/p&gt;
+
+&lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;h2 id=&#34;solution-1&#34;&gt;Solution 1&lt;/h2&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;disemvowel&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;reduce &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;\A&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\E&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\I&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\O&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\U&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\a&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\e&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\i&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\o&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;\u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+              &lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt;
+              &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;str &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+          &lt;span class=&#34;s&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+          &lt;span class=&#34;nv&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&#34;solution-2&#34;&gt;Solution 2&lt;/h2&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;disemvowel&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;apply str &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;remove &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;set &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;AEIOUaeiou&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Programming Kata Day 2</title>
@@ -866,20 +909,6 @@ If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should re
 
 &lt;p&gt;Finally, tests for &lt;code&gt;RememberingGuessChecker&lt;/code&gt;.
 &lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/5e52719cb3324b0a10371dd52dfa522433a04780&#34;&gt;source code version 8&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Payroll Case Study</title>
-      <link>http://lvguowei.me/post/payroll-case-study/</link>
-      <pubDate>Sun, 20 Nov 2016 14:51:39 +0200</pubDate>
-      
-      <guid>http://lvguowei.me/post/payroll-case-study/</guid>
-      <description>&lt;p&gt;I was watching some Uncle Bob video some day which talked about how to design the architecture of a system. In that video, he gave a case study of a payroll system, I found the souce code and it is actually implemented in C++, so I ported a Java version.&lt;/p&gt;
-
-&lt;p&gt;This is a very good example because it feels more realistic than most dummy demos out there. It also shows how to use POJO classes to layout the foundation without going too much into peripheral details like database.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/Payroll&#34;&gt;Souce Code in Github&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.18.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>programming kata day 3 - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-10">February 10, 2017</time></span>
+
+
+
+  </div>
+  <h1 class="headline" itemprop="headline">programming kata day 3</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<h1 id="problem">Problem</h1>
+
+<p>Trolls are attacking your comment section!</p>
+
+<p>A common way to deal with this situation is to remove all of the vowels from the trolls&rsquo; comments, neutralizing the threat.</p>
+
+<p>Your task is to write a function that takes a string and return a new string with all vowels removed.</p>
+
+<p>For example, the string &ldquo;This website is for losers LOL!&rdquo; would become &ldquo;Ths wbst s fr lsrs LL!&rdquo;.</p>
+
+<h1 id="solution">Solution</h1>
+
+<h2 id="solution-1">Solution 1</h2>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">disemvowel</span>
+  <span class="p">[</span><span class="nv">string</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">result</span> <span class="nv">next</span><span class="p">]</span>
+            <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="o">#</span><span class="p">{</span><span class="sc">\A</span> <span class="sc">\E</span> <span class="sc">\I</span> <span class="sc">\O</span> <span class="sc">\U</span> <span class="sc">\a</span> <span class="sc">\e</span> <span class="sc">\i</span> <span class="sc">\o</span> <span class="sc">\u</span><span class="p">}</span> <span class="nv">next</span><span class="p">)</span>
+              <span class="nv">result</span>
+              <span class="p">(</span><span class="nb">str </span><span class="nv">result</span> <span class="nv">next</span><span class="p">)))</span>
+          <span class="s">&quot;&quot;</span>
+          <span class="nv">string</span><span class="p">))</span>
+</code></pre></div>
+
+
+<h2 id="solution-2">Solution 2</h2>
+
+<p><div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">disemvowel</span>
+  <span class="p">[</span><span class="nv">string</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">apply str </span><span class="p">(</span><span class="nb">remove </span><span class="p">(</span><span class="nb">set </span><span class="s">&quot;AEIOUaeiou&quot;</span><span class="p">)</span> <span class="nv">string</span><span class="p">)))</span>
+</code></pre></div>
+</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/programming-kata-day-3\/';
+    var disqus_title = 'programming kata day 3';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/programming-kata-day-3\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
