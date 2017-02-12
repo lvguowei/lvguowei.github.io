@@ -31,6 +31,22 @@
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-4/">Programming Kata Day 4</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-12">February 12, 2017</time></span>
+
+  </div>
+  <section class="summary">
+     Problem Implement take-nth.
+Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (count col)) result (if (= 0 (mod i n)) (recur (inc i) (conj result (nth col i))) (recur (inc i) result)))))  solution 2 (defn my-take-nth2 [n col] (-&gt;&gt; col (map-indexed (fn [i x] [i x])) (filter (fn [[i x]] (= 0 (mod i 2)))) (mapv (fn [[i x]] x))))   
+  </section>
+</article>
+
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-3/">programming kata day 3</a></h2>
   <div class="meta">
 

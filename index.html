@@ -46,6 +46,22 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-4/">Programming Kata Day 4</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-12">February 12, 2017</time></span>
+
+  </div>
+  <section class="summary">
+     Problem Implement take-nth.
+Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (count col)) result (if (= 0 (mod i n)) (recur (inc i) (conj result (nth col i))) (recur (inc i) result)))))  solution 2 (defn my-take-nth2 [n col] (-&gt;&gt; col (map-indexed (fn [i x] [i x])) (filter (fn [[i x]] (= 0 (mod i 2)))) (mapv (fn [[i x]] x))))   
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-3/">programming kata day 3</a></h2>
   <div class="meta">
 
@@ -79,25 +95,6 @@ Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata/">Programming Kata</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-06">February 06, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    From today, I will practice one programming kata per day and post the content here.
-Here goes the first one:
- My friend John likes to go to the cinema. He can choose between system A and system B.
-System A : buy a ticket (15 dollars) every time
-System B : buy a card (500 dollars) and every time buy a ticket the price of which is 0.90 times the price he paid for the previous one.  <a href="http://lvguowei.me/post/programming-kata/">Read More...</a>
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -123,7 +120,7 @@ System B : buy a card (500 dollars) and every time buy a ticket the price of whi
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(24)</small>
+      <small>(25)</small>
     </h2>
     
   </section>
@@ -193,7 +190,7 @@ System B : buy a card (500 dollars) and every time buy a ticket the price of whi
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/clojure">clojure</a>
-      <small>(5)</small>
+      <small>(6)</small>
     </span>
     
     <span class="tag">
@@ -323,7 +320,7 @@ System B : buy a card (500 dollars) and every time buy a ticket the price of whi
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/programming-kata">programming-kata</a>
-      <small>(3)</small>
+      <small>(4)</small>
     </span>
     
     <span class="tag">
