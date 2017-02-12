@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logic Programming on Guowei Lv</title>
+    <link>http://lvguowei.me/tags/logic-programming/index.xml</link>
+    <description>Recent content in Logic Programming on Guowei Lv</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://lvguowei.me/tags/logic-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Perfume Shop Puzzle</title>
+      <link>http://lvguowei.me/post/perfume-shop-puzzle/</link>
+      <pubDate>Sun, 12 Feb 2017 16:06:17 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/perfume-shop-puzzle/</guid>
+      <description>&lt;p&gt;Solving hard puzzle programming challenges with logic programming is real fun. I solved one puzzle called &amp;ldquo;Perfume Shop Puzzle&amp;rdquo; by using the &lt;code&gt;core.logic&lt;/code&gt; in Clojure. Check it out here:
+&lt;a href=&#34;https://github.com/lvguowei/perfume-shop&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
