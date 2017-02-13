@@ -31,6 +31,22 @@
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-5/">programming kata day 5</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-13">February 13, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem Write a function to determine if a number is a triangular number.
+Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-triangle-number [n] (loop [i 0] (cond (&gt; n (nth-triangle i)) (recur (inc i)) (= n (nth-triangle i)) true :else false)))  Solution 2 (defn is-triangle-number [n] (loop [tri 0 i 1] (cond (&gt; n tri) (recur (+ tri i) (inc i)) (= n tri) true :else false)))  Note Solution 1 is the first that came to my mind, but it has a typical problem: redundant calculation.  <a href="http://lvguowei.me/post/programming-kata-day-5/">Read More...</a>
+  </section>
+</article>
+
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-4/">Programming Kata Day 4</a></h2>
   <div class="meta">
 
