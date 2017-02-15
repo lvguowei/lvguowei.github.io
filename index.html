@@ -46,6 +46,22 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-6/">Programming Kata Day 6</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-15">February 15, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem Write a function to determine if a vector contains a set of items.
+Solution (defn containsv [v &amp; items] (some (set items) v))  Note Using a set as the predicate supplied to some allows you to check whether any of the truthy values in the set are contained within the given sequence. This is a frequently used Clojure idiom for searching for containment within a sequence. 
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-5/">programming kata day 5</a></h2>
   <div class="meta">
 
@@ -75,22 +91,6 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-4/">Programming Kata Day 4</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-12">February 12, 2017</time></span>
-
-  </div>
-  <section class="summary">
-     Problem Implement take-nth.
-Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (count col)) result (if (= 0 (mod i n)) (recur (inc i) (conj result (nth col i))) (recur (inc i) result)))))  solution 2 (defn my-take-nth2 [n col] (-&gt;&gt; col (map-indexed (fn [i x] [i x])) (filter (fn [[i x]] (= 0 (mod i 2)))) (mapv (fn [[i x]] x))))   
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -116,7 +116,7 @@ Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (c
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(27)</small>
+      <small>(28)</small>
     </h2>
     
   </section>
@@ -186,7 +186,7 @@ Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (c
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/clojure">clojure</a>
-      <small>(8)</small>
+      <small>(9)</small>
     </span>
     
     <span class="tag">
@@ -321,7 +321,7 @@ Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (c
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/programming-kata">programming-kata</a>
-      <small>(5)</small>
+      <small>(6)</small>
     </span>
     
     <span class="tag">

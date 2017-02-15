@@ -9,6 +9,31 @@
     <atom:link href="http://lvguowei.me/tags/programming-kata/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Programming Kata Day 6</title>
+      <link>http://lvguowei.me/post/programming-kata-day-6/</link>
+      <pubDate>Wed, 15 Feb 2017 20:16:33 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata-day-6/</guid>
+      <description>
+
+&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+
+&lt;p&gt;Write a function to determine if a vector contains a set of items.&lt;/p&gt;
+
+&lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;containsv&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;v&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;some &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;set &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id=&#34;note&#34;&gt;Note&lt;/h1&gt;
+
+&lt;p&gt;Using a set as the predicate supplied to &lt;code&gt;some&lt;/code&gt; allows you to check whether any of the truthy values in the set are contained within the given sequence. This is a frequently used Clojure idiom for searching for containment within a sequence.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>programming kata day 5</title>
       <link>http://lvguowei.me/post/programming-kata-day-5/</link>
       <pubDate>Mon, 13 Feb 2017 21:34:13 +0200</pubDate>
