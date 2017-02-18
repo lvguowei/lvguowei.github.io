@@ -31,6 +31,23 @@
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-7/">Programming Kata Day 7</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-17">February 17, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem Suppose a binary tree structure looks like this:
+{:val value :L &lt;left-node&gt; :R &lt;right-node&gt;}  Write a function to balance insert node into the tree.
+Solution (defn insert [tree x] (cond (nil? tree) {:val x :L nil :R nil} (&lt; x (:val tree)) (assoc tree :L (insert (:L tree) x)) :else (assoc tree :R (insert (:R tree) x))))  Note Here is the function to traverse the tree:  <a href="http://lvguowei.me/post/programming-kata-day-7/">Read More...</a>
+  </section>
+</article>
+
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-6/">Programming Kata Day 6</a></h2>
   <div class="meta">
 

@@ -46,6 +46,23 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-7/">Programming Kata Day 7</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-17">February 17, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem Suppose a binary tree structure looks like this:
+{:val value :L &lt;left-node&gt; :R &lt;right-node&gt;}  Write a function to balance insert node into the tree.
+Solution (defn insert [tree x] (cond (nil? tree) {:val x :L nil :R nil} (&lt; x (:val tree)) (assoc tree :L (insert (:L tree) x)) :else (assoc tree :R (insert (:R tree) x))))  Note Here is the function to traverse the tree:  <a href="http://lvguowei.me/post/programming-kata-day-7/">Read More...</a>
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-6/">Programming Kata Day 6</a></h2>
   <div class="meta">
 
@@ -76,21 +93,6 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/perfume-shop-puzzle/">Perfume Shop Puzzle</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-12">February 12, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    Solving hard puzzle programming challenges with logic programming is real fun. I solved one puzzle called &ldquo;Perfume Shop Puzzle&rdquo; by using the core.logic in Clojure. Check it out here: github. 
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -116,7 +118,7 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(28)</small>
+      <small>(29)</small>
     </h2>
     
   </section>
@@ -186,7 +188,7 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/clojure">clojure</a>
-      <small>(9)</small>
+      <small>(10)</small>
     </span>
     
     <span class="tag">
@@ -321,7 +323,7 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/programming-kata">programming-kata</a>
-      <small>(6)</small>
+      <small>(7)</small>
     </span>
     
     <span class="tag">
