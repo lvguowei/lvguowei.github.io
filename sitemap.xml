@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lvguowei.me/post/programming-kata-day-9/</loc>
+    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/post/programming-kata-day-8/</loc>
     <lastmod>2017-02-18T13:54:42+02:00</lastmod>
   </url>
@@ -227,6 +232,12 @@
   </url>
   
   <url>
+    <loc>http://lvguowei.me/tags/adventofcode/</loc>
+    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/tags/agile/</loc>
     <lastmod>2016-11-20T14:51:39+02:00</lastmod>
     <priority>0</priority>
@@ -299,7 +310,7 @@
   
   <url>
     <loc>http://lvguowei.me/tags/clojure/</loc>
-    <lastmod>2017-02-18T13:54:42+02:00</lastmod>
+    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -383,7 +394,7 @@
   
   <url>
     <loc>http://lvguowei.me/</loc>
-    <lastmod>2017-02-18T13:54:42+02:00</lastmod>
+    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -485,19 +496,19 @@
   
   <url>
     <loc>http://lvguowei.me/post/</loc>
-    <lastmod>2017-02-18T13:54:42+02:00</lastmod>
+    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/categories/programming/</loc>
-    <lastmod>2017-02-18T13:54:42+02:00</lastmod>
+    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/tags/programming-kata/</loc>
-    <lastmod>2017-02-18T13:54:42+02:00</lastmod>
+    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
     <priority>0</priority>
   </url>
   
