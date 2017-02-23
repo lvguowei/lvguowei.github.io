@@ -31,6 +31,22 @@
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-10/">programming kata day 10</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-23">February 23, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem Here is a list of students&rsquo; exam scores. Write a function to sort them based on given criteria. Like Math first, then Physics and then chemistry and then English.
+(def exam-scores [{:math 78 :physics 80 :english 97 :chemistry 65} {:math 78 :physics 80 :english 66 :chemistry 65} {:math 78 :physics 54 :english 97 :chemistry 65} {:math 78 :physics 80 :english 97 :chemistry 61} {:math 100 :physics 89 :english 47 :chemistry 85} {:math 98 :physics 80 :english 79 :chemistry 65}])  Solution (defn rank [scores &amp; criteria] (reverse  (sort-by  (fn [score] (mapv score criteria)) scores)))  Note The sort-by in Clojure is very powerful, the idea is to reduce each row into one value that we know how to sort, like numbers, strings or lists.  <a href="http://lvguowei.me/post/programming-kata-day-10/">Read More...</a>
+  </section>
+</article>
+
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-9/">Programming Kata Day 9</a></h2>
   <div class="meta">
 
