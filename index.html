@@ -94,6 +94,123 @@ Solution (defn insert [tree x] (cond (nil? tree) {:val x :L nil :R nil} (&lt; x 
 </article>
 
     
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-6/">Programming Kata Day 6</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-15">February 15, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem Write a function to determine if a vector contains a set of items.
+Solution (defn containsv [v &amp; items] (some (set items) v))  Note Using a set as the predicate supplied to some allows you to check whether any of the truthy values in the set are contained within the given sequence. This is a frequently used Clojure idiom for searching for containment within a sequence. 
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-5/">programming kata day 5</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-13">February 13, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem Write a function to determine if a number is a triangular number.
+Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-triangle-number [n] (loop [i 0] (cond (&gt; n (nth-triangle i)) (recur (inc i)) (= n (nth-triangle i)) true :else false)))  Solution 2 (defn is-triangle-number [n] (loop [tri 0 i 1] (cond (&gt; n tri) (recur (+ tri i) (inc i)) (= n tri) true :else false)))  Note Solution 1 is the first that came to my mind, but it has a typical problem: redundant calculation.  <a href="http://lvguowei.me/post/programming-kata-day-5/">Read More...</a>
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/perfume-shop-puzzle/">Perfume Shop Puzzle</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-12">February 12, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Solving hard puzzle programming challenges with logic programming is real fun. I solved one puzzle called &ldquo;Perfume Shop Puzzle&rdquo; by using the core.logic in Clojure. Check it out here: github. 
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-4/">Programming Kata Day 4</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-12">February 12, 2017</time></span>
+
+  </div>
+  <section class="summary">
+     Problem Implement take-nth.
+Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (count col)) result (if (= 0 (mod i n)) (recur (inc i) (conj result (nth col i))) (recur (inc i) result)))))  solution 2 (defn my-take-nth2 [n col] (-&gt;&gt; col (map-indexed (fn [i x] [i x])) (filter (fn [[i x]] (= 0 (mod i 2)))) (mapv (fn [[i x]] x))))   
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-3/">programming kata day 3</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-10">February 10, 2017</time></span>
+
+  </div>
+  <section class="summary">
+     Problem Trolls are attacking your comment section!
+A common way to deal with this situation is to remove all of the vowels from the trolls&rsquo; comments, neutralizing the threat.
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+For example, the string &ldquo;This website is for losers LOL!&rdquo; would become &ldquo;Ths wbst s fr lsrs LL!&rdquo;.
+Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\A \E \I \O \U \a \e \i \o \u} next) result (str result next))) &quot;&quot; string))  Solution 2 (defn disemvowel [string] (apply str (remove (set &quot;AEIOUaeiou&quot;) string)))   
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-2/">Programming Kata Day 2</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-07">February 07, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem: Write a function to calculate fibonacci number in constant space complexity.
+(defn fib [n] (loop [a 0 b 1 i n] (if (= 0 i) a (recur b (+ a b) (dec i)))))   
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata/">Programming Kata</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-06">February 06, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    From today, I will practice one programming kata per day and post the content here.
+Here goes the first one:
+ My friend John likes to go to the cinema. He can choose between system A and system B.
+System A : buy a ticket (15 dollars) every time
+System B : buy a card (500 dollars) and every time buy a ticket the price of which is 0.90 times the price he paid for the previous one.  <a href="http://lvguowei.me/post/programming-kata/">Read More...</a>
+  </section>
+</article>
+
+    
   </div>
 
   
