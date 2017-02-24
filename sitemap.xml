@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lvguowei.me/post/named-arguments-in-clojure/</loc>
+    <lastmod>2017-02-24T22:24:05+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/post/programming-kata-day-10/</loc>
     <lastmod>2017-02-23T20:36:33+02:00</lastmod>
   </url>
@@ -315,7 +320,7 @@
   
   <url>
     <loc>http://lvguowei.me/tags/clojure/</loc>
-    <lastmod>2017-02-23T20:36:33+02:00</lastmod>
+    <lastmod>2017-02-24T22:24:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -399,7 +404,7 @@
   
   <url>
     <loc>http://lvguowei.me/</loc>
-    <lastmod>2017-02-23T20:36:33+02:00</lastmod>
+    <lastmod>2017-02-24T22:24:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -501,7 +506,7 @@
   
   <url>
     <loc>http://lvguowei.me/post/</loc>
-    <lastmod>2017-02-23T20:36:33+02:00</lastmod>
+    <lastmod>2017-02-24T22:24:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
