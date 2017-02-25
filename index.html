@@ -46,6 +46,22 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-11/">programming kata day 11</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-25">February 25, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem This coding adventure comes from Advend Of Code Day 2
+Solution Github 
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/named-arguments-in-clojure/">Named Arguments In Clojure</a></h2>
   <div class="meta">
 
@@ -190,25 +206,6 @@ Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (c
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-3/">programming kata day 3</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-10">February 10, 2017</time></span>
-
-  </div>
-  <section class="summary">
-     Problem Trolls are attacking your comment section!
-A common way to deal with this situation is to remove all of the vowels from the trolls&rsquo; comments, neutralizing the threat.
-Your task is to write a function that takes a string and return a new string with all vowels removed.
-For example, the string &ldquo;This website is for losers LOL!&rdquo; would become &ldquo;Ths wbst s fr lsrs LL!&rdquo;.
-Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\A \E \I \O \U \a \e \i \o \u} next) result (str result next))) &quot;&quot; string))  Solution 2 (defn disemvowel [string] (apply str (remove (set &quot;AEIOUaeiou&quot;) string)))   
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -234,7 +231,7 @@ Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(32)</small>
+      <small>(33)</small>
     </h2>
     
   </section>
@@ -309,7 +306,7 @@ Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/clojure">clojure</a>
-      <small>(14)</small>
+      <small>(15)</small>
     </span>
     
     <span class="tag">
@@ -444,7 +441,7 @@ Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/programming-kata">programming-kata</a>
-      <small>(10)</small>
+      <small>(11)</small>
     </span>
     
     <span class="tag">

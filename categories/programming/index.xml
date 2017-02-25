@@ -9,6 +9,24 @@
     <atom:link href="http://lvguowei.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>programming kata day 11</title>
+      <link>http://lvguowei.me/post/programming-kata-day-11/</link>
+      <pubDate>Sat, 25 Feb 2017 21:30:56 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata-day-11/</guid>
+      <description>
+
+&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+
+&lt;p&gt;This coding adventure comes from &lt;a href=&#34;http://adventofcode.com/2016/day/2&#34;&gt;Advend Of Code Day 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/advent-of-code/tree/master/day2&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>programming kata day 10</title>
       <link>http://lvguowei.me/post/programming-kata-day-10/</link>
       <pubDate>Thu, 23 Feb 2017 20:36:33 +0200</pubDate>
@@ -57,7 +75,7 @@
 
 &lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/advent-of-code/blob/master/day_1_no_time_for_a_taxi_cab.clj&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/advent-of-code/tree/master/day1&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -530,27 +548,6 @@ buy a ticket the price of which is 0.90 times the price he paid for the previous
 &lt;figure &gt;
     
         &lt;img src=&#34;http://lvguowei.me/img/android-lib2.gif&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>My first Android library!</title>
-      <link>http://lvguowei.me/post/first-android-lib/</link>
-      <pubDate>Fri, 23 Dec 2016 12:25:51 +0200</pubDate>
-      
-      <guid>http://lvguowei.me/post/first-android-lib/</guid>
-      <description>&lt;p&gt;I published my first android library for creating customized progressbar.&lt;/p&gt;
-
-&lt;p&gt;Go check &lt;a href=&#34;https://github.com/lvguowei/SpinningProgressBar&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/android-lib.gif&#34; /&gt;
     
     
 &lt;/figure&gt;

@@ -6,8 +6,26 @@
     <description>Recent content in Posts on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Feb 2017 22:24:05 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 25 Feb 2017 21:30:56 +0200</lastBuildDate>
     <atom:link href="http://lvguowei.me/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>programming kata day 11</title>
+      <link>http://lvguowei.me/post/programming-kata-day-11/</link>
+      <pubDate>Sat, 25 Feb 2017 21:30:56 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata-day-11/</guid>
+      <description>
+
+&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+
+&lt;p&gt;This coding adventure comes from &lt;a href=&#34;http://adventofcode.com/2016/day/2&#34;&gt;Advend Of Code Day 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/advent-of-code/tree/master/day2&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Named Arguments In Clojure</title>
@@ -92,7 +110,7 @@
 
 &lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/advent-of-code/blob/master/day_1_no_time_for_a_taxi_cab.clj&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/advent-of-code/tree/master/day1&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -544,27 +562,6 @@ buy a ticket the price of which is 0.90 times the price he paid for the previous
 &lt;figure &gt;
     
         &lt;img src=&#34;http://lvguowei.me/img/acyclic-dependency3.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>My Second Android Library</title>
-      <link>http://lvguowei.me/post/second-android-lib/</link>
-      <pubDate>Mon, 26 Dec 2016 10:23:15 +0200</pubDate>
-      
-      <guid>http://lvguowei.me/post/second-android-lib/</guid>
-      <description>&lt;p&gt;I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.&lt;/p&gt;
-
-&lt;p&gt;Go check it out &lt;a href=&#34;https://github.com/lvguowei/CombinedDateTimePickerDialog&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/android-lib2.gif&#34; /&gt;
     
     
 &lt;/figure&gt;
