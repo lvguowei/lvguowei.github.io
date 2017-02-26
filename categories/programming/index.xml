@@ -9,6 +9,46 @@
     <atom:link href="http://lvguowei.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>programming kata day 12</title>
+      <link>http://lvguowei.me/post/programming-kata-day-12/</link>
+      <pubDate>Sun, 26 Feb 2017 16:38:38 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata-day-12/</guid>
+      <description>
+
+&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+
+&lt;p&gt;Implement a unit converter that uses the given the following metric&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(def metric {:meter 1
+             :km 1000
+             :cm 1/100
+             :mm [1/10 :cm]})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The converter should anwser questions like:&lt;/p&gt;
+
+&lt;p&gt;How many meters are there in 10 km and 20 cm?&lt;/p&gt;
+
+&lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;convert&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;context&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;descriptor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;reduce &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;mag&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;let &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;val &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;metric&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt;
+              &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;vector? &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;+ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;* &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;mag&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;convert&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;context&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+                &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;+ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;* &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;mag&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))&lt;/span&gt;
+          &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+          &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;partition&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;descriptor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+          
+&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;convert&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;metric&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;:meter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;convert&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;metric&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;:km&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;:meter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>programming kata day 11</title>
       <link>http://lvguowei.me/post/programming-kata-day-11/</link>
       <pubDate>Sat, 25 Feb 2017 21:30:56 +0200</pubDate>
@@ -527,27 +567,6 @@ buy a ticket the price of which is 0.90 times the price he paid for the previous
 &lt;figure &gt;
     
         &lt;img src=&#34;http://lvguowei.me/img/acyclic-dependency3.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>My Second Android Library</title>
-      <link>http://lvguowei.me/post/second-android-lib/</link>
-      <pubDate>Mon, 26 Dec 2016 10:23:15 +0200</pubDate>
-      
-      <guid>http://lvguowei.me/post/second-android-lib/</guid>
-      <description>&lt;p&gt;I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.&lt;/p&gt;
-
-&lt;p&gt;Go check it out &lt;a href=&#34;https://github.com/lvguowei/CombinedDateTimePickerDialog&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/android-lib2.gif&#34; /&gt;
     
     
 &lt;/figure&gt;

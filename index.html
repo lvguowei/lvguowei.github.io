@@ -46,6 +46,24 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-12/">programming kata day 12</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-26">February 26, 2017</time></span>
+
+  </div>
+  <section class="summary">
+     Problem Implement a unit converter that uses the given the following metric
+(def metric {:meter 1 :km 1000 :cm 1/100 :mm [1/10 :cm]})  The converter should anwser questions like:
+How many meters are there in 10 km and 20 cm?
+Solution (defn convert [context descriptor] (reduce (fn [result [mag unit]] (let [val (metric unit)] (if (vector? val) (+ result (* mag (convert context val))) (+ result (* mag val))))) 0 (partition 2 descriptor))) (convert metric [1 :meter]) (convert metric [3 :km 10 :meter])   
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-11/">programming kata day 11</a></h2>
   <div class="meta">
 
@@ -190,22 +208,6 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-4/">Programming Kata Day 4</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-12">February 12, 2017</time></span>
-
-  </div>
-  <section class="summary">
-     Problem Implement take-nth.
-Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (count col)) result (if (= 0 (mod i n)) (recur (inc i) (conj result (nth col i))) (recur (inc i) result)))))  solution 2 (defn my-take-nth2 [n col] (-&gt;&gt; col (map-indexed (fn [i x] [i x])) (filter (fn [[i x]] (= 0 (mod i 2)))) (mapv (fn [[i x]] x))))   
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -231,7 +233,7 @@ Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (c
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(33)</small>
+      <small>(34)</small>
     </h2>
     
   </section>
@@ -306,7 +308,7 @@ Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (c
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/clojure">clojure</a>
-      <small>(15)</small>
+      <small>(16)</small>
     </span>
     
     <span class="tag">
@@ -441,7 +443,7 @@ Solutions Solution 1 (defn my-take-nth [n col] (loop [i 0 result []] (if (= i (c
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/programming-kata">programming-kata</a>
-      <small>(11)</small>
+      <small>(12)</small>
     </span>
     
     <span class="tag">

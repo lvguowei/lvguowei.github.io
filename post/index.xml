@@ -6,8 +6,48 @@
     <description>Recent content in Posts on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Feb 2017 21:30:56 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 26 Feb 2017 16:38:38 +0200</lastBuildDate>
     <atom:link href="http://lvguowei.me/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>programming kata day 12</title>
+      <link>http://lvguowei.me/post/programming-kata-day-12/</link>
+      <pubDate>Sun, 26 Feb 2017 16:38:38 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata-day-12/</guid>
+      <description>
+
+&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+
+&lt;p&gt;Implement a unit converter that uses the given the following metric&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(def metric {:meter 1
+             :km 1000
+             :cm 1/100
+             :mm [1/10 :cm]})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The converter should anwser questions like:&lt;/p&gt;
+
+&lt;p&gt;How many meters are there in 10 km and 20 cm?&lt;/p&gt;
+
+&lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;convert&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;context&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;descriptor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;reduce &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;mag&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;let &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;val &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;metric&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt;
+              &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;vector? &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;+ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;* &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;mag&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;convert&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;context&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+                &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;+ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;* &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;mag&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))&lt;/span&gt;
+          &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+          &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;partition&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;descriptor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+          
+&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;convert&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;metric&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;:meter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;convert&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;metric&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;:km&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;:meter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+    </item>
     
     <item>
       <title>programming kata day 11</title>
@@ -481,91 +521,6 @@ buy a ticket the price of which is 0.90 times the price he paid for the previous
           &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;recur&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;inc &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;new-result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Why component dependency cycle is bad</title>
-      <link>http://lvguowei.me/post/why-component-dependency-cycle-is-bad/</link>
-      <pubDate>Sun, 01 Jan 2017 13:51:26 +0200</pubDate>
-      
-      <guid>http://lvguowei.me/post/why-component-dependency-cycle-is-bad/</guid>
-      <description>
-
-&lt;p&gt;I have been working on some Clojure project at work for several months now, one little thing bothers me now and then is that it doesn&amp;rsquo;t allow dependency cycle in project. For example if &lt;code&gt;a.clj&lt;/code&gt; requires &lt;code&gt;b.clj&lt;/code&gt;, &lt;code&gt;b.clj&lt;/code&gt; requires &lt;code&gt;c.clj&lt;/code&gt;, then &lt;code&gt;c.clj&lt;/code&gt; cannot require &lt;code&gt;a.clj&lt;/code&gt;, in other words, &lt;code&gt;c.clj&lt;/code&gt; cannot use anything inside &lt;code&gt;a.clj&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;At first, I thought this is a bit odd, java doesn&amp;rsquo;t have that. And once in a while we have to solve such problems by creating a new namespace and move the common function into it. I asked my colleagues and still couldn&amp;rsquo;t find a very satisfying explanation. Until I learned about the Acyclic Dependency Principle.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;The acyclic dependencies principle (ADP) is a software design principle that states that &amp;ldquo;the dependency graph of packages or components should have no cycles&amp;rdquo;. This implies that the dependencies form a directed acyclic graph.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Let&amp;rsquo;s look at an example to see why it is not desirable to have cycles in the dependency graph.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/acyclic-dependency.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;The original graph contains all the black arrows. The red arrow is added as a shortcut to use some display function in the &lt;code&gt;User Interface&lt;/code&gt; component.&lt;/p&gt;
-
-&lt;p&gt;This is bad in several ways.&lt;/p&gt;
-
-&lt;h2 id=&#34;it-s-bad-for-release&#34;&gt;It&amp;rsquo;s bad for release&lt;/h2&gt;
-
-&lt;p&gt;Let&amp;rsquo;s assume that the system now is under v1.0 and planing to make the release of v1.1.&lt;/p&gt;
-
-&lt;h3 id=&#34;without-the-cycle&#34;&gt;Without the cycle&lt;/h3&gt;
-
-&lt;p&gt;The project manager can take the following approach: &lt;code&gt;ErrorHandler&lt;/code&gt; and &lt;code&gt;DBModel&lt;/code&gt;teams can work on v1.1 first and make their releases. After that they may start working on already v1.2. Then &lt;code&gt;Deposit&lt;/code&gt; and &lt;code&gt;Database&lt;/code&gt; can be worked on based on the v1.1 &lt;code&gt;ErrorHandler&lt;/code&gt; and &lt;code&gt;DBModel&lt;/code&gt;. And finally the &lt;code&gt;UserInterface&lt;/code&gt; component can be worked on. This is like a wave traveling upwards the dependency graph, and every component can be still independently developed.&lt;/p&gt;
-
-&lt;h3 id=&#34;with-the-cycle&#34;&gt;With the cycle&lt;/h3&gt;
-
-&lt;p&gt;Now with that dependency cycle, it is not very clear where should we start! Say we want to start from &lt;code&gt;ErrorHandler&lt;/code&gt;. In order to make v1.1 of &lt;code&gt;ErrorHandler&lt;/code&gt;, we need v1.1 of &lt;code&gt;User Interface&lt;/code&gt;, which needs v1.1 of &lt;code&gt;Deposit&lt;/code&gt;, which need v1.1 of &lt;code&gt;ErrorHandler&lt;/code&gt;. So the only way is to group together all three components and develop them together for the new v1.1, since they all depend on each other. We lose the independent developability here.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-system-is-now-more-coupled&#34;&gt;The system is now more coupled&lt;/h2&gt;
-
-&lt;p&gt;Let&amp;rsquo;s take a closer look at the &lt;code&gt;ErrorHandler&lt;/code&gt; component again, what does it depend upon?&lt;/p&gt;
-
-&lt;h3 id=&#34;without-the-cycle-1&#34;&gt;Without the cycle&lt;/h3&gt;
-
-&lt;p&gt;Nothing.&lt;/p&gt;
-
-&lt;h3 id=&#34;with-the-cycle-1&#34;&gt;With the cycle&lt;/h3&gt;
-
-&lt;p&gt;Everything!&lt;/p&gt;
-
-&lt;p&gt;OK, now we are convinced that this is a bad idea but how can we fix this?&lt;/p&gt;
-
-&lt;h2 id=&#34;move-the-common-part-into-a-new-component&#34;&gt;Move the common part into a new component&lt;/h2&gt;
-
-&lt;p&gt;The most straightforward way is to create a new component, moves the part that used by both &lt;code&gt;UserInterface&lt;/code&gt; and &lt;code&gt;ErrorHandler&lt;/code&gt; into it.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/acyclic-dependency2.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;h2 id=&#34;use-dependency-inversion-principle&#34;&gt;Use Dependency Inversion Principle&lt;/h2&gt;
-
-&lt;p&gt;Use the good old DIP.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/acyclic-dependency3.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
 </description>
     </item>
     

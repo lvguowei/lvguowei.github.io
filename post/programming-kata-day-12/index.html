@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.18.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>programming kata day 12 - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-26">February 26, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/clojure">clojure</a>
+
+        <a href="http://lvguowei.me/tags/programming-kata">programming kata</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">programming kata day 12</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<h1 id="problem">Problem</h1>
+
+<p>Implement a unit converter that uses the given the following metric</p>
+
+<pre><code>(def metric {:meter 1
+             :km 1000
+             :cm 1/100
+             :mm [1/10 :cm]})
+</code></pre>
+
+<p>The converter should anwser questions like:</p>
+
+<p>How many meters are there in 10 km and 20 cm?</p>
+
+<h1 id="solution">Solution</h1>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">convert</span> <span class="p">[</span><span class="nv">context</span> <span class="nv">descriptor</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">result</span> <span class="p">[</span><span class="nv">mag</span> <span class="nv">unit</span><span class="p">]]</span>
+            <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nb">val </span><span class="p">(</span><span class="nf">metric</span> <span class="nv">unit</span><span class="p">)]</span>
+              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">val</span><span class="p">)</span>
+                <span class="p">(</span><span class="nb">+ </span><span class="nv">result</span> <span class="p">(</span><span class="nb">* </span><span class="nv">mag</span> <span class="p">(</span><span class="nf">convert</span> <span class="nv">context</span> <span class="nv">val</span><span class="p">)))</span>
+                <span class="p">(</span><span class="nb">+ </span><span class="nv">result</span> <span class="p">(</span><span class="nb">* </span><span class="nv">mag</span> <span class="nv">val</span><span class="p">)))))</span>
+          <span class="mi">0</span>
+          <span class="p">(</span><span class="nf">partition</span> <span class="mi">2</span> <span class="nv">descriptor</span><span class="p">)))</span>
+          
+<span class="p">(</span><span class="nf">convert</span> <span class="nv">metric</span> <span class="p">[</span><span class="mi">1</span> <span class="ss">:meter</span><span class="p">])</span>
+<span class="p">(</span><span class="nf">convert</span> <span class="nv">metric</span> <span class="p">[</span><span class="mi">3</span> <span class="ss">:km</span> <span class="mi">10</span> <span class="ss">:meter</span><span class="p">])</span>
+</code></pre></div>
+
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/programming-kata-day-12\/';
+    var disqus_title = 'programming kata day 12';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/programming-kata-day-12\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
