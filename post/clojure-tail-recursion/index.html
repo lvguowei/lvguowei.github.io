@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.18.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Clojure Tail Recursion - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-02-27">February 27, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/clojure">clojure</a>
+
+        <a href="http://lvguowei.me/tags/recursion">recursion</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Clojure Tail Recursion</h1>
+  <section class="body" itemprop="articleBody">
+    <p>What this <code>recur</code> and <code>tail calls optimization</code> is all about in Clojure? This blog post is trying to give a short yet easy to remember explanation.</p>
+
+<p>Before explaining anything, let&rsquo;s look at how we can implement <code>+</code> using recursion.</p>
+
+<p>This is actually an interesting task, implement our <code>+</code>, since most of the time <code>+</code> is a built-in function. So to make things a bit more clear, let&rsquo;s assume that our computer is drunk and forgets about how to do <code>+</code>, but it still remembers how to increment and decrement by 1. How about now?</p>
+
+<p>So here is our first solution:</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">sum-mundane</span> <span class="p">[</span><span class="nv">x</span> <span class="nv">y</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="mi">0</span> <span class="nv">y</span><span class="p">)</span>
+    <span class="nv">x</span>
+    <span class="p">(</span><span class="nb">inc </span><span class="p">(</span><span class="nf">sum-mundane</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">dec </span><span class="nv">y</span><span class="p">)))))</span>
+    
+</code></pre></div>
+
+
+<p>If you use the replacement technique to expand this recursion by hand, you will get something looks like this:</p>
+
+<pre><code>(inc (inc (inc (inc (inc (inc ... (inc x)))))))
+</code></pre>
+
+<p>There will be exactly <code>y</code> <code>inc</code>s.</p>
+
+<p>It seems that if y is very big, then we need more paper to write the whole thing down! So the paper now is like our computer&rsquo;s memory, it means this recursion is using up a lot of memory!</p>
+
+<p>Let&rsquo;s look at another approach:</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">sum-recur</span> <span class="p">[</span><span class="nv">x</span> <span class="nv">y</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="mi">0</span> <span class="nv">y</span><span class="p">)</span>
+    <span class="nv">x</span>
+    <span class="p">(</span><span class="nf">recur</span> <span class="p">(</span><span class="nb">inc </span><span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nb">dec </span><span class="nv">y</span><span class="p">))))</span>
+    
+</code></pre></div>
+
+
+<p>We can think of this as you have two piles of candies, and your Mom asks you to calculate the sum. Well as smart as a 2 year old baby, you don&rsquo;t know how. Then your Mom starts to move the candy one by one from one pile to the other one. After she is done, there is only one pile of candies left now. Now you suddenly know the answer.</p>
+
+<p>Seems this approach doesn&rsquo;t need any extra space to do the calculation. Emmm&hellip;</p>
+
+<p>Ok enough teaser. Let&rsquo;s discuss about the above two methods.</p>
+
+<p>Turns out that the <code>sum-recur</code> is a tail recursion while the <code>sum-mundane</code> is not. One way to verify is that if you replace the <code>sum-mundane</code> inside the function call to <code>recur</code>, it won&rsquo;t compile.</p>
+
+<p>There is a simple rule that can be used to differentiate the two:</p>
+
+<p><em>Tail recursion does not need to keep intermediate results in memory.</em></p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/clojure-tail-recursion\/';
+    var disqus_title = 'Clojure Tail Recursion';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/clojure-tail-recursion\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
