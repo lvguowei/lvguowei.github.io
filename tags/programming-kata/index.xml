@@ -9,6 +9,55 @@
     <atom:link href="http://lvguowei.me/tags/programming-kata/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Programming Kata Day 13</title>
+      <link>http://lvguowei.me/post/programming-kata-day-13/</link>
+      <pubDate>Mon, 06 Mar 2017 21:02:55 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata-day-13/</guid>
+      <description>
+
+&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+
+&lt;p&gt;The elevator can be on first floor or second floor
+The elevator can be either openned or closed.
+The elevator can go up or down. But when it goes up or down, the door has to be closed.
+The door can open or close, but it cannot open when it is already openned or close when it is already closed.&lt;/p&gt;
+
+&lt;p&gt;Write a function that takes a list of actions with :done indicating the end, and return if this sequence is legal or not.&lt;/p&gt;
+
+&lt;p&gt;This example comes from The Joy of Clojure 2nd.&lt;/p&gt;
+
+&lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;elevator&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;commands&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;letfn&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ff-open&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+            &lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;_&lt;/span&gt;
+               &lt;span class=&#34;ss&#34;&gt;:close&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ff-close&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+               &lt;span class=&#34;ss&#34;&gt;:done&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;true&lt;/span&gt;
+               &lt;span class=&#34;nv&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+          &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ff-close&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+            &lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;_&lt;/span&gt;
+               &lt;span class=&#34;ss&#34;&gt;:open&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ff-open&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+               &lt;span class=&#34;ss&#34;&gt;:up&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sf-close&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+               &lt;span class=&#34;nv&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+          &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sf-close&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+            &lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;_&lt;/span&gt;
+               &lt;span class=&#34;ss&#34;&gt;:open&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sf-open&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+               &lt;span class=&#34;ss&#34;&gt;:down&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ff-close&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+               &lt;span class=&#34;nv&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+          &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sf-open&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+            &lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;_&lt;/span&gt;
+               &lt;span class=&#34;ss&#34;&gt;:close&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sf-close&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+               &lt;span class=&#34;ss&#34;&gt;:done&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;true&lt;/span&gt;
+               &lt;span class=&#34;nv&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))]&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;trampoline&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ff-open&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;commands&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>programming kata day 12</title>
       <link>http://lvguowei.me/post/programming-kata-day-12/</link>
       <pubDate>Sun, 26 Feb 2017 16:38:38 +0200</pubDate>

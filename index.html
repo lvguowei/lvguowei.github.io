@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="Guowei Lv">
-<meta name="generator" content="Hugo 0.18.1" />
+<meta name="generator" content="Hugo 0.19" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -43,6 +43,22 @@
   <h1 class="headline">Recent Posts</h1>
 
   <div class="article-list">
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-13/">Programming Kata Day 13</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-03-06">March 06, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Problem The elevator can be on first floor or second floor The elevator can be either openned or closed. The elevator can go up or down. But when it goes up or down, the door has to be closed. The door can open or close, but it cannot open when it is already openned or close when it is already closed.
+Write a function that takes a list of actions with :done indicating the end, and return if this sequence is legal or not.  <a href="http://lvguowei.me/post/programming-kata-day-13/">Read More...</a>
+  </section>
+</article>
+
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
@@ -194,22 +210,6 @@ Solution (defn containsv [v &amp; items] (some (set items) v))  Note Using a set
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-5/">programming kata day 5</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-13">February 13, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    Problem Write a function to determine if a number is a triangular number.
-Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-triangle-number [n] (loop [i 0] (cond (&gt; n (nth-triangle i)) (recur (inc i)) (= n (nth-triangle i)) true :else false)))  Solution 2 (defn is-triangle-number [n] (loop [tri 0 i 1] (cond (&gt; n tri) (recur (+ tri i) (inc i)) (= n tri) true :else false)))  Note Solution 1 is the first that came to my mind, but it has a typical problem: redundant calculation.  <a href="http://lvguowei.me/post/programming-kata-day-5/">Read More...</a>
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -235,7 +235,7 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(35)</small>
+      <small>(36)</small>
     </h2>
     
   </section>
@@ -310,7 +310,7 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/clojure">clojure</a>
-      <small>(17)</small>
+      <small>(18)</small>
     </span>
     
     <span class="tag">
@@ -445,7 +445,7 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/programming-kata">programming-kata</a>
-      <small>(12)</small>
+      <small>(13)</small>
     </span>
     
     <span class="tag">
@@ -497,7 +497,7 @@ Solutions Solution 1 (defn nth-triangle [n] (apply + (range (inc n)))) (defn is-
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-71831707-2', 'auto');
 ga('send', 'pageview');
