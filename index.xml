@@ -6,8 +6,92 @@
     <description>Recent content on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Mar 2017 21:02:55 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 20 Mar 2017 20:27:39 +0200</lastBuildDate>
     <atom:link href="http://lvguowei.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mock Objects Demystified</title>
+      <link>http://lvguowei.me/post/mock-objects-dimistified/</link>
+      <pubDate>Mon, 20 Mar 2017 20:27:39 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/mock-objects-dimistified/</guid>
+      <description>&lt;p&gt;If you have ever tried writing any non trivial tests, mocks should not be a stranger to you. But what about some other &amp;ldquo;mock&amp;rdquo; like objects like stubs, spies and such? How are they different from each other? In this blog post, I will explain it as simple and easy to remember as possible.&lt;/p&gt;
+
+&lt;p&gt;Everything is a &lt;strong&gt;test double&lt;/strong&gt;. &lt;strong&gt;Test double&lt;/strong&gt; is just a general name for all mock like objects.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/test-double.jpeg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Then the simplest of them all is &lt;strong&gt;Dummy&lt;/strong&gt;. A &lt;strong&gt;Dummy&lt;/strong&gt; is an implementation of an interface that all methods return as close to nothing as possible. It don&amp;rsquo;t do nothing, it don&amp;rsquo;t return nothing, it&amp;rsquo;s just there.&lt;/p&gt;
+
+&lt;p&gt;We often use an dummy when we test a function and it requires some argument that is not related to what we want to test.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/dummy.jpeg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Next in the sequence of test doubles is &lt;strong&gt;stub&lt;/strong&gt;, &lt;strong&gt;stub&lt;/strong&gt; is a dummy, all functions in stub do nothing. The difference is that instead of return nothing, the functions return some predefined fixed value.&lt;/p&gt;
+
+&lt;p&gt;By return certain values, the stub drives the code to the path way that we want to test.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/stub.jpeg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;The next test double is the &lt;strong&gt;spy&lt;/strong&gt;. The spy is a stub, it do nothing and return the value that are useful to the test. However, it remember certain interesting facts about the way it is called, and report the facts later to the test.&lt;/p&gt;
+
+&lt;p&gt;Sometimes you write a spy just to remember a function gets called, or how many times it gets called, or how many args are passed in, etc. But, a spy don&amp;rsquo;t do nothing, all the spy does is watch and remember.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/spy.jpeg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;At last, the &lt;strong&gt;mock&lt;/strong&gt;. A mock is a spy, but it knows very specific how to check what are being spied. Usually it contains some &lt;em&gt;verify&amp;hellip;()&lt;/em&gt; function like &lt;em&gt;verifyAlertTriggerOnThirdFailedAttempt()&lt;/em&gt;. So a true mock is a spy knows what to expect, and the test ask the mock if everything went as expected.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/mock.jpeg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Finally there is the &lt;strong&gt;fake&lt;/strong&gt;. A fake is not anything above. It is a simulator. The fake is very smart and complicated and it starts to look like the real deal. For example, a fake &lt;code&gt;Authorizer&lt;/code&gt; may return &lt;code&gt;User&lt;/code&gt; with id 1 if you pass in names that start with &lt;code&gt;good&lt;/code&gt;, else it returns &lt;code&gt;InvalidUser&lt;/code&gt;. But be caucious not to grow it too much or it will become a mess very quickly. And you probably want to have tests that test fakes. For unit tests fakes are really not that necessary, but for intergration tests, they can come quite handy. But in general, avoid fakes when you can.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://lvguowei.me/img/fake.jpeg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;That&amp;rsquo;s the end.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Programming Kata Day 13</title>
@@ -523,27 +607,6 @@ The door can open or close, but it cannot open when it is already openned or clo
   &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;apply str &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;remove &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;set &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;AEIOUaeiou&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Programming Kata Day 2</title>
-      <link>http://lvguowei.me/post/programming-kata-day-2/</link>
-      <pubDate>Tue, 07 Feb 2017 19:34:17 +0200</pubDate>
-      
-      <guid>http://lvguowei.me/post/programming-kata-day-2/</guid>
-      <description>&lt;p&gt;Problem: Write a function to calculate fibonacci number in constant space complexity.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;fib&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;loop &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
-         &lt;span class=&#34;nv&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-         &lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;= &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-      &lt;span class=&#34;nv&#34;&gt;a&lt;/span&gt;
-      &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;recur&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;+ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;dec &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))&lt;/span&gt;
-      
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 </description>
     </item>
     

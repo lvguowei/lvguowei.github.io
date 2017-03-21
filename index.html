@@ -46,6 +46,22 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/mock-objects-dimistified/">Mock Objects Demystified</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-03-20">March 20, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    If you have ever tried writing any non trivial tests, mocks should not be a stranger to you. But what about some other &ldquo;mock&rdquo; like objects like stubs, spies and such? How are they different from each other? In this blog post, I will explain it as simple and easy to remember as possible.
+Everything is a test double. Test double is just a general name for all mock like objects.  <a href="http://lvguowei.me/post/mock-objects-dimistified/">Read More...</a>
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-13/">Programming Kata Day 13</a></h2>
   <div class="meta">
 
@@ -194,22 +210,6 @@ Solution (defn insert [tree x] (cond (nil? tree) {:val x :L nil :R nil} (&lt; x 
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-6/">Programming Kata Day 6</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-15">February 15, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    Problem Write a function to determine if a vector contains a set of items.
-Solution (defn containsv [v &amp; items] (some (set items) v))  Note Using a set as the predicate supplied to some allows you to check whether any of the truthy values in the set are contained within the given sequence. This is a frequently used Clojure idiom for searching for containment within a sequence. 
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -235,7 +235,7 @@ Solution (defn containsv [v &amp; items] (some (set items) v))  Note Using a set
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(36)</small>
+      <small>(37)</small>
     </h2>
     
   </section>
@@ -480,7 +480,7 @@ Solution (defn containsv [v &amp; items] (some (set items) v))  Note Using a set
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/tdd">tdd</a>
-      <small>(2)</small>
+      <small>(3)</small>
     </span>
     
     <span class="tag">

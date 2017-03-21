@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lvguowei.me/post/mock-objects-dimistified/</loc>
+    <lastmod>2017-03-20T20:27:39+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/post/programming-kata-day-13/</loc>
     <lastmod>2017-03-06T21:02:55+02:00</lastmod>
   </url>
@@ -424,7 +429,7 @@
   
   <url>
     <loc>http://lvguowei.me/</loc>
-    <lastmod>2017-03-06T21:02:55+02:00</lastmod>
+    <lastmod>2017-03-20T20:27:39+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -526,13 +531,13 @@
   
   <url>
     <loc>http://lvguowei.me/post/</loc>
-    <lastmod>2017-03-06T21:02:55+02:00</lastmod>
+    <lastmod>2017-03-20T20:27:39+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/categories/programming/</loc>
-    <lastmod>2017-03-06T21:02:55+02:00</lastmod>
+    <lastmod>2017-03-20T20:27:39+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -585,7 +590,7 @@
   
   <url>
     <loc>http://lvguowei.me/tags/tdd/</loc>
-    <lastmod>2016-12-18T19:53:45+02:00</lastmod>
+    <lastmod>2017-03-20T20:27:39+02:00</lastmod>
     <priority>0</priority>
   </url>
   
