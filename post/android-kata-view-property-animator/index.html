@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.19" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Android Kata View Property Animator - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-03-28">March 28, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/programming-kata">programming kata</a>
+
+        <a href="http://lvguowei.me/tags/android">android</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Android Kata View Property Animator</h1>
+  <section class="body" itemprop="articleBody">
+    <p>Since I have been doing programming kata, why not adopt the same kata concept in Android programming?</p>
+
+<p>Over the years I have accumulated some useful tools / tricks that I can show in kata form.</p>
+
+<p>The goal is to keep it simple and easy to grasp and to the point.</p>
+
+<p>This is the first one, which shows how to use <a href="https://developer.android.com/reference/android/view/ViewPropertyAnimator.html">ViewPropertyAnimator</a> to animate show and hide of the FAB button.</p>
+
+<p>Here is how the end result looks.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/animate-fab.gif" />
+    
+    
+</figure>
+
+
+<p>Things to note:</p>
+
+<ol>
+<li>The properties are animated simultaneously.</li>
+<li>Use the App Compat version to better support older android versions.</li>
+</ol>
+
+<p>Now the code:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">FloatingActionButton</span> <span class="n">fab</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isVisible</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+        <span class="n">Toolbar</span> <span class="n">toolbar</span> <span class="o">=</span> <span class="o">(</span><span class="n">Toolbar</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">toolbar</span><span class="o">);</span>
+        <span class="n">fab</span> <span class="o">=</span> <span class="o">(</span><span class="n">FloatingActionButton</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">fab</span><span class="o">);</span>
+        <span class="n">Button</span> <span class="n">animateButton</span> <span class="o">=</span> <span class="o">(</span><span class="n">Button</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">animate</span><span class="o">);</span>
+
+        <span class="n">animateButton</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">new</span> <span class="n">View</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">isVisible</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">animateHide</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">animateShow</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+        <span class="n">setSupportActionBar</span><span class="o">(</span><span class="n">toolbar</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">animateShow</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ViewCompat</span><span class="o">.</span><span class="na">animate</span><span class="o">(</span><span class="n">fab</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">alpha</span><span class="o">(</span><span class="mf">1f</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">scaleX</span><span class="o">(</span><span class="mf">1f</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">scaleY</span><span class="o">(</span><span class="mf">1f</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">translationZ</span><span class="o">(</span><span class="mi">30</span><span class="n">f</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">800</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">setInterpolator</span><span class="o">(</span><span class="k">new</span> <span class="n">OvershootInterpolator</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">setListener</span><span class="o">(</span><span class="k">new</span> <span class="n">ViewPropertyAnimatorListener</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationStart</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationEnd</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">isVisible</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                    <span class="o">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationCancel</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">}</span>
+                <span class="o">})</span>
+                <span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">animateHide</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ViewCompat</span><span class="o">.</span><span class="na">animate</span><span class="o">(</span><span class="n">fab</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">alpha</span><span class="o">(</span><span class="mf">0f</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">scaleX</span><span class="o">(</span><span class="mf">0f</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">scaleY</span><span class="o">(</span><span class="mf">0f</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">translationZ</span><span class="o">(</span><span class="mf">1f</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">800</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">setInterpolator</span><span class="o">(</span><span class="k">new</span> <span class="n">AnticipateOvershootInterpolator</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">setListener</span><span class="o">(</span><span class="k">new</span> <span class="n">ViewPropertyAnimatorListener</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationStart</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationEnd</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">isVisible</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+                    <span class="o">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationCancel</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="o">}</span>
+                <span class="o">})</span>
+                <span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>You can also experiment with other Interpolators. Happy coding.</p>
+
+<p>~Fin~</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/android-kata-view-property-animator\/';
+    var disqus_title = 'Android Kata View Property Animator';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/android-kata-view-property-animator\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

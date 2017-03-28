@@ -46,6 +46,24 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/android-kata-view-property-animator/">Android Kata View Property Animator</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-03-28">March 28, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    Since I have been doing programming kata, why not adopt the same kata concept in Android programming?
+Over the years I have accumulated some useful tools / tricks that I can show in kata form.
+The goal is to keep it simple and easy to grasp and to the point.
+This is the first one, which shows how to use ViewPropertyAnimator to animate show and hide of the FAB button.  <a href="http://lvguowei.me/post/android-kata-view-property-animator/">Read More...</a>
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/mock-objects-dimistified/">Mock Objects Demystified</a></h2>
   <div class="meta">
 
@@ -193,23 +211,6 @@ Solution Github
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-7/">Programming Kata Day 7</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-17">February 17, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    Problem Suppose a binary tree structure looks like this:
-{:val value :L &lt;left-node&gt; :R &lt;right-node&gt;}  Write a function to balance insert node into the tree.
-Solution (defn insert [tree x] (cond (nil? tree) {:val x :L nil :R nil} (&lt; x (:val tree)) (assoc tree :L (insert (:L tree) x)) :else (assoc tree :R (insert (:R tree) x))))  Note Here is the function to traverse the tree:  <a href="http://lvguowei.me/post/programming-kata-day-7/">Read More...</a>
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -235,7 +236,7 @@ Solution (defn insert [tree x] (cond (nil? tree) {:val x :L nil :R nil} (&lt; x 
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(37)</small>
+      <small>(38)</small>
     </h2>
     
   </section>
@@ -270,7 +271,7 @@ Solution (defn insert [tree x] (cond (nil? tree) {:val x :L nil :R nil} (&lt; x 
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/android">android</a>
-      <small>(4)</small>
+      <small>(5)</small>
     </span>
     
     <span class="tag">
@@ -445,7 +446,7 @@ Solution (defn insert [tree x] (cond (nil? tree) {:val x :L nil :R nil} (&lt; x 
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/programming-kata">programming-kata</a>
-      <small>(13)</small>
+      <small>(14)</small>
     </span>
     
     <span class="tag">
