@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.19" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Understand Clojure Transducers 1 - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-04-02">April 02, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/clojure">clojure</a>
+
+        <a href="http://lvguowei.me/tags/transducer">transducer</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Understand Clojure Transducers 1</h1>
+  <section class="body" itemprop="articleBody">
+    <p>In this post, we will define what is a <em>transducer</em>.</p>
+
+<p>First, let&rsquo;s take a closer look at <em>map</em>.</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="nb">map inc </span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div>
+
+
+<p>A straightforward way to explain what has happened is this:
+Increment each item by one in a list.</p>
+
+<p>At first thought, this sounds like one step operation.</p>
+
+<p>Now let&rsquo;s change the requirement a bit. We want to increment each element by one and then sum them together.</p>
+
+<p>This is very similar to what <em>map</em> is except it needs more processing after.</p>
+
+<p>Let&rsquo;s do it by using a <em>reduce</em>.</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">acc</span> <span class="nv">n</span><span class="p">]</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">acc</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">))</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div>
+
+
+<p>Now this looks like a two step operation:</p>
+
+<ol>
+<li>Increment each element by one</li>
+<li>Sum them together</li>
+</ol>
+
+<p>Emm&hellip; Now if we rethink the <em>map</em> example, it can actually be expressed as a two step operation as well:</p>
+
+<ol>
+<li>Increment each element by one</li>
+<li>Create a new list out of the incremented elements</li>
+</ol>
+
+<p>To make it more clear, let&rsquo;s also write <em>map</em> using <em>reduce</em>:</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">acc</span> <span class="nv">n</span><span class="p">]</span> <span class="p">(</span><span class="nb">conj </span><span class="nv">acc</span> <span class="p">(</span><span class="nb">inc </span><span class="nv">n</span><span class="p">)))</span> <span class="p">[]</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div>
+
+
+<p>Now realize that the first step is the same. Can we somehow extract that out, so it can be reused in both examples? The ideal format would be something like:</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">((</span><span class="nf">mapping</span> <span class="nv">inc</span><span class="p">)</span> <span class="nv">*second-step*</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>This <em>(mapping inc)</em> is a function that takes a <em>second-step</em> and returns a reducing function that can be used by <em>reduce</em>. Also note that <em>(mapping inc)</em> is only saying <em>map the inc function into each item</em>, and doesn&rsquo;t specify what should we do next. The <em>second-step</em> defines what to do with the result of <em>increment every item by one</em>.</p>
+
+<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">mapping</span> <span class="p">[</span><span class="nv">f</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">second-step</span><span class="p">]</span>
+    <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">acc</span> <span class="nv">n</span><span class="p">]</span>
+      <span class="p">(</span><span class="nf">second-step</span> <span class="nv">acc</span> <span class="p">(</span><span class="nf">f</span> <span class="nv">n</span><span class="p">)))))</span>
+</code></pre></div>
+
+
+<p>Now what the <em>mapping</em> function returns is called a <em>transducer</em>. It takes a <em>second-step</em> function and returns a reducing function. Also note that the <em>second-step</em> function is also a reducing function. Thus, we can define a transducer to be a function that takes a reducing function and returns a new reducing function.</p>
+
+<p><em>~To be continued~</em></p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/understand-clojure-transducers\/';
+    var disqus_title = 'Understand Clojure Transducers 1';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/understand-clojure-transducers\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

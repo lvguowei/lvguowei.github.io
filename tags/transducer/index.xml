@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transducer on Guowei Lv</title>
+    <link>http://lvguowei.me/tags/transducer/index.xml</link>
+    <description>Recent content in Transducer on Guowei Lv</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://lvguowei.me/tags/transducer/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Understand Clojure Transducers 1</title>
+      <link>http://lvguowei.me/post/understand-clojure-transducers/</link>
+      <pubDate>Sun, 02 Apr 2017 08:35:01 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/understand-clojure-transducers/</guid>
+      <description>&lt;p&gt;In this post, we will define what is a &lt;em&gt;transducer&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s take a closer look at &lt;em&gt;map&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;map inc &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A straightforward way to explain what has happened is this:
+Increment each item by one in a list.&lt;/p&gt;
+
+&lt;p&gt;At first thought, this sounds like one step operation.&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s change the requirement a bit. We want to increment each element by one and then sum them together.&lt;/p&gt;
+
+&lt;p&gt;This is very similar to what &lt;em&gt;map&lt;/em&gt; is except it needs more processing after.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s do it by using a &lt;em&gt;reduce&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;reduce &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;acc&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;+ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;acc&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now this looks like a two step operation:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Increment each element by one&lt;/li&gt;
+&lt;li&gt;Sum them together&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Emm&amp;hellip; Now if we rethink the &lt;em&gt;map&lt;/em&gt; example, it can actually be expressed as a two step operation as well:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Increment each element by one&lt;/li&gt;
+&lt;li&gt;Create a new list out of the incremented elements&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To make it more clear, let&amp;rsquo;s also write &lt;em&gt;map&lt;/em&gt; using &lt;em&gt;reduce&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;reduce &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;acc&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;conj &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;acc&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;inc &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now realize that the first step is the same. Can we somehow extract that out, so it can be reused in both examples? The ideal format would be something like:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;mapping&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;inc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;*second-step*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This &lt;em&gt;(mapping inc)&lt;/em&gt; is a function that takes a &lt;em&gt;second-step&lt;/em&gt; and returns a reducing function that can be used by &lt;em&gt;reduce&lt;/em&gt;. Also note that &lt;em&gt;(mapping inc)&lt;/em&gt; is only saying &lt;em&gt;map the inc function into each item&lt;/em&gt;, and doesn&amp;rsquo;t specify what should we do next. The &lt;em&gt;second-step&lt;/em&gt; defines what to do with the result of &lt;em&gt;increment every item by one&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-clojure&#34; data-lang=&#34;clojure&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;defn &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;mapping&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;second-step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;acc&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;second-step&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;acc&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;f&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now what the &lt;em&gt;mapping&lt;/em&gt; function returns is called a &lt;em&gt;transducer&lt;/em&gt;. It takes a &lt;em&gt;second-step&lt;/em&gt; function and returns a reducing function. Also note that the &lt;em&gt;second-step&lt;/em&gt; function is also a reducing function. Thus, we can define a transducer to be a function that takes a reducing function and returns a new reducing function.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;~To be continued~&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lvguowei.me/post/understand-clojure-transducers/</loc>
+    <lastmod>2017-04-02T08:35:01+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/post/android-kata-view-property-animator/</loc>
     <lastmod>2017-03-28T20:49:08+03:00</lastmod>
   </url>
@@ -350,7 +355,7 @@
   
   <url>
     <loc>http://lvguowei.me/tags/clojure/</loc>
-    <lastmod>2017-03-06T21:02:55+02:00</lastmod>
+    <lastmod>2017-04-02T08:35:01+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -434,7 +439,7 @@
   
   <url>
     <loc>http://lvguowei.me/</loc>
-    <lastmod>2017-03-28T20:49:08+03:00</lastmod>
+    <lastmod>2017-04-02T08:35:01+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -536,13 +541,13 @@
   
   <url>
     <loc>http://lvguowei.me/post/</loc>
-    <lastmod>2017-03-28T20:49:08+03:00</lastmod>
+    <lastmod>2017-04-02T08:35:01+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/categories/programming/</loc>
-    <lastmod>2017-03-28T20:49:08+03:00</lastmod>
+    <lastmod>2017-04-02T08:35:01+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -596,6 +601,12 @@
   <url>
     <loc>http://lvguowei.me/tags/tdd/</loc>
     <lastmod>2017-03-20T20:27:39+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/transducer/</loc>
+    <lastmod>2017-04-02T08:35:01+03:00</lastmod>
     <priority>0</priority>
   </url>
   
