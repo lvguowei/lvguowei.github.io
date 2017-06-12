@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="Guowei Lv">
-<meta name="generator" content="Hugo 0.19" />
+<meta name="generator" content="Hugo 0.21" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -48,7 +48,7 @@ This is actually an interesting task, implement our +, since most of the time + 
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/Time-and-Space-of-Recursion/">Time and Space of Recursion</a></h2>
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/time-and-space-of-recursion/">Time and Space of Recursion</a></h2>
   <div class="meta">
 
     <span class="key">published on</span>
@@ -61,7 +61,7 @@ This is actually an interesting task, implement our +, since most of the time + 
 我们来对比一下两种第归算法的时间和空间的消耗。
 第一个方法很直接。思想就是要计算 a 的 n 次方， 只要计算 a 的 (n - 1) 次方， 然后结果在乘以 a 。如下：
 (define (expt a n) (if (= n 0) 1 (* a (expt a (- n 1)))))  为了更直观的理解这个算法，我们来计算一个例子， 2 的 3 次方。
-(expt 2 3) (* 2 (expt 2 2)) (* 2 (* 2 (expt 2 1))) (* 2 (* 2 (* 2 (expt 2 0)))) (* 2 (* 2 (* 2 1))) (* 2 (* 2 2)) (* 2 4) 8  我们能能明显看到这个算法的“形状”是一个三角形。每一行代表一次计算，也可以理解成时间的消耗。而每一列则代表计算机需要记住的内容，比如说一共要乘以几个2，也可以理解成空间的消耗。我们可以看到，随着 n 的增大， 这个算法的时间和空间消耗也随之增大。而且增大的速度都是线性的。时间的消耗随着 n 的增大而增大很好理解， n 大了， 计算花的时间也相应长了。但是空间消耗可不可以不增大呢？下面我们就来看另一种算法。  <a href="http://lvguowei.me/post/Time-and-Space-of-Recursion/">Read More...</a>
+(expt 2 3) (* 2 (expt 2 2)) (* 2 (* 2 (expt 2 1))) (* 2 (* 2 (* 2 (expt 2 0)))) (* 2 (* 2 (* 2 1))) (* 2 (* 2 2)) (* 2 4) 8  我们能能明显看到这个算法的“形状”是一个三角形。每一行代表一次计算，也可以理解成时间的消耗。而每一列则代表计算机需要记住的内容，比如说一共要乘以几个2，也可以理解成空间的消耗。我们可以看到，随着 n 的增大， 这个算法的时间和空间消耗也随之增大。而且增大的速度都是线性的。时间的消耗随着 n 的增大而增大很好理解， n 大了， 计算花的时间也相应长了。但是空间消耗可不可以不增大呢？下面我们就来看另一种算法。  <a href="http://lvguowei.me/post/time-and-space-of-recursion/">Read More...</a>
   </section>
 </article>
 

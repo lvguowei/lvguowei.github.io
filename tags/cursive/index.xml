@@ -2,110 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cursive on Guowei Lv</title>
-    <link>http://lvguowei.me/tags/cursive/index.xml</link>
+    <link>http://lvguowei.me/tags/cursive/</link>
     <description>Recent content in Cursive on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://lvguowei.me/tags/cursive/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Oct 2016 14:11:16 +0300</lastBuildDate>
+    
+	<atom:link href="http://lvguowei.me/tags/cursive/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Finnish learning diary 10</title>
-      <link>http://lvguowei.me/post/Finnish-learning-diary-10/</link>
+      <link>http://lvguowei.me/post/finnish-learning-diary-10/</link>
       <pubDate>Sun, 16 Oct 2016 14:11:16 +0300</pubDate>
       
-      <guid>http://lvguowei.me/post/Finnish-learning-diary-10/</guid>
-      <description>
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/finnishpod-s1-17.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <guid>http://lvguowei.me/post/finnish-learning-diary-10/</guid>
+      <description>  </description>
     </item>
     
     <item>
       <title>Finnish learning diary 9</title>
-      <link>http://lvguowei.me/post/Finnish-learning-diary-9/</link>
+      <link>http://lvguowei.me/post/finnish-learning-diary-9/</link>
       <pubDate>Sun, 16 Oct 2016 09:34:04 +0300</pubDate>
       
-      <guid>http://lvguowei.me/post/Finnish-learning-diary-9/</guid>
-      <description>
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/finnishpod-s1-18.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <guid>http://lvguowei.me/post/finnish-learning-diary-9/</guid>
+      <description>  </description>
     </item>
     
     <item>
       <title>Finnish learning diary 8</title>
-      <link>http://lvguowei.me/post/Finnish-learning-diary-8/</link>
+      <link>http://lvguowei.me/post/finnish-learning-diary-8/</link>
       <pubDate>Sun, 09 Oct 2016 20:55:47 +0300</pubDate>
       
-      <guid>http://lvguowei.me/post/Finnish-learning-diary-8/</guid>
-      <description>
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/finnishpod-s1-19b.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/finnishpod-s1-19.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-&lt;/p&gt;
-</description>
+      <guid>http://lvguowei.me/post/finnish-learning-diary-8/</guid>
+      <description>    </description>
     </item>
     
     <item>
       <title>Finnish learning diary 7</title>
-      <link>http://lvguowei.me/post/Finnish-learning-diary-7/</link>
+      <link>http://lvguowei.me/post/finnish-learning-diary-7/</link>
       <pubDate>Sat, 08 Oct 2016 20:10:44 +0300</pubDate>
       
-      <guid>http://lvguowei.me/post/Finnish-learning-diary-7/</guid>
-      <description>
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/finnishpod-s1-20.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <guid>http://lvguowei.me/post/finnish-learning-diary-7/</guid>
+      <description>  </description>
     </item>
     
     <item>
       <title>Finnish learning diary 6</title>
-      <link>http://lvguowei.me/post/Finnish-learning-diary-6/</link>
+      <link>http://lvguowei.me/post/finnish-learning-diary-6/</link>
       <pubDate>Sat, 08 Oct 2016 20:09:44 +0300</pubDate>
       
-      <guid>http://lvguowei.me/post/Finnish-learning-diary-6/</guid>
-      <description>&lt;p&gt;I am into improving my handwriting recently and have been practicing on cursive style quite a bit.&lt;/p&gt;
-
-&lt;p&gt;So I think maybe I can combine it with Finnish learning.&lt;/p&gt;
-
-&lt;p&gt;Now instead typing I write things down by hand.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/finnishpod-s1-21.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <guid>http://lvguowei.me/post/finnish-learning-diary-6/</guid>
+      <description>I am into improving my handwriting recently and have been practicing on cursive style quite a bit.
+So I think maybe I can combine it with Finnish learning.
+Now instead typing I write things down by hand.
+ </description>
     </item>
     
   </channel>

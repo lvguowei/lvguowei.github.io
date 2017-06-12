@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ayumi Hamasaki on Guowei Lv</title>
-    <link>http://lvguowei.me/tags/ayumi-hamasaki/index.xml</link>
+    <link>http://lvguowei.me/tags/ayumi-hamasaki/</link>
     <description>Recent content in Ayumi Hamasaki on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://lvguowei.me/tags/ayumi-hamasaki/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2016 18:30:50 +0200</lastBuildDate>
+    
+	<atom:link href="http://lvguowei.me/tags/ayumi-hamasaki/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Ayumi Hamasaki Portrait</title>
@@ -14,17 +17,8 @@
       <pubDate>Mon, 05 Dec 2016 18:30:50 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/painting-ayumi/</guid>
-      <description>&lt;p&gt;Ayumi Hamasaki, painted by Krita ~&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/ayumi.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Ayumi Hamasaki, painted by Krita ~
+ </description>
     </item>
     
   </channel>

@@ -2,91 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on Guowei Lv</title>
-    <link>http://lvguowei.me/tags/java/index.xml</link>
+    <link>http://lvguowei.me/tags/java/</link>
     <description>Recent content in Java on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://lvguowei.me/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Nov 2016 21:29:52 +0200</lastBuildDate>
+    
+	<atom:link href="http://lvguowei.me/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Master Mind in TDD</title>
-      <link>http://lvguowei.me/post/master-mind-TDD/</link>
+      <link>http://lvguowei.me/post/master-mind-tdd/</link>
       <pubDate>Mon, 21 Nov 2016 21:29:52 +0200</pubDate>
       
-      <guid>http://lvguowei.me/post/master-mind-TDD/</guid>
-      <description>&lt;p&gt;In one of Uncle Bob&amp;rsquo;s video, he talked about this game called &amp;ldquo;Master Mind&amp;rdquo; when he was teaching Single Responsibility Principle(SRP).
-After googled the game, turns out that it is actually a quite famous board game. For more information about the game, please look here -&amp;gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Mastermind_(board_game)&#34;&gt;wiki&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The game can be played by two people. One comes up with a code, the other one tries to guess. The one who comes up with the code has to score the guesser&amp;rsquo;s guess based on some rules.
-The rules are the following:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;For each exact match(the right char on the right position), give a &lt;code&gt;+&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;For each half match(the right char on the wrong position), give a &lt;code&gt;-&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;For example, if the code is &lt;code&gt;ACBB&lt;/code&gt; and the guess is &lt;code&gt;BCAF&lt;/code&gt;, then the score would be &lt;code&gt;+--&lt;/code&gt;. The &lt;code&gt;+&lt;/code&gt; is for the &lt;code&gt;C&lt;/code&gt;, and two &lt;code&gt;-&lt;/code&gt; are for &lt;code&gt;B&lt;/code&gt; and &lt;code&gt;A&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;After explaining how to play this game, Uncle Bob gives a architecture that looks like this.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/master-mind-1.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;This design shows that there are 3 &lt;strong&gt;actors&lt;/strong&gt; in this program: &lt;strong&gt;Customer&lt;/strong&gt;, &lt;strong&gt;Game Designer&lt;/strong&gt; and &lt;strong&gt;Strategist&lt;/strong&gt;. According to the Single Responsibility Principle, there will be one module for each actor. And the &lt;em&gt;Game Interface&lt;/em&gt; module and &lt;em&gt;Strategy&lt;/em&gt; module are dependent on &lt;em&gt;Game Play&lt;/em&gt; module.&lt;/p&gt;
-
-&lt;p&gt;Here shows a more detailed design.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/master-mind-2.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Let&amp;rsquo;s use these as a reference and create some empty classes and interfaces.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/50bd61a8f9a7a4eb3d9fe63d1f2dc8da46c532a4&#34;&gt;source code version 0&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Since the center of the program is the game engine, let&amp;rsquo;s implement enough &lt;code&gt;GameEngine&lt;/code&gt; so that we can pass the test &lt;code&gt;gotItOnFirstGuess&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/d72116eb3c870484c138e211cd7d0d0f6cee6d3f&#34;&gt;source code version 1&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;And it&amp;rsquo;s not very hard to pass the test of &lt;code&gt;gotItOnSecondGuess&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/82fca579aab74908c16cd578499351e2d281cc7f&#34;&gt;source code version 2&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Then the test of &lt;code&gt;neverGetIt&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/89a50b4965f83fcaf1132096d3164344695234c4&#34;&gt;source code version 3&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, let&amp;rsquo;s write tests for the &lt;code&gt;Guesser&lt;/code&gt;.
-If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should return null.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/bebf02418fe686953f09c1bf650284106e579871&#34;&gt;source code version 4&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If there is only one guess is valid, &lt;code&gt;nextGuess&lt;/code&gt; should return that one and no more.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/8d0f621ad9acfa0bd05dab2fabd3b03d25a7ed2b&#34;&gt;source code version 5&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Next, test how the &lt;code&gt;Guesser&lt;/code&gt; generate guesses.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/f8f7ce8a6e76be745ca135f0e5e087498e561fe6&#34;&gt;source code version 6&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Tests for the &lt;code&gt;Scorer&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/4ef948e41c6d8e996435c72cd4aa3e795138cc77&#34;&gt;source code version 7&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Finally, tests for &lt;code&gt;RememberingGuessChecker&lt;/code&gt;.
-&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/5e52719cb3324b0a10371dd52dfa522433a04780&#34;&gt;source code version 8&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>http://lvguowei.me/post/master-mind-tdd/</guid>
+      <description>In one of Uncle Bob&amp;rsquo;s video, he talked about this game called &amp;ldquo;Master Mind&amp;rdquo; when he was teaching Single Responsibility Principle(SRP). After googled the game, turns out that it is actually a quite famous board game. For more information about the game, please look here -&amp;gt; wiki.
+The game can be played by two people. One comes up with a code, the other one tries to guess. The one who comes up with the code has to score the guesser&amp;rsquo;s guess based on some rules.</description>
     </item>
     
     <item>
@@ -95,12 +27,8 @@ If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should re
       <pubDate>Sun, 20 Nov 2016 14:51:39 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/payroll-case-study/</guid>
-      <description>&lt;p&gt;I was watching some Uncle Bob video some day which talked about how to design the architecture of a system. In that video, he gave a case study of a payroll system, I found the souce code and it is actually implemented in C++, so I ported a Java version.&lt;/p&gt;
-
-&lt;p&gt;This is a very good example because it feels more realistic than most dummy demos out there. It also shows how to use POJO classes to layout the foundation without going too much into peripheral details like database.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/Payroll&#34;&gt;Souce Code in Github&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>I was watching some Uncle Bob video some day which talked about how to design the architecture of a system. In that video, he gave a case study of a payroll system, I found the souce code and it is actually implemented in C++, so I ported a Java version.
+This is a very good example because it feels more realistic than most dummy demos out there. It also shows how to use POJO classes to layout the foundation without going too much into peripheral details like database.</description>
     </item>
     
   </channel>

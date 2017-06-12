@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="Guowei Lv">
-<meta name="generator" content="Hugo 0.19" />
+<meta name="generator" content="Hugo 0.21" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -28,6 +28,22 @@
 
 <main role="main" class="article-list">
   <h1 class="list-title">Programming</h1>
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/imessage-recorder-android-clone/">An Android version of the iMessage voice note recorder</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-06-12">June 12, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    I created a copy of the voice recorder in the iMessage app for android and made a library out of it. Check it out here!
+  
+  </section>
+</article>
+
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
@@ -463,7 +479,7 @@ Requirement  The Mark IV Special makes up to 12 cups of coffee at a time. The us
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/master-mind-TDD/">Master Mind in TDD</a></h2>
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/master-mind-tdd/">Master Mind in TDD</a></h2>
   <div class="meta">
 
     <span class="key">published on</span>
@@ -472,7 +488,7 @@ Requirement  The Mark IV Special makes up to 12 cups of coffee at a time. The us
   </div>
   <section class="summary">
     In one of Uncle Bob&rsquo;s video, he talked about this game called &ldquo;Master Mind&rdquo; when he was teaching Single Responsibility Principle(SRP). After googled the game, turns out that it is actually a quite famous board game. For more information about the game, please look here -&gt; wiki.
-The game can be played by two people. One comes up with a code, the other one tries to guess. The one who comes up with the code has to score the guesser&rsquo;s guess based on some rules.  <a href="http://lvguowei.me/post/master-mind-TDD/">Read More...</a>
+The game can be played by two people. One comes up with a code, the other one tries to guess. The one who comes up with the code has to score the guesser&rsquo;s guess based on some rules.  <a href="http://lvguowei.me/post/master-mind-tdd/">Read More...</a>
   </section>
 </article>
 
@@ -579,7 +595,7 @@ Is this the truth?  <a href="http://lvguowei.me/post/good-taste/">Read More...</
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/Time-and-Space-of-Recursion/">Time and Space of Recursion</a></h2>
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/time-and-space-of-recursion/">Time and Space of Recursion</a></h2>
   <div class="meta">
 
     <span class="key">published on</span>
@@ -592,14 +608,14 @@ Is this the truth?  <a href="http://lvguowei.me/post/good-taste/">Read More...</
 我们来对比一下两种第归算法的时间和空间的消耗。
 第一个方法很直接。思想就是要计算 a 的 n 次方， 只要计算 a 的 (n - 1) 次方， 然后结果在乘以 a 。如下：
 (define (expt a n) (if (= n 0) 1 (* a (expt a (- n 1)))))  为了更直观的理解这个算法，我们来计算一个例子， 2 的 3 次方。
-(expt 2 3) (* 2 (expt 2 2)) (* 2 (* 2 (expt 2 1))) (* 2 (* 2 (* 2 (expt 2 0)))) (* 2 (* 2 (* 2 1))) (* 2 (* 2 2)) (* 2 4) 8  我们能能明显看到这个算法的“形状”是一个三角形。每一行代表一次计算，也可以理解成时间的消耗。而每一列则代表计算机需要记住的内容，比如说一共要乘以几个2，也可以理解成空间的消耗。我们可以看到，随着 n 的增大， 这个算法的时间和空间消耗也随之增大。而且增大的速度都是线性的。时间的消耗随着 n 的增大而增大很好理解， n 大了， 计算花的时间也相应长了。但是空间消耗可不可以不增大呢？下面我们就来看另一种算法。  <a href="http://lvguowei.me/post/Time-and-Space-of-Recursion/">Read More...</a>
+(expt 2 3) (* 2 (expt 2 2)) (* 2 (* 2 (expt 2 1))) (* 2 (* 2 (* 2 (expt 2 0)))) (* 2 (* 2 (* 2 1))) (* 2 (* 2 2)) (* 2 4) 8  我们能能明显看到这个算法的“形状”是一个三角形。每一行代表一次计算，也可以理解成时间的消耗。而每一列则代表计算机需要记住的内容，比如说一共要乘以几个2，也可以理解成空间的消耗。我们可以看到，随着 n 的增大， 这个算法的时间和空间消耗也随之增大。而且增大的速度都是线性的。时间的消耗随着 n 的增大而增大很好理解， n 大了， 计算花的时间也相应长了。但是空间消耗可不可以不增大呢？下面我们就来看另一种算法。  <a href="http://lvguowei.me/post/time-and-space-of-recursion/">Read More...</a>
   </section>
 </article>
 
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Old and New For Loop in C&#43;&#43;</a></h2>
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/new-and-old-for-loop/">Old and New For Loop in C&#43;&#43;</a></h2>
   <div class="meta">
 
     <span class="key">published on</span>
@@ -609,7 +625,7 @@ Is this the truth?  <a href="http://lvguowei.me/post/good-taste/">Read More...</
   <section class="summary">
     The difference between the subscription based for loop and the newly introduced range based loop may be a bit confusing. Let&rsquo;s clear things up.
 Here are some sample code:
-void testFor() { cout &lt;&lt; &quot;--- For loop ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // subscription can modify for (string::size_type i = 0; i &lt; s.size (); i++) { s[i] = toupper (s[i]); } cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; // subscription can modify for (vector&lt;int&gt;::size_type i = 0; i &lt; v.  <a href="http://lvguowei.me/post/New-And-Old-For-Loop/">Read More...</a>
+void testFor() { cout &lt;&lt; &quot;--- For loop ---&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // subscription can modify for (string::size_type i = 0; i &lt; s.size (); i++) { s[i] = toupper (s[i]); } cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; // subscription can modify for (vector&lt;int&gt;::size_type i = 0; i &lt; v.  <a href="http://lvguowei.me/post/new-and-old-for-loop/">Read More...</a>
   </section>
 </article>
 
@@ -678,7 +694,7 @@ func sqrt(x): @ * @ = x; @ &gt; 0; return @;  让计算机去处理计算细节�
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/C&#43;&#43;-Primer-Answers/">C&#43;&#43; Primer Answers</a></h2>
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/c&#43;&#43;-primer-answers/">C&#43;&#43; Primer Answers</a></h2>
   <div class="meta">
 
     <span class="key">published on</span>
@@ -686,7 +702,7 @@ func sqrt(x): @ * @ = x; @ &gt; 0; return @;  让计算机去处理计算细节�
 
   </div>
   <section class="summary">
-    Table of Contents  1. C++ Primer Exercises Answers  1.1. Section 2.3.1  1.1.1. Exercise 2.15 1.1.2. Exercise 2.16 1.1.3. Exercise 2.17   1.2. Section 2.3.2  1.2.1. Exercise 2.18 1.2.2. Exercise 2.20 1.2.3. Exercise 2.21   1.3. Section 2.4.2  1.3.1. Exercise 2.27   1.4. Section 2.4.3  1.4.1. Exercise 2.30        C++ Primer Exercises Answers Section 2.3.1 Exercise 2.  <a href="http://lvguowei.me/post/C&#43;&#43;-Primer-Answers/">Read More...</a>
+    Table of Contents  1. C++ Primer Exercises Answers  1.1. Section 2.3.1  1.1.1. Exercise 2.15 1.1.2. Exercise 2.16 1.1.3. Exercise 2.17   1.2. Section 2.3.2  1.2.1. Exercise 2.18 1.2.2. Exercise 2.20 1.2.3. Exercise 2.21   1.3. Section 2.4.2  1.3.1. Exercise 2.27   1.4. Section 2.4.3  1.4.1. Exercise 2.30        C++ Primer Exercises Answers Section 2.3.1 Exercise 2.  <a href="http://lvguowei.me/post/c&#43;&#43;-primer-answers/">Read More...</a>
   </section>
 </article>
 

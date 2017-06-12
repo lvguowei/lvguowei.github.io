@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Moomin on Guowei Lv</title>
-    <link>http://lvguowei.me/tags/moomin/index.xml</link>
+    <link>http://lvguowei.me/tags/moomin/</link>
     <description>Recent content in Moomin on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://lvguowei.me/tags/moomin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2016 18:50:50 +0200</lastBuildDate>
+    
+	<atom:link href="http://lvguowei.me/tags/moomin/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Moomin</title>
@@ -14,17 +17,8 @@
       <pubDate>Mon, 05 Dec 2016 18:50:50 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/painting-mumin/</guid>
-      <description>&lt;p&gt;Moomin ~&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/moomi.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Moomin ~
+ </description>
     </item>
     
   </channel>

@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Uncle Bob on Guowei Lv</title>
-    <link>http://lvguowei.me/tags/uncle-bob/index.xml</link>
+    <link>http://lvguowei.me/tags/uncle-bob/</link>
     <description>Recent content in Uncle Bob on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://lvguowei.me/tags/uncle-bob/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Dec 2016 09:54:57 +0200</lastBuildDate>
+    
+	<atom:link href="http://lvguowei.me/tags/uncle-bob/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Coffee Maker - An OOD case study</title>
@@ -14,103 +17,9 @@
       <pubDate>Sun, 18 Dec 2016 09:54:57 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/coffee-maker/</guid>
-      <description>
-
-&lt;p&gt;This case study is to show case how to design classes that interact with each other to form a component.&lt;/p&gt;
-
-&lt;p&gt;The problem is to implement a software component that controls a coffee maker.&lt;/p&gt;
-
-&lt;h1 id=&#34;requirement&#34;&gt;Requirement&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;The Mark IV Special makes up to 12 cups of coffee at a time. The user places a filter
-in the filter holder, fills the filter with coffee grounds, and slides the filter holder into its receptacle. The user then pours up to 12 cups of water into the water strainer and presses
-the Brew button. The water is heated until boiling. The pressure of the evolving steam
-forces the water to be sprayed over the coffee grounds, and coffee drips through the filter
-into the pot. The pot is kept warm for extended periods by a warmer plate, which only
-turns on if there is coffee in the pot. If the pot is removed from the warmer plate while
-water is being sprayed over the grounds, the flow of water is stopped so that brewed coffee
-does not spill on the warmer plate. The following hardware needs to be monitored or controlled:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The heating element for the boiler. It can be turned on or off.&lt;/li&gt;
-&lt;li&gt;The heating element for the warmer plate. It can be turned on or off.&lt;/li&gt;
-&lt;li&gt;The sensor for the warmer plate. It has three states: warmerEmpty, potEmpty, potNotEmpty .&lt;/li&gt;
-&lt;li&gt;A sensor for the boiler, which determines whether there is water present. It has two states: boilerEmpty or boilerNotEmpty .&lt;/li&gt;
-&lt;li&gt;The Brew button. This is a momentary button that starts the brewing cycle. It has an indicator that lights up when the brewing cycle is over and the coffee is ready.&lt;/li&gt;
-&lt;li&gt;A pressure-relief valve that opens to reduce the pressure in the boiler. The drop in pressure stops the flow of water to the filter. It can be opened or closed.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;a-bad-design&#34;&gt;A Bad Design&lt;/h1&gt;
-
-&lt;p&gt;The most common mistake is to design the objects as a direct map to the Mark IV Offee Maker as following.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/coffee-maker-bad.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;There are several problems about this design:&lt;/p&gt;
-
-&lt;h2 id=&#34;missing-methods&#34;&gt;Missing methods&lt;/h2&gt;
-
-&lt;p&gt;In the diagram there is no methods. When there is no methods shown in the diagrams, the system is not partitioned based on behaviour, which can leads to big mistakes.&lt;/p&gt;
-
-&lt;h2 id=&#34;vapor-classes&#34;&gt;Vapor classes&lt;/h2&gt;
-
-&lt;p&gt;Take a closer look at class &lt;code&gt;Light&lt;/code&gt;, it might look something like this:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Light&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;CoffeeMakerAPI&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
-        &lt;span class=&#34;nf&#34;&gt;setIndicatorState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CoffeeMakerAPI&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;INDICATOR_ON&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;off&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;CoffeeMakerAPI&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
-        &lt;span class=&#34;nf&#34;&gt;setIndicatorState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CoffeeMakerAPI&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;INDICATOR_OFF&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This class simply forwards the API calls and there are no variables.
-The same applies to other classes as well, they don&amp;rsquo;t have much value to exist. The &lt;code&gt;CoffeeMaker&lt;/code&gt; class can call the api methods directly anyway.&lt;/p&gt;
-
-&lt;h2 id=&#34;imaginary-abstractions&#34;&gt;Imaginary Abstractions&lt;/h2&gt;
-
-&lt;p&gt;It is quite obvious that the interfaces in this design are pretty useless and poor.
-First of all, no other classes use these interfaces, they only use the implementations of these interfaces.&lt;/p&gt;
-
-&lt;p&gt;Then, there are no common code in those interfaces.&lt;/p&gt;
-
-&lt;h2 id=&#34;god-class&#34;&gt;God class&lt;/h2&gt;
-
-&lt;p&gt;If there are a lot of vapor classes and useless interfaces, then the true logit must be all in the &lt;code&gt;CoffeeMaker&lt;/code&gt; class, which makes it a God class.&lt;/p&gt;
-
-&lt;p&gt;The reason that leads to this bad design is to simply find some verbs and nouns in the description and map them to classes without analyzing and abstracting the behaviour of the system.&lt;/p&gt;
-
-&lt;h1 id=&#34;a-better-design&#34;&gt;A Better Design&lt;/h1&gt;
-
-&lt;p&gt;First we have to forget about Mark IV Coffee Maker and thinking only about high level coffee making.&lt;/p&gt;
-
-&lt;p&gt;We will have 3 classes: &lt;code&gt;UserInterface&lt;/code&gt;, &lt;code&gt;HotWaterSource&lt;/code&gt; and &lt;code&gt;ContainmentVessel&lt;/code&gt;.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/coffee-maker-good.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;For the complete implementation please check &lt;a href=&#34;https://github.com/lvguowei/coffee-maker-case-study&#34;&gt;source code with tests&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>This case study is to show case how to design classes that interact with each other to form a component.
+The problem is to implement a software component that controls a coffee maker.
+Requirement  The Mark IV Special makes up to 12 cups of coffee at a time. The user places a filter in the filter holder, fills the filter with coffee grounds, and slides the filter holder into its receptacle.</description>
     </item>
     
     <item>
@@ -119,50 +28,7 @@ First of all, no other classes use these interfaces, they only use the implement
       <pubDate>Thu, 08 Dec 2016 21:34:15 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/interface-segregation-principle-android-logger/</guid>
-      <description>
-
-&lt;p&gt;Recently at work we has been talking about implementing some kind of Analytic interface for all the analytic libraries we are using, like Localytics and Firebase and so on.
-Basically it is just a fat interface with a long list of event logging functions, like &lt;code&gt;logSignIn()&lt;/code&gt;, &lt;code&gt;logSignOut()&lt;/code&gt;, &lt;code&gt;logSellProduct()&lt;/code&gt;, &lt;code&gt;logOpenMap()&lt;/code&gt; and so on. There are about 40 such methods in that interface. So this is how we implemented it in the first place.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/analytics.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Based on the spirit of the &lt;strong&gt;Interface Segregation Principle&lt;/strong&gt;: don&amp;rsquo;t depend on things you don&amp;rsquo;t need, there seems to be a lot of room to improve.&lt;/p&gt;
-
-&lt;h2 id=&#34;proposal-1&#34;&gt;Proposal 1&lt;/h2&gt;
-
-&lt;p&gt;We gotta separate that interface! This seems the obvious and reasonable thing to do, and different modules can only use the interface that they need. But, with only one problem, there seems to be too many classes!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/analytics2.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;h2 id=&#34;proposal-2&#34;&gt;Proposal 2&lt;/h2&gt;
-
-&lt;p&gt;We can use multiple inheritance to solve this problem.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/analytics3.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Now all problem solved, modules only depend on interface they need, and there are reasonable amount of classes.&lt;/p&gt;
-</description>
+      <description>Recently at work we has been talking about implementing some kind of Analytic interface for all the analytic libraries we are using, like Localytics and Firebase and so on. Basically it is just a fat interface with a long list of event logging functions, like logSignIn(), logSignOut(), logSellProduct(), logOpenMap() and so on. There are about 40 such methods in that interface. So this is how we implemented it in the first place.</description>
     </item>
     
     <item>
@@ -171,126 +37,17 @@ Basically it is just a fat interface with a long list of event logging functions
       <pubDate>Tue, 06 Dec 2016 12:16:53 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/expense-report-case-study/</guid>
-      <description>&lt;p&gt;One day, I was watching another Uncle Bob&amp;rsquo;s video (yes, they are addictive), when I see one example he gave when talking about open closed principle, it ringed a bell in my head. This looked familiar! The &lt;code&gt;type&lt;/code&gt; in some data classes, some &lt;code&gt;switch&lt;/code&gt;s or &lt;code&gt;if&lt;/code&gt;s, some &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;s and &lt;code&gt;||&lt;/code&gt;s all dancing around in the class. I can almost hear them teasing: &amp;ldquo;Come and catch me! Come and catch me!&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;I think OK, it&amp;rsquo;s time to get this fixed.&lt;/p&gt;
-
-&lt;p&gt;Now I present you the messy smelly piece of ssssss&amp;hellip;..source code as the original design(with some tests amazingly).&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/57e89c5a3d464e7f7ca6aca3d63b8a51c40b29ee&#34;&gt;version 0&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Very easily, we can extract out some functions like &lt;code&gt;isMeal&lt;/code&gt; and &lt;code&gt;isOverage&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/51c0c79ab143859fd2ddce898e7f8daf87ff6aa5&#34;&gt;version 1&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Now you may smell feature envy as I did, so let&amp;rsquo;s move those methods into &lt;code&gt;Expense&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/131ac2d05c8912e7a1cab773acafb0470a80a5fe&#34;&gt;version 2&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Next, replace &lt;code&gt;type&lt;/code&gt; with polymorphism, which means create more subclasses of &lt;code&gt;Expense&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/68a3d85e5b1bc1c4b5a1e0dbb38012551894c200&#34;&gt;version 3&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;We can now separate printing logic out of the &lt;code&gt;Expense&lt;/code&gt; class and into some &lt;code&gt;ExpenseReporter&lt;/code&gt; and &lt;code&gt;ReportNamer&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;p&gt;You may ask, why do we need the &lt;code&gt;ExpenseNamer&lt;/code&gt; abstraction, why not just put some &lt;code&gt;getName&lt;/code&gt; method into the &lt;code&gt;Expense&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;p&gt;To anwser your question, consider this: different actors may need different names for the same Expense. The reporter may need totally different names than the UI.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/expense-report-case-study/commit/1e4d81b10aec46df4f05dbac40171ee2b3b779aa&#34;&gt;version 4&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;We are at the end of this fantastic soothing and comforting refactoring session habibi, enjoy life and beautiful code.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/expense.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <description>One day, I was watching another Uncle Bob&amp;rsquo;s video (yes, they are addictive), when I see one example he gave when talking about open closed principle, it ringed a bell in my head. This looked familiar! The type in some data classes, some switchs or ifs, some &amp;amp;&amp;amp;s and ||s all dancing around in the class. I can almost hear them teasing: &amp;ldquo;Come and catch me! Come and catch me!&amp;rdquo;.</description>
     </item>
     
     <item>
       <title>Master Mind in TDD</title>
-      <link>http://lvguowei.me/post/master-mind-TDD/</link>
+      <link>http://lvguowei.me/post/master-mind-tdd/</link>
       <pubDate>Mon, 21 Nov 2016 21:29:52 +0200</pubDate>
       
-      <guid>http://lvguowei.me/post/master-mind-TDD/</guid>
-      <description>&lt;p&gt;In one of Uncle Bob&amp;rsquo;s video, he talked about this game called &amp;ldquo;Master Mind&amp;rdquo; when he was teaching Single Responsibility Principle(SRP).
-After googled the game, turns out that it is actually a quite famous board game. For more information about the game, please look here -&amp;gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Mastermind_(board_game)&#34;&gt;wiki&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The game can be played by two people. One comes up with a code, the other one tries to guess. The one who comes up with the code has to score the guesser&amp;rsquo;s guess based on some rules.
-The rules are the following:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;For each exact match(the right char on the right position), give a &lt;code&gt;+&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;For each half match(the right char on the wrong position), give a &lt;code&gt;-&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;For example, if the code is &lt;code&gt;ACBB&lt;/code&gt; and the guess is &lt;code&gt;BCAF&lt;/code&gt;, then the score would be &lt;code&gt;+--&lt;/code&gt;. The &lt;code&gt;+&lt;/code&gt; is for the &lt;code&gt;C&lt;/code&gt;, and two &lt;code&gt;-&lt;/code&gt; are for &lt;code&gt;B&lt;/code&gt; and &lt;code&gt;A&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;After explaining how to play this game, Uncle Bob gives a architecture that looks like this.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/master-mind-1.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;This design shows that there are 3 &lt;strong&gt;actors&lt;/strong&gt; in this program: &lt;strong&gt;Customer&lt;/strong&gt;, &lt;strong&gt;Game Designer&lt;/strong&gt; and &lt;strong&gt;Strategist&lt;/strong&gt;. According to the Single Responsibility Principle, there will be one module for each actor. And the &lt;em&gt;Game Interface&lt;/em&gt; module and &lt;em&gt;Strategy&lt;/em&gt; module are dependent on &lt;em&gt;Game Play&lt;/em&gt; module.&lt;/p&gt;
-
-&lt;p&gt;Here shows a more detailed design.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/master-mind-2.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Let&amp;rsquo;s use these as a reference and create some empty classes and interfaces.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/50bd61a8f9a7a4eb3d9fe63d1f2dc8da46c532a4&#34;&gt;source code version 0&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Since the center of the program is the game engine, let&amp;rsquo;s implement enough &lt;code&gt;GameEngine&lt;/code&gt; so that we can pass the test &lt;code&gt;gotItOnFirstGuess&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/d72116eb3c870484c138e211cd7d0d0f6cee6d3f&#34;&gt;source code version 1&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;And it&amp;rsquo;s not very hard to pass the test of &lt;code&gt;gotItOnSecondGuess&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/82fca579aab74908c16cd578499351e2d281cc7f&#34;&gt;source code version 2&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Then the test of &lt;code&gt;neverGetIt&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/89a50b4965f83fcaf1132096d3164344695234c4&#34;&gt;source code version 3&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, let&amp;rsquo;s write tests for the &lt;code&gt;Guesser&lt;/code&gt;.
-If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should return null.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/bebf02418fe686953f09c1bf650284106e579871&#34;&gt;source code version 4&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If there is only one guess is valid, &lt;code&gt;nextGuess&lt;/code&gt; should return that one and no more.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/8d0f621ad9acfa0bd05dab2fabd3b03d25a7ed2b&#34;&gt;source code version 5&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Next, test how the &lt;code&gt;Guesser&lt;/code&gt; generate guesses.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/f8f7ce8a6e76be745ca135f0e5e087498e561fe6&#34;&gt;source code version 6&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Tests for the &lt;code&gt;Scorer&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/4ef948e41c6d8e996435c72cd4aa3e795138cc77&#34;&gt;source code version 7&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Finally, tests for &lt;code&gt;RememberingGuessChecker&lt;/code&gt;.
-&lt;a href=&#34;https://github.com/lvguowei/MasterMindTDD/commit/5e52719cb3324b0a10371dd52dfa522433a04780&#34;&gt;source code version 8&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>http://lvguowei.me/post/master-mind-tdd/</guid>
+      <description>In one of Uncle Bob&amp;rsquo;s video, he talked about this game called &amp;ldquo;Master Mind&amp;rdquo; when he was teaching Single Responsibility Principle(SRP). After googled the game, turns out that it is actually a quite famous board game. For more information about the game, please look here -&amp;gt; wiki.
+The game can be played by two people. One comes up with a code, the other one tries to guess. The one who comes up with the code has to score the guesser&amp;rsquo;s guess based on some rules.</description>
     </item>
     
     <item>
@@ -299,12 +56,8 @@ If all the guesses are invalid, the &lt;code&gt;nextGuess&lt;/code&gt; should re
       <pubDate>Sun, 20 Nov 2016 14:51:39 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/payroll-case-study/</guid>
-      <description>&lt;p&gt;I was watching some Uncle Bob video some day which talked about how to design the architecture of a system. In that video, he gave a case study of a payroll system, I found the souce code and it is actually implemented in C++, so I ported a Java version.&lt;/p&gt;
-
-&lt;p&gt;This is a very good example because it feels more realistic than most dummy demos out there. It also shows how to use POJO classes to layout the foundation without going too much into peripheral details like database.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/Payroll&#34;&gt;Souce Code in Github&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>I was watching some Uncle Bob video some day which talked about how to design the architecture of a system. In that video, he gave a case study of a payroll system, I found the souce code and it is actually implemented in C++, so I ported a Java version.
+This is a very good example because it feels more realistic than most dummy demos out there. It also shows how to use POJO classes to layout the foundation without going too much into peripheral details like database.</description>
     </item>
     
   </channel>

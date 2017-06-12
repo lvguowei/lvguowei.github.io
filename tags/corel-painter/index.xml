@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Corel Painter on Guowei Lv</title>
-    <link>http://lvguowei.me/tags/corel-painter/index.xml</link>
+    <link>http://lvguowei.me/tags/corel-painter/</link>
     <description>Recent content in Corel Painter on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://lvguowei.me/tags/corel-painter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2016 18:40:50 +0200</lastBuildDate>
+    
+	<atom:link href="http://lvguowei.me/tags/corel-painter/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Xpp</title>
@@ -14,17 +17,8 @@
       <pubDate>Mon, 05 Dec 2016 18:40:50 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/painting-xpp/</guid>
-      <description>&lt;p&gt;My wife ~&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/xpp.jpg&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <description>My wife ~
+ </description>
     </item>
     
   </channel>

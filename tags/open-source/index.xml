@@ -2,11 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Open Source on Guowei Lv</title>
-    <link>http://lvguowei.me/tags/open-source/index.xml</link>
+    <link>http://lvguowei.me/tags/open-source/</link>
     <description>Recent content in Open Source on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://lvguowei.me/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2017 12:22:15 +0300</lastBuildDate>
+    
+	<atom:link href="http://lvguowei.me/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Android version of the iMessage voice note recorder</title>
+      <link>http://lvguowei.me/post/imessage-recorder-android-clone/</link>
+      <pubDate>Mon, 12 Jun 2017 12:22:15 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/imessage-recorder-android-clone/</guid>
+      <description>I created a copy of the voice recorder in the iMessage app for android and made a library out of it. Check it out here!
+ </description>
+    </item>
     
     <item>
       <title>My Second Android Library</title>
@@ -14,19 +27,9 @@
       <pubDate>Mon, 26 Dec 2016 10:23:15 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/second-android-lib/</guid>
-      <description>&lt;p&gt;I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.&lt;/p&gt;
-
-&lt;p&gt;Go check it out &lt;a href=&#34;https://github.com/lvguowei/CombinedDateTimePickerDialog&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/android-lib2.gif&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <description>I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.
+Go check it out here!
+ </description>
     </item>
     
     <item>
@@ -35,19 +38,9 @@
       <pubDate>Fri, 23 Dec 2016 12:25:51 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/first-android-lib/</guid>
-      <description>&lt;p&gt;I published my first android library for creating customized progressbar.&lt;/p&gt;
-
-&lt;p&gt;Go check &lt;a href=&#34;https://github.com/lvguowei/SpinningProgressBar&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/android-lib.gif&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <description>I published my first android library for creating customized progressbar.
+Go check here!
+ </description>
     </item>
     
   </channel>

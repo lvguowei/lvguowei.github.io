@@ -2,11 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on Guowei Lv</title>
-    <link>http://lvguowei.me/tags/android/index.xml</link>
+    <link>http://lvguowei.me/tags/android/</link>
     <description>Recent content in Android on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://lvguowei.me/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2017 12:22:15 +0300</lastBuildDate>
+    
+	<atom:link href="http://lvguowei.me/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Android version of the iMessage voice note recorder</title>
+      <link>http://lvguowei.me/post/imessage-recorder-android-clone/</link>
+      <pubDate>Mon, 12 Jun 2017 12:22:15 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/imessage-recorder-android-clone/</guid>
+      <description>I created a copy of the voice recorder in the iMessage app for android and made a library out of it. Check it out here!
+ </description>
+    </item>
     
     <item>
       <title>Android Kata View Property Animator</title>
@@ -14,119 +27,10 @@
       <pubDate>Tue, 28 Mar 2017 20:49:08 +0300</pubDate>
       
       <guid>http://lvguowei.me/post/android-kata-view-property-animator/</guid>
-      <description>&lt;p&gt;Since I have been doing programming kata, why not adopt the same kata concept in Android programming?&lt;/p&gt;
-
-&lt;p&gt;Over the years I have accumulated some useful tools / tricks that I can show in kata form.&lt;/p&gt;
-
-&lt;p&gt;The goal is to keep it simple and easy to grasp and to the point.&lt;/p&gt;
-
-&lt;p&gt;This is the first one, which shows how to use &lt;a href=&#34;https://developer.android.com/reference/android/view/ViewPropertyAnimator.html&#34;&gt;ViewPropertyAnimator&lt;/a&gt; to animate show and hide of the FAB button.&lt;/p&gt;
-
-&lt;p&gt;Here is how the end result looks.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/animate-fab.gif&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Things to note:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The properties are animated simultaneously.&lt;/li&gt;
-&lt;li&gt;Use the App Compat version to better support older android versions.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Now the code:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MainActivity&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AppCompatActivity&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-
-    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FloatingActionButton&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
-
-    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isVisible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
-
-    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
-    &lt;span class=&#34;kd&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onCreate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Bundle&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;kd&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;onCreate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;setContentView&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;layout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;activity_main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;Toolbar&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;toolbar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Toolbar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;findViewById&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;toolbar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;fab&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FloatingActionButton&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;findViewById&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;fab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;Button&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;animateButton&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Button&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;findViewById&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;animate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-
-        &lt;span class=&#34;n&#34;&gt;animateButton&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setOnClickListener&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;View&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;OnClickListener&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-            &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
-            &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onClick&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isVisible&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                    &lt;span class=&#34;n&#34;&gt;animateHide&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                    &lt;span class=&#34;n&#34;&gt;animateShow&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-        &lt;span class=&#34;o&#34;&gt;});&lt;/span&gt;
-
-        &lt;span class=&#34;n&#34;&gt;setSupportActionBar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;toolbar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-
-    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;animateShow&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;ViewCompat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;animate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;alpha&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;scaleX&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;scaleY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;translationZ&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setDuration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;800&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setInterpolator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OvershootInterpolator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;())&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setListener&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ViewPropertyAnimatorListener&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
-                    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onAnimationStart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-
-                    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
-                    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onAnimationEnd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                        &lt;span class=&#34;n&#34;&gt;isVisible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
-                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-
-                    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
-                    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onAnimationCancel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;})&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
-    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-
-    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;animateHide&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;ViewCompat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;animate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;alpha&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;scaleX&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;scaleY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;translationZ&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setDuration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;800&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setInterpolator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AnticipateOvershootInterpolator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;())&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setListener&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ViewPropertyAnimatorListener&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
-                    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onAnimationStart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-
-                    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
-                    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onAnimationEnd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                        &lt;span class=&#34;n&#34;&gt;isVisible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
-                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-
-                    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
-                    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onAnimationCancel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;})&lt;/span&gt;
-                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
-    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;You can also experiment with other Interpolators. Happy coding.&lt;/p&gt;
-
-&lt;p&gt;~Fin~&lt;/p&gt;
-</description>
+      <description>Since I have been doing programming kata, why not adopt the same kata concept in Android programming?
+Over the years I have accumulated some useful tools / tricks that I can show in kata form.
+The goal is to keep it simple and easy to grasp and to the point.
+This is the first one, which shows how to use ViewPropertyAnimator to animate show and hide of the FAB button.</description>
     </item>
     
     <item>
@@ -135,19 +39,9 @@
       <pubDate>Mon, 26 Dec 2016 10:23:15 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/second-android-lib/</guid>
-      <description>&lt;p&gt;I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.&lt;/p&gt;
-
-&lt;p&gt;Go check it out &lt;a href=&#34;https://github.com/lvguowei/CombinedDateTimePickerDialog&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/android-lib2.gif&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <description>I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.
+Go check it out here!
+ </description>
     </item>
     
     <item>
@@ -156,19 +50,9 @@
       <pubDate>Fri, 23 Dec 2016 12:25:51 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/first-android-lib/</guid>
-      <description>&lt;p&gt;I published my first android library for creating customized progressbar.&lt;/p&gt;
-
-&lt;p&gt;Go check &lt;a href=&#34;https://github.com/lvguowei/SpinningProgressBar&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/android-lib.gif&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-</description>
+      <description>I published my first android library for creating customized progressbar.
+Go check here!
+ </description>
     </item>
     
     <item>
@@ -177,50 +61,7 @@
       <pubDate>Thu, 08 Dec 2016 21:34:15 +0200</pubDate>
       
       <guid>http://lvguowei.me/post/interface-segregation-principle-android-logger/</guid>
-      <description>
-
-&lt;p&gt;Recently at work we has been talking about implementing some kind of Analytic interface for all the analytic libraries we are using, like Localytics and Firebase and so on.
-Basically it is just a fat interface with a long list of event logging functions, like &lt;code&gt;logSignIn()&lt;/code&gt;, &lt;code&gt;logSignOut()&lt;/code&gt;, &lt;code&gt;logSellProduct()&lt;/code&gt;, &lt;code&gt;logOpenMap()&lt;/code&gt; and so on. There are about 40 such methods in that interface. So this is how we implemented it in the first place.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/analytics.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Based on the spirit of the &lt;strong&gt;Interface Segregation Principle&lt;/strong&gt;: don&amp;rsquo;t depend on things you don&amp;rsquo;t need, there seems to be a lot of room to improve.&lt;/p&gt;
-
-&lt;h2 id=&#34;proposal-1&#34;&gt;Proposal 1&lt;/h2&gt;
-
-&lt;p&gt;We gotta separate that interface! This seems the obvious and reasonable thing to do, and different modules can only use the interface that they need. But, with only one problem, there seems to be too many classes!&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/analytics2.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;h2 id=&#34;proposal-2&#34;&gt;Proposal 2&lt;/h2&gt;
-
-&lt;p&gt;We can use multiple inheritance to solve this problem.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://lvguowei.me/img/analytics3.png&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Now all problem solved, modules only depend on interface they need, and there are reasonable amount of classes.&lt;/p&gt;
-</description>
+      <description>Recently at work we has been talking about implementing some kind of Analytic interface for all the analytic libraries we are using, like Localytics and Firebase and so on. Basically it is just a fat interface with a long list of event logging functions, like logSignIn(), logSignOut(), logSellProduct(), logOpenMap() and so on. There are about 40 such methods in that interface. So this is how we implemented it in the first place.</description>
     </item>
     
     <item>
@@ -229,22 +70,9 @@ Basically it is just a fat interface with a long list of event logging functions
       <pubDate>Sat, 15 Oct 2016 05:35:31 +0300</pubDate>
       
       <guid>http://lvguowei.me/post/duplicate-observed-data/</guid>
-      <description>&lt;p&gt;This is from the famous Refactoring book by Martin Fowler. When I was reading it, it feels very similar to the very popular MVP or MVVM.&lt;/p&gt;
-
-&lt;p&gt;The key idea is that in system that has user interface, the business logic should be separated from the user interface.&lt;/p&gt;
-
-&lt;p&gt;One example I can think of is the registration form, where there are input fields like username, email, phone number and password.
-We can have some logic that disable the Register button until all fields are filled and the phone number and email valid.
-We can of course put everything in the UI (probably an Activity or Fragment in Android), but it doesn&amp;rsquo;t feel very elegant.
-So we create a new RegisterModel class, create 4 private String fields - username, email, phone number and password.
-Then we create getter and setter for these fields. When in the Activity the user changed one of the fields, we directly call the
-corresponding setter function in the model, and the model can do the calculation and validation and whatnot, then use some PubSub
-mechanism to notify the view.&lt;/p&gt;
-
-&lt;p&gt;I created an Android project out of the example in the book.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lvguowei/refactoring/tree/master/DuplicateObservedData&#34; title=&#34;Github&#34;&gt;Android Example&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>This is from the famous Refactoring book by Martin Fowler. When I was reading it, it feels very similar to the very popular MVP or MVVM.
+The key idea is that in system that has user interface, the business logic should be separated from the user interface.
+One example I can think of is the registration form, where there are input fields like username, email, phone number and password. We can have some logic that disable the Register button until all fields are filled and the phone number and email valid.</description>
     </item>
     
   </channel>
