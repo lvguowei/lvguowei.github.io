@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.24.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Why we stopped using dagger and some thoughts - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-06-27">June 27, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/android">Android</a>
+
+        <a href="http://lvguowei.me/tags/dagger2">Dagger2</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Why we stopped using dagger and some thoughts</h1>
+  <section class="body" itemprop="articleBody">
+    <p>I decided to stop using Dagger2 in our company&rsquo;s android project. Why?</p>
+
+<p>Don&rsquo;t get me wrong, Dagger2 is still great. But though it is great, it is complex. Lots of concepts to wrap our heads around. What is a <em>component</em>, what is a <em>module</em>, what is the difference between <em>subcomponent</em> and <em>dependency component</em>, etc. In order to use it properly, we need to anwser all that questions, even you think you understand it, you still run into suprises now and then.</p>
+
+<p>In our case, the app has a handful of global singleton objects (mostly services, managers and such), and then for each activity or fragment there is a presenter.</p>
+
+<p>If you see the <em>Application</em>, <em>Activity</em> and <em>Fragment</em> as the <em>main</em> of the program. Then actually <em>new</em> a new object is not that harmful there.</p>
+
+<p>So we can <em>new</em> presenters directly in activities. Then, what about the global objects?</p>
+
+<p>We can create them in <em>Application</em> when the app starts. And since <em>Singleton Pattern</em> is considered bad nowadays, we can just assign them in public static fields of the <em>Application</em> class.</p>
+
+<p>Problem solved~</p>
+
+<p><em>Rant: seems to me that nowadays programmers are getting lazy, I mean not in a good way. We tend to follow BIG companys blindly, whatever they come up is always golden standard, like React and Dagger etc. Not saying that they are bad solutions, but they are solutions for a particular type of problem they are facing, you don&rsquo;t need to use them if you don&rsquo;t have the same problems. Of course, people tend to follow leaders, that is just human nature because it&rsquo;s easy to do so. But I would suggest that we should always try to understand the problem, then look for solutions, instead of we grab whatever is the latest and coolest solution and try to fit that into your problem. We have to understand that using power tools doesn&rsquo;t make the original problem go away, but then you have also to learn to use the tool which becomes a problem of its own. So think twice and make careful decisions. At the end of the day, we have to ship new features, our job is not to learn how to migrate from Dagger1 to Dagger2 and then to Dagger Android.</em></p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/why-remove-dagger\/';
+    var disqus_title = 'Why we stopped using dagger and some thoughts';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/why-remove-dagger\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

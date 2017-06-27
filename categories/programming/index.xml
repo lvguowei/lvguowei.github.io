@@ -6,10 +6,20 @@
     <description>Recent content in Programming on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Jun 2017 18:02:02 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 27 Jun 2017 20:40:41 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Why we stopped using dagger and some thoughts</title>
+      <link>http://lvguowei.me/post/why-remove-dagger/</link>
+      <pubDate>Tue, 27 Jun 2017 20:40:41 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/why-remove-dagger/</guid>
+      <description>I decided to stop using Dagger2 in our company&amp;rsquo;s android project. Why?
+Don&amp;rsquo;t get me wrong, Dagger2 is still great. But though it is great, it is complex. Lots of concepts to wrap our heads around. What is a component, what is a module, what is the difference between subcomponent and dependency component, etc. In order to use it properly, we need to anwser all that questions, even you think you understand it, you still run into suprises now and then.</description>
+    </item>
     
     <item>
       <title>Hand Made Hero is AWESOME!</title>
@@ -19,7 +29,7 @@
       <guid>http://lvguowei.me/post/hand-made-hero/</guid>
       <description>I purchased the pre-order Hand Made Hero game. I think it&amp;rsquo;s great value for learning, there is this super awesome guy who has tons of experience talking to you at least 1 hour per day for over a year. And it cost only $15. I must have lost my mind if I missed this.
 Two interesting observations:
- This guy is against OOP This guy prefers C to C++  This kind of &amp;ldquo;against C++ and OOP and all kind of complex nonsense shit&amp;rdquo; thing (this and thishit me several times and I really like to know about their argument.</description>
+ This guy is against OOP This guy prefers C to C++  This kind of &amp;ldquo;against C++ and OOP and all kind of complex nonsense shit&amp;rdquo; thing (this and this) hit me several times and I really like to know about their argument.</description>
     </item>
     
     <item>

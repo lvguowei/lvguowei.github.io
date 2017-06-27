@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://lvguowei.me/post/why-remove-dagger/</loc>
+    <lastmod>2017-06-27T20:40:41+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/post/hand-made-hero/</loc>
     <lastmod>2017-06-18T18:02:02+03:00</lastmod>
   </url>
@@ -313,7 +318,7 @@
   
   <url>
     <loc>http://lvguowei.me/tags/android/</loc>
-    <lastmod>2017-06-12T12:22:15+03:00</lastmod>
+    <lastmod>2017-06-27T20:40:41+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -407,6 +412,12 @@
   </url>
   
   <url>
+    <loc>http://lvguowei.me/tags/dagger2/</loc>
+    <lastmod>2017-06-27T20:40:41+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/tags/design-pattern/</loc>
     <lastmod>2016-12-08T21:34:15+02:00</lastmod>
     <priority>0</priority>
@@ -456,7 +467,7 @@
   
   <url>
     <loc>http://lvguowei.me/</loc>
-    <lastmod>2017-06-18T18:02:02+03:00</lastmod>
+    <lastmod>2017-06-27T20:40:41+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -564,13 +575,13 @@
   
   <url>
     <loc>http://lvguowei.me/post/</loc>
-    <lastmod>2017-06-18T18:02:02+03:00</lastmod>
+    <lastmod>2017-06-27T20:40:41+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/categories/programming/</loc>
-    <lastmod>2017-06-18T18:02:02+03:00</lastmod>
+    <lastmod>2017-06-27T20:40:41+03:00</lastmod>
     <priority>0</priority>
   </url>
   
