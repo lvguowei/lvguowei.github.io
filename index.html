@@ -46,6 +46,23 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/strategy-pattern-and-lambda/">Strategy Pattern And Lambda</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-03">July 03, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    While reading Effective Java Item 21: Use function objects to represent strategies, something hit my mind and now I&rsquo;m writing it down.
+All these new lambda thing is really what is called the Strategy pattern in the OOP world, or would it be more appropriate to say that the Strategy Pattern in Design patterns is really what lambda is.
+The essence of all these, can be boiled down to one simple idea, pass functionalities around.  <a href="http://lvguowei.me/post/strategy-pattern-and-lambda/">Read More...</a>
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/why-synchronize/">Why Synchronize?</a></h2>
   <div class="meta">
 
@@ -195,24 +212,6 @@ This is actually an interesting task, implement our +, since most of the time + 
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/programming-kata-day-12/">programming kata day 12</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-02-26">February 26, 2017</time></span>
-
-  </div>
-  <section class="summary">
-     Problem Implement a unit converter that uses the given the following metric
-(def metric {:meter 1 :km 1000 :cm 1/100 :mm [1/10 :cm]})  The converter should anwser questions like:
-How many meters are there in 10 km and 20 cm?
-Solution (defn convert [context descriptor] (reduce (fn [result [mag unit]] (let [val (metric unit)] (if (vector? val) (+ result (* mag (convert context val))) (+ result (* mag val))))) 0 (partition 2 descriptor))) (convert metric [1 :meter]) (convert metric [3 :km 10 :meter])   
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -238,7 +237,7 @@ Solution (defn convert [context descriptor] (reduce (fn [result [mag unit]] (let
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(43)</small>
+      <small>(44)</small>
     </h2>
     
   </section>
@@ -358,7 +357,7 @@ Solution (defn convert [context descriptor] (reduce (fn [result [mag unit]] (let
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/design-pattern">design-pattern</a>
-      <small>(2)</small>
+      <small>(3)</small>
     </span>
     
     <span class="tag">
@@ -378,7 +377,7 @@ Solution (defn convert [context descriptor] (reduce (fn [result [mag unit]] (let
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/functional-programming">functional-programming</a>
-      <small>(2)</small>
+      <small>(3)</small>
     </span>
     
     <span class="tag">
@@ -409,6 +408,11 @@ Solution (defn convert [context descriptor] (reduce (fn [result [mag unit]] (let
     <span class="tag">
       <a href="http://lvguowei.me/tags/krita">krita</a>
       <small>(2)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/lambda">lambda</a>
+      <small>(1)</small>
     </span>
     
     <span class="tag">

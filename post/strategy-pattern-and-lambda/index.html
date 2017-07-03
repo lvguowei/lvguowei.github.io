@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.24.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Strategy Pattern And Lambda - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-03">July 03, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/design-pattern">design pattern</a>
+
+        <a href="http://lvguowei.me/tags/lambda">lambda</a>
+
+        <a href="http://lvguowei.me/tags/functional-programming">functional programming</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Strategy Pattern And Lambda</h1>
+  <section class="body" itemprop="articleBody">
+    <p>While reading <em>Effective Java</em> Item 21: <strong>Use function objects to represent strategies</strong>, something hit my mind and now I&rsquo;m writing it down.</p>
+
+<p>All these new <em>lambda</em> thing is really what is called the <em>Strategy pattern</em> in the OOP world, or would it be more appropriate to say that the <em>Strategy Pattern</em> in Design patterns is really what <em>lambda</em> is.</p>
+
+<p>The essence of all these, can be boiled down to one simple idea, pass functionalities around. The signature of a function is just input and output with possibly side effects. How to pass a function around is what we are really looking at here.</p>
+
+<p>Of course this is not even a problem in functional programming languages, because functions are first class citizens there, the building blocks, so refering to them and passing them around just comes for free.
+But things get more difficult in OO languages like Java, since everything is an object, functions are suddenly hidden from the public views, functions can  no longer exist by themselves, they need some kind of media, like an object, to exist. So we cannot pass just functions around even though that is what we really need. The only solution to this is to create a object that has the function we want, and then pass the object. And they give it a fancy name called <em>Strategy Pattern</em>.</p>
+
+<p>I think this is a clear sign that not everything is appropriate to be represented by an object and class. If you force to do so, then we have to do this ugly wrapper around a function and invent another concept , like <em>strategy</em>, which is just another name of <em>function</em>.</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/strategy-pattern-and-lambda\/';
+    var disqus_title = 'Strategy Pattern And Lambda';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/strategy-pattern-and-lambda\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

@@ -6,10 +6,21 @@
     <description>Recent content in Functional Programming on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 May 2016 21:32:14 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jul 2017 12:01:35 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Strategy Pattern And Lambda</title>
+      <link>http://lvguowei.me/post/strategy-pattern-and-lambda/</link>
+      <pubDate>Mon, 03 Jul 2017 12:01:35 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/strategy-pattern-and-lambda/</guid>
+      <description>While reading Effective Java Item 21: Use function objects to represent strategies, something hit my mind and now I&amp;rsquo;m writing it down.
+All these new lambda thing is really what is called the Strategy pattern in the OOP world, or would it be more appropriate to say that the Strategy Pattern in Design patterns is really what lambda is.
+The essence of all these, can be boiled down to one simple idea, pass functionalities around.</description>
+    </item>
     
     <item>
       <title>Time and Space of Recursion</title>
