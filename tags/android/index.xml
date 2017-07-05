@@ -6,10 +6,21 @@
     <description>Recent content in Android on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Jun 2017 20:40:41 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jul 2017 15:20:25 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android Custom Views 101 (Part I)</title>
+      <link>http://lvguowei.me/post/android-custom-view-101/</link>
+      <pubDate>Wed, 05 Jul 2017 15:20:25 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/android-custom-view-101/</guid>
+      <description>Creating your own custom android views can be useful and daunting at the same time. For a long time there is nobody really talks about it in a approachable way, until this lady Huyen Tue Dao. Let&amp;rsquo;s try to follow her approach and create some custom view!
+In this part, we will create a very simple timer view that takes up the whole screen and display the current time.
+ So let&amp;rsquo;s get started.</description>
+    </item>
     
     <item>
       <title>Why we stopped using dagger and some thoughts</title>

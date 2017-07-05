@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.24.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Android Custom Views 101 (Part I) - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-05">July 05, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/android">Android</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Android Custom Views 101 (Part I)</h1>
+  <section class="body" itemprop="articleBody">
+    <p>Creating your own custom android views can be useful and daunting at the same time. For a long time there is nobody really talks about it in a approachable way, until this lady <a href="https://www.youtube.com/watch?v=dLl0ovmta6A">Huyen Tue Dao</a>. Let&rsquo;s try to follow her approach and create some custom view!</p>
+
+<p>In this part, we will create a very simple timer view that takes up the whole screen and display the current time.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/timer.png" />
+    
+    
+</figure>
+
+
+<p>So let&rsquo;s get started.</p>
+
+<p>First thing first. There are 3 steps that views go through before they appear on the screen:</p>
+
+<ol>
+<li><strong>Measure</strong> | onMeasure()</li>
+<li><strong>Layout</strong>  | onLayout()</li>
+<li><strong>Draw</strong>    | onDraw()</li>
+</ol>
+
+<p>During the <strong>measure</strong> phase, the parent gives its children a set of constriants, and the children dicide how big they want to be within those constriants.</p>
+
+<p>During the <strong>layout</strong> phase, each parent determines the final position and size of its children.</p>
+
+<p>Once the <strong>measure</strong> and <strong>layout</strong> phases are complete, the parent will draw itself and request its children to do the same.</p>
+
+<p>In this post, we will create a timer view that displays the time like a digital watch.</p>
+
+<p>First, create a <strong>TimerView</strong> class that extends the android <strong>View</strong> class.</p>
+
+<p>In it, we need to provide 2 custructors.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="c1">// This custructor is used when the TimerView gets created programatically</span>
+<span class="kd">public</span> <span class="nf">TimerView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+
+<span class="c1">// This custructor is used when the TimerView gets created through xml</span>
+<span class="kd">public</span> <span class="nf">TimerView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div>
+
+
+<p>In order to draw stuff, we need something called <code>Paint</code>.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="c1">// Paint for drawing background</span>
+<span class="n">backgroundPaint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Paint</span><span class="o">();</span>
+<span class="n">backgroundPaint</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">parseColor</span><span class="o">(</span><span class="s">&quot;#880000&quot;</span><span class="o">));</span>
+
+<span class="c1">// Paint for drawing text</span>
+<span class="n">numberPaint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextPaint</span><span class="o">(</span><span class="n">Paint</span><span class="o">.</span><span class="na">ANTI_ALIAS_FLAG</span><span class="o">);</span>
+<span class="n">numberPaint</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">ContextCompat</span><span class="o">.</span><span class="na">getColor</span><span class="o">(</span><span class="n">getContext</span><span class="o">(),</span> <span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">white</span><span class="o">));</span>
+</code></pre></div>
+
+
+<p>Important things to keep in mind: <strong>Drawing operations are in pixels, but you should think in Density Independent Pixels (DP) or Scaled Pixels (SP)</strong>, that means whenever you pass in the pixel value, you need to multiply that by <strong>display density</strong>, <code>DPs/SPs * display density</code>.</p>
+
+<p>So if we want the text to <em>64sp</em>, we can do like this:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="n">numberPaint</span><span class="o">.</span><span class="na">setTextSize</span><span class="o">(</span><span class="mi">64</span><span class="n">f</span> <span class="o">*</span> <span class="n">getResources</span><span class="o">().</span><span class="na">getDisplayMetrics</span><span class="o">().</span><span class="na">scaledDensity</span><span class="o">);</span>
+</code></pre></div>
+
+
+<p>Next we get the center point and radius of the background circle:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="c1">// The circle will be in the center of the canvas</span>
+<span class="kt">int</span> <span class="n">canvasWidth</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="na">getWidth</span><span class="o">();</span>
+<span class="kt">int</span> <span class="n">canvasHeight</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="na">getHeight</span><span class="o">();</span>
+
+<span class="kt">float</span> <span class="n">centerX</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">canvasWidth</span> <span class="o">*</span> <span class="mf">0.5f</span><span class="o">);</span>
+<span class="kt">float</span> <span class="n">centerY</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">canvasHeight</span> <span class="o">*</span> <span class="mf">0.5f</span><span class="o">);</span>
+
+<span class="kt">float</span> <span class="n">radius</span> <span class="o">=</span> <span class="o">(</span><span class="n">canvasWidth</span> <span class="o">&lt;</span> <span class="n">canvasHeight</span> <span class="o">?</span> <span class="n">canvasWidth</span> <span class="o">:</span> <span class="n">canvasHeight</span><span class="o">)</span> <span class="o">*</span> <span class="mf">0.5f</span><span class="o">;</span>
+</code></pre></div>
+
+
+<p>For drawing text, the origin is the left bottom of the text. So we have to calculate the x and y offsets like this:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">time</span><span class="o">);</span>
+<span class="kt">float</span> <span class="n">textOffsetX</span> <span class="o">=</span> <span class="n">numberPaint</span><span class="o">.</span><span class="na">measureText</span><span class="o">(</span><span class="n">text</span><span class="o">)</span> <span class="o">*</span> <span class="o">-</span><span class="mf">0.5f</span><span class="o">;</span>
+<span class="c1">// for some reason the ascent is negative</span>
+<span class="kt">float</span> <span class="n">textOffsetY</span> <span class="o">=</span> <span class="n">numberPaint</span><span class="o">.</span><span class="na">getFontMetrics</span><span class="o">().</span><span class="na">ascent</span> <span class="o">*</span> <span class="o">-</span><span class="mf">0.4f</span><span class="o">;</span>
+</code></pre></div>
+
+
+<p>Now we can draw the circle background and text:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="n">canvas</span><span class="o">.</span><span class="na">drawCircle</span><span class="o">(</span><span class="n">centerX</span><span class="o">,</span> <span class="n">centerY</span><span class="o">,</span> <span class="n">radius</span><span class="o">,</span> <span class="n">backgroundPaint</span><span class="o">);</span>
+<span class="n">canvas</span><span class="o">.</span><span class="na">drawText</span><span class="o">(</span><span class="n">text</span><span class="o">,</span> <span class="n">centerX</span> <span class="o">+</span> <span class="n">textOffsetX</span> <span class="o">,</span> <span class="n">centerY</span> <span class="o">+</span> <span class="n">textOffsetY</span> <span class="o">,</span> <span class="n">numberPaint</span><span class="o">);</span>
+</code></pre></div>
+
+
+<p>This completes the Part I, we have the timer view taken up the whole screen. In next part, we will take a look at how to properly implement <code>onMeasure()</code> so that it behaves better if is put inside some parent view.</p>
+
+<p>Check out the <a href="https://github.com/lvguowei/TimerView">source code</a> here.</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/android-custom-view-101\/';
+    var disqus_title = 'Android Custom Views 101 (Part I)';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/android-custom-view-101\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
