@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jul 2017 15:20:25 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jul 2017 21:42:18 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Pleasure Of Hand Made Programs</title>
+      <link>http://lvguowei.me/post/the-pleasure-of-hand-made-programs/</link>
+      <pubDate>Wed, 05 Jul 2017 21:42:18 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/the-pleasure-of-hand-made-programs/</guid>
+      <description>Some time ago I read this article about Why Mit Stopped Teaching SICP. Gerry Sussman said that nowadays people do not often need to build something from scratch again, there exists massive and huge library code for nearly everything. So today&amp;rsquo;s programming work is more like poking around other people&amp;rsquo;s code until it works.
+I&amp;rsquo;ve beening doing Android dev for some time now, and I have to say that I sadly agree with him.</description>
+    </item>
     
     <item>
       <title>Android Custom Views 101 (Part I)</title>

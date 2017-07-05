@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://lvguowei.me/post/the-pleasure-of-hand-made-programs/</loc>
+    <lastmod>2017-07-05T21:42:18+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/post/android-custom-view-101/</loc>
     <lastmod>2017-07-05T15:20:25+03:00</lastmod>
   </url>
@@ -488,7 +493,7 @@
   
   <url>
     <loc>http://lvguowei.me/</loc>
-    <lastmod>2017-07-05T15:20:25+03:00</lastmod>
+    <lastmod>2017-07-05T21:42:18+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -602,19 +607,25 @@
   
   <url>
     <loc>http://lvguowei.me/post/</loc>
-    <lastmod>2017-07-05T15:20:25+03:00</lastmod>
+    <lastmod>2017-07-05T21:42:18+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/categories/programming/</loc>
-    <lastmod>2017-07-05T15:20:25+03:00</lastmod>
+    <lastmod>2017-07-05T21:42:18+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/tags/programming-kata/</loc>
     <lastmod>2017-03-28T20:49:08+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/ranting/</loc>
+    <lastmod>2017-07-05T21:42:18+03:00</lastmod>
     <priority>0</priority>
   </url>
   
