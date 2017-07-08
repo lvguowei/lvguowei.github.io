@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.24.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Android Custom Views 101 (Part III) - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-08">July 08, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/android">Android</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Android Custom Views 101 (Part III)</h1>
+  <section class="body" itemprop="articleBody">
+    <p>In this post, we finally gonna take a look at how to implement <code>onMeasure()</code> properly.</p>
+
+<p>When implementing a custom view, we should always consider its <strong>lower and upper size limit</strong>. In this case since the format of the time is fixed (hh:mm:ss). So we just need to get the width and height of it.</p>
+
+<p>Suppose we set the <code>MAX_TIME = &quot;00:00:00&quot;</code>, then to get its width in pixel we can do:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="n">Paint</span><span class="o">.</span><span class="na">FontMetrics</span> <span class="n">metrics</span> <span class="o">=</span> <span class="n">numberPaint</span><span class="o">.</span><span class="na">getFontMetrics</span><span class="o">();</span>
+<span class="kt">int</span> <span class="n">maxTextWidth</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">numberPaint</span><span class="o">.</span><span class="na">measureText</span><span class="o">(</span><span class="n">MAX_TIME</span><span class="o">));</span>
+</code></pre></div>
+
+
+<p>The <code>measureText()</code> only returns the width, so to get the height we have to find another way.
+Based on the doc, <code>FontMetrics.top</code> is the maximum space a font can be from the baseline upwards, and <code>FontMetrics.bottom</code> is the maximum space a font can be below the baseline. So we can calculate the maximum font height to be:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kt">int</span> <span class="n">maxTextHeight</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">metrics</span><span class="o">.</span><span class="na">bottom</span> <span class="o">-</span> <span class="n">metrics</span><span class="o">.</span><span class="na">top</span><span class="o">);</span>
+</code></pre></div>
+
+
+<p>Now we pick the bigger one from <code>maxTextHeight</code> and <code>maxTextWidth</code> to be the <code>measuredContentSize</code>:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kt">int</span> <span class="n">contentSize</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxTextHeight</span><span class="o">,</span> <span class="n">maxTextWidth</span><span class="o">);</span>
+</code></pre></div>
+
+
+<p>Since we have figured out what size the TimerView wants to be, we now need to consider what its parent has told it. We can use a helper function <code>resolveSize()</code> to get the final measured size. (check its source code to see how the size is determined based on different spec)</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kt">int</span> <span class="n">measuredWidth</span> <span class="o">=</span> <span class="n">resolveSize</span><span class="o">(</span><span class="n">contentSize</span><span class="o">,</span> <span class="n">widthMeasureSpec</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">measuredHeight</span> <span class="o">=</span> <span class="n">resolveSize</span><span class="o">(</span><span class="n">contentSize</span><span class="o">,</span> <span class="n">heightMeasureSpec</span><span class="o">);</span>
+</code></pre></div>
+
+
+<p>Finally, we set call:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="n">setMeasuredDimension</span><span class="o">(</span><span class="n">measuredWidth</span><span class="o">,</span> <span class="n">measuredHeight</span><span class="o">);</span>
+</code></pre></div>
+
+
+<p>Additionally, we have to consider also paddings. Which is very easy to do.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kt">int</span> <span class="n">contentWidth</span> <span class="o">=</span> <span class="n">maxTextWidth</span> <span class="o">+</span> <span class="n">getPaddingLeft</span><span class="o">()</span> <span class="o">+</span> <span class="n">getPaddingRight</span><span class="o">();</span>
+<span class="kt">int</span> <span class="n">contentHeight</span> <span class="o">=</span> <span class="n">maxTextHeight</span> <span class="o">+</span> <span class="n">getPaddingTop</span><span class="o">()</span> <span class="o">+</span> <span class="n">getPaddingBottom</span><span class="o">();</span>
+<span class="kt">int</span> <span class="n">contentSize</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">contentWidth</span><span class="o">,</span> <span class="n">contentHeight</span><span class="o">);</span>
+</code></pre></div>
+
+
+<p>Now we are done. <a href="https://github.com/lvguowei/TimerView/tree/a0a929fe4ecc3dfb13066d200d9294c567ff296a">source code</a></p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/android-custom-views-101-3\/';
+    var disqus_title = 'Android Custom Views 101 (Part III)';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/android-custom-views-101-3\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
