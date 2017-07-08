@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.24.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Android Custom Views 101 (Part II) - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-08">July 08, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/android">Android</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Android Custom Views 101 (Part II)</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<p>In Part I, we talked about how to create a simple custom view. But we don&rsquo;t really implement the <code>onMeasure()</code>. In this post, we will analyze what problems we will have if we omit the <code>onMeasure()</code>.</p>
+
+<p>You can think of how the measurements are made as a conversation between the child and parent views.</p>
+
+<p><strong>The child</strong> tells its parent how it wants to be laid out by using <code>LayoutParams</code>. This can either be set in xml file or programatically. Like:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span></span><span class="err">android:layout_width=</span><span class="s2">&quot;match_parent&quot;</span>
+<span class="err">android:layout_height=</span><span class="s2">&quot;wrap_content&quot;</span>
+<span class="err">android:layout_marginTop=</span><span class="s2">&quot;80dp&quot;</span>
+</code></pre></div>
+
+
+<p><strong>The parent</strong> communicates the size constraints of the child through <code>MeasureSpec</code>. <code>MeasureSpec</code> is a integer value made up of a <code>mode</code> and a <code>size</code>. The <strong>modes</strong> can be:</p>
+
+<ul>
+<li><strong>EXACTLY X</strong> -&gt;&gt; Size is exactly X</li>
+<li><strong>AT_MOST X</strong> -&gt;&gt; Any size up to X</li>
+<li><strong>UNSPECIFIED</strong> -&gt;&gt; No constraints</li>
+</ul>
+
+<p>The communication happens as following steps:</p>
+
+<ol>
+<li>Child specifies <code>LayoutParams</code> in Java or XML.</li>
+<li>Parent calculates width/height <code>MeasureSpecs</code> and passes to <code>child.measure()</code>.</li>
+<li>In <code>onMeasure()</code>, child calculates width/height, then <code>setMeasuredDimension()</code>.</li>
+<li>Parent calls <code>child.layout()</code> with final child size/position.</li>
+</ol>
+
+<p>Now we understand roughly how the measuring works, let&rsquo;s try to put our <code>TimerView</code> inside a parent and see how it behaves when we set different constraints.</p>
+
+<h2 id="case-1">Case 1</h2>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="nt">&lt;FrameLayout</span>
+    <span class="na">android:id=</span><span class="s">&quot;@+id/parent1&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;300dp&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;300dp&quot;</span>
+    <span class="na">android:layout_gravity=</span><span class="s">&quot;center_horizontal&quot;</span>
+    <span class="na">android:background=</span><span class="s">&quot;@android:color/darker_gray&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;me.lvguowei.timerview.TimerView</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/timer1&quot;</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;200dp&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;200dp&quot;</span>
+        <span class="na">android:layout_gravity=</span><span class="s">&quot;center&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/FrameLayout&gt;</span>
+</code></pre></div>
+
+
+<p>In this case the parent has the size of <strong>300dp x 300dp</strong> and TimerView has the size of <strong>200dp x 200dp</strong>, the result is expected, the TimerView fits in the parent pretty well.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/timer1.png" />
+    
+    
+</figure>
+
+
+<h2 id="case-2">Case 2</h2>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="nt">&lt;FrameLayout</span>
+    <span class="na">android:id=</span><span class="s">&quot;@+id/parent2&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;300dp&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;300dp&quot;</span>
+    <span class="na">android:layout_gravity=</span><span class="s">&quot;center_horizontal&quot;</span>
+    <span class="na">android:background=</span><span class="s">&quot;@android:color/darker_gray&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;me.lvguowei.timerview.TimerView</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/timer2&quot;</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">android:layout_gravity=</span><span class="s">&quot;center&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/FrameLayout&gt;</span>
+</code></pre></div>
+
+
+<p>In this case the parent still has the fixed size of <strong>300dp x 300dp</strong>, but the TimerView now has size of <strong>match_parent</strong> on both width and height.</p>
+
+<p>The result is also pretty good, now the TimerView has the same size of its parent which is <strong>300dp x 300dp</strong>.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/timer2.png" />
+    
+    
+</figure>
+
+
+<h2 id="case-3">Case 3</h2>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="nt">&lt;FrameLayout</span>
+    <span class="na">android:id=</span><span class="s">&quot;@+id/parent3&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;300dp&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;300dp&quot;</span>
+    <span class="na">android:layout_gravity=</span><span class="s">&quot;center_horizontal&quot;</span>
+    <span class="na">android:background=</span><span class="s">&quot;@android:color/darker_gray&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;me.lvguowei.timerview.TimerView</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/timer3&quot;</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_gravity=</span><span class="s">&quot;center&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/FrameLayout&gt;</span>
+</code></pre></div>
+
+
+<p>In this case, the parent is still <strong>300dp x 300dp</strong>, but the TimerView is now both <strong>wrap_content</strong>. What we are expecting is that the TimerView will be just big enough to contain the time text in it. But instead, we get the same result as in case 2, which the TimerView just fills in the whole parent.</p>
+
+
+<figure >
+    
+        <img src="http://lvguowei.me/img/timer3.png" />
+    
+    
+</figure>
+
+
+<h2 id="case-4">Case 4</h2>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="nt">&lt;FrameLayout</span>
+    <span class="na">android:id=</span><span class="s">&quot;@+id/parent4&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;300dp&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+    <span class="na">android:layout_gravity=</span><span class="s">&quot;center_horizontal&quot;</span>
+    <span class="na">android:background=</span><span class="s">&quot;@android:color/darker_gray&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;me.lvguowei.timerview.TimerView</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/timer4&quot;</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">android:layout_gravity=</span><span class="s">&quot;center&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/FrameLayout&gt;</span>
+</code></pre></div>
+
+
+<p>In this case something interesting happened. The height of the parent is set to be <strong>wrap_content</strong>, and the TimerView&rsquo;s height is set to be <strong>match_parent</strong>. Which sounds like it&rsquo;s a dependency cycle. And the result is not good, we don&rsquo;t even see the TimerView, which means it gets an 0 height in the end.</p>
+
+<p>Now we have seen the problems we will run into if we don&rsquo;t implement <code>onMeasure()</code> carefully. In next installment, we will address that.</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lvguoweime';
+    var disqus_identifier = 'http:\/\/lvguowei.me\/post\/android-custom-views-101-2\/';
+    var disqus_title = 'Android Custom Views 101 (Part II)';
+    var disqus_url = 'http:\/\/lvguowei.me\/post\/android-custom-views-101-2\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

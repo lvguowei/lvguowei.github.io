@@ -6,10 +6,21 @@
     <description>Recent content in Programming on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jul 2017 21:42:18 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 08 Jul 2017 09:55:03 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android Custom Views 101 (Part II)</title>
+      <link>http://lvguowei.me/post/android-custom-views-101-2/</link>
+      <pubDate>Sat, 08 Jul 2017 09:55:03 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/android-custom-views-101-2/</guid>
+      <description>In Part I, we talked about how to create a simple custom view. But we don&amp;rsquo;t really implement the onMeasure(). In this post, we will analyze what problems we will have if we omit the onMeasure().
+You can think of how the measurements are made as a conversation between the child and parent views.
+The child tells its parent how it wants to be laid out by using LayoutParams. This can either be set in xml file or programatically.</description>
+    </item>
     
     <item>
       <title>The Pleasure Of Hand Made Programs</title>
