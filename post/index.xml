@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Jul 2017 14:47:36 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jul 2017 16:41:23 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android Custom Views 101 (Part IV)</title>
+      <link>http://lvguowei.me/post/android-custom-view-101-4/</link>
+      <pubDate>Sun, 09 Jul 2017 16:41:23 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/android-custom-view-101-4/</guid>
+      <description>In this installment, we talk about how to implement custom view group.
+There are two ways of doing custom view groups: 1. Extends an existing ViewGroup, like LinearLayout or FrameLayout. 2. Extends the base ViewGroup class.
+Normally, the first way will do the trick. But in this post, we are talking about the second one.
+Basically you have to implement both onMeasure() and onLayout().
+The details are kind of straightforward, take a look at the commented source code</description>
+    </item>
     
     <item>
       <title>Android Custom Views 101 (Part III)</title>

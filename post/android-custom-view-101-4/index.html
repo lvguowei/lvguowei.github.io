@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
 <link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
-<title>Finnish learning diary 7 - Guowei Lv</title>
+<title>Android Custom Views 101 (Part IV) - Guowei Lv</title>
 </head>
 <body>
 
@@ -33,13 +33,13 @@
   <div class="meta">
 
     <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2016-10-08">October 08, 2016</time></span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-09">July 09, 2017</time></span>
 
 
     <span class="key">in</span>
     <span class="val">
 
-        <a href="http://lvguowei.me/categories/finnish-learning">Finnish Learning</a>
+        <a href="http://lvguowei.me/categories/programming">programming</a>
 
     </span>
 
@@ -48,25 +48,24 @@
     <span class="key">tags:</span>
     <span class="val">
 
-        <a href="http://lvguowei.me/tags/finnishpod101">Finnishpod101</a>
-
-        <a href="http://lvguowei.me/tags/handwriting">handwriting</a>
-
-        <a href="http://lvguowei.me/tags/cursive">cursive</a>
+        <a href="http://lvguowei.me/tags/android">Android</a>
 
     </span>
 
   </div>
-  <h1 class="headline" itemprop="headline">Finnish learning diary 7</h1>
+  <h1 class="headline" itemprop="headline">Android Custom Views 101 (Part IV)</h1>
   <section class="body" itemprop="articleBody">
-    
-<figure >
-    
-        <img src="http://lvguowei.me/img/finnishpod-s1-20.jpg" />
-    
-    
-</figure>
+    <p>In this installment, we talk about how to implement custom view group.</p>
 
+<p>There are two ways of doing custom view groups:
+1. Extends an existing <code>ViewGroup</code>, like <code>LinearLayout</code> or <code>FrameLayout</code>.
+2. Extends the base <code>ViewGroup</code> class.</p>
+
+<p>Normally, the first way will do the trick. But in this post, we are talking about the second one.</p>
+
+<p>Basically you have to implement both <code>onMeasure()</code> and <code>onLayout()</code>.</p>
+
+<p>The details are kind of straightforward, take a look at the commented <a href="https://github.com/lvguowei/TimerView/tree/6eb4e71e7a32be67a249818a2ac61f399da110e1">source code</a></p>
 
   </section>
 
@@ -101,7 +100,7 @@
 </div>
 <footer>
   <div class="container">
-    <span class="copyright">&copy; 2016  Guowei Lv</span>
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
   </div>
 </footer>
 

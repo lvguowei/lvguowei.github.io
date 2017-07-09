@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="Guowei Lv">
-<meta name="generator" content="Hugo 0.24.1" />
+<meta name="generator" content="Hugo 0.25" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -43,6 +43,25 @@
   <h1 class="headline">Recent Posts</h1>
 
   <div class="article-list">
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/android-custom-view-101-4/">Android Custom Views 101 (Part IV)</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-09">July 09, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    In this installment, we talk about how to implement custom view group.
+There are two ways of doing custom view groups: 1. Extends an existing ViewGroup, like LinearLayout or FrameLayout. 2. Extends the base ViewGroup class.
+Normally, the first way will do the trick. But in this post, we are talking about the second one.
+Basically you have to implement both onMeasure() and onLayout().
+The details are kind of straightforward, take a look at the commented source code 
+  </section>
+</article>
+
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
@@ -193,25 +212,6 @@ Two interesting observations:
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/understand-clojure-transducers/">Understand Clojure Transducers 1</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-04-02">April 02, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    In this post, we will define what is a transducer.
-First, let&rsquo;s take a closer look at map.
-(map inc [1 2 3])  A straightforward way to explain what has happened is this: Increment each item by one in a list.
-At first thought, this sounds like one step operation.
-Now let&rsquo;s change the requirement a bit. We want to increment each element by one and then sum them together.  <a href="http://lvguowei.me/post/understand-clojure-transducers/">Read More...</a>
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -237,7 +237,7 @@ Now let&rsquo;s change the requirement a bit. We want to increment each element 
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/programming">Programming</a>
-      <small>(48)</small>
+      <small>(49)</small>
     </h2>
     
   </section>
@@ -272,7 +272,7 @@ Now let&rsquo;s change the requirement a bit. We want to increment each element 
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/android">android</a>
-      <small>(10)</small>
+      <small>(11)</small>
     </span>
     
     <span class="tag">
