@@ -6,10 +6,21 @@
     <description>Recent content in Programming on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Jul 2017 16:41:23 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jul 2017 19:26:15 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android Custom View 101 (Part V)</title>
+      <link>http://lvguowei.me/post/android-custom-view-101-5/</link>
+      <pubDate>Sun, 09 Jul 2017 19:26:15 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/android-custom-view-101-5/</guid>
+      <description>In this post, we will discuss how to implement a custom view group by extending an existing one, like a FrameLayout.
+Let&amp;rsquo;s assume that we are building a layout for displaying user&amp;rsquo;s avatar. The requirement is if a user has an avatar, show the avatar picture, if not, show their initials as text.
+So it would be good if we have some kind of AvatarView and Avatar data class (which contains name and avatar picture).</description>
+    </item>
     
     <item>
       <title>Android Custom Views 101 (Part IV)</title>
