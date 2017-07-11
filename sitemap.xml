@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://lvguowei.me/post/rxjava-fromcallable-vs-defer/</loc>
+    <lastmod>2017-07-11T17:13:32+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/post/android-custom-view-101-5/</loc>
     <lastmod>2017-07-09T19:26:15+03:00</lastmod>
   </url>
@@ -358,7 +363,7 @@
   
   <url>
     <loc>http://lvguowei.me/tags/android/</loc>
-    <lastmod>2017-07-09T19:26:15+03:00</lastmod>
+    <lastmod>2017-07-11T17:13:32+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -513,7 +518,7 @@
   
   <url>
     <loc>http://lvguowei.me/</loc>
-    <lastmod>2017-07-09T19:26:15+03:00</lastmod>
+    <lastmod>2017-07-11T17:13:32+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -627,13 +632,13 @@
   
   <url>
     <loc>http://lvguowei.me/post/</loc>
-    <lastmod>2017-07-09T19:26:15+03:00</lastmod>
+    <lastmod>2017-07-11T17:13:32+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/categories/programming/</loc>
-    <lastmod>2017-07-09T19:26:15+03:00</lastmod>
+    <lastmod>2017-07-11T17:13:32+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -658,6 +663,12 @@
   <url>
     <loc>http://lvguowei.me/tags/refactoring/</loc>
     <lastmod>2016-12-08T21:34:15+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/rxjava/</loc>
+    <lastmod>2017-07-11T17:13:32+03:00</lastmod>
     <priority>0</priority>
   </url>
   

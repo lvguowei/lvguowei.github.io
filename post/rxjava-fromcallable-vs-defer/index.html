@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.25.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Rxjava fromCallable() Vs defer() - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-11">July 11, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/android">Android</a>
+
+        <a href="http://lvguowei.me/tags/rxjava">RxJava</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Rxjava fromCallable() Vs defer()</h1>
+  <section class="body" itemprop="articleBody">
+    
+
+<p>In this post we talk about how to use <code>Observable.fromCallable()</code> and <code>Observable.defer()</code> to convert exising functionality into the Rx.</p>
+
+<p>Imagine that you have a <code>UserService</code> class, in it there is a <code>getUserFromDb()</code> function. This function is developed before RxJava and cannot be changed. But somehow you need a function which returns a <code>Observable&lt;User&gt;</code>. What could you do?</p>
+
+<h2 id="the-userservice-example">The UserService Example</h2>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="o">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Gets User from database, this should not be run in UI thread.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">User</span> <span class="nf">getUserFromDb</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">10000</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="mi">1L</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getUserObservable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="na">just</span><span class="o">(</span><span class="n">getUserFromDb</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p><div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">User</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+</p>
+
+<h2 id="the-wrong-approach">The wrong approach</h2>
+
+<p>It is very tempting to use the <code>Observable.just()</code> to wrap the function call like this:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getUserObservable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="na">just</span><span class="o">(</span><span class="n">getUserFromDb</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div>
+
+
+<p>And when need to call it, we do:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="n">userService</span><span class="o">.</span><span class="na">getUserObservable</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">io</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">doOnSubscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Action0</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">call</span><span class="o">()</span> <span class="o">{</span>
+                        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;start loading...&quot;</span><span class="o">);</span>
+                    <span class="o">}</span>
+                <span class="o">})</span>
+                <span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Action1</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">call</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;call: user &quot;</span> <span class="o">+</span> <span class="n">user</span><span class="o">);</span>
+                    <span class="o">}</span>
+                <span class="o">},</span> <span class="k">new</span> <span class="n">Action1</span><span class="o">&lt;</span><span class="n">Throwable</span><span class="o">&gt;()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">call</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;call: &quot;</span><span class="o">,</span> <span class="n">throwable</span><span class="o">);</span>
+                    <span class="o">}</span>
+                <span class="o">});</span>
+</code></pre></div>
+
+
+<p>You may think that since we <code>subscribeOn(Schedulers.io())</code> and <code>observeOn(AndroidSchedulers.mainThread())</code> everything should just be fine. WRONG. Turns out that it is still blocking on the UI thread. So this is not what we wanted.</p>
+
+<h2 id="use-observable-defer">Use Observable.defer()</h2>
+
+<p>Now let&rsquo;s trying wrap the call inside the <code>Observable.defer()</code>:</p>
+
+<p><div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getUserObservableDefer</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="na">defer</span><span class="o">(</span><span class="k">new</span> <span class="n">Func0</span><span class="o">&lt;</span><span class="n">Observable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;&gt;()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">call</span><span class="o">()</span> <span class="o">{</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="na">just</span><span class="o">(</span><span class="n">getUserFromDb</span><span class="o">());</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre></div>
+</p>
+
+<p>Now this works as we expected, but the it is still a lot of code plus that we have to handle the exception by ourselves.</p>
+
+<h2 id="use-observable-fromcallable">Use Observable.fromCallable()</h2>
+
+<p><div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getUserObservableCallable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="na">fromCallable</span><span class="o">(</span><span class="k">new</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">User</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">getUserFromDb</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre></div>
+</p>
+
+<p>This works equally well, and we don&rsquo;t need to handle the exception ourselves, best choice!</p>
+
+<p>~THE END~</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lvguoweime" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

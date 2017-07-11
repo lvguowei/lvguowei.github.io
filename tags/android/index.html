@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="Guowei Lv">
-<meta name="generator" content="Hugo 0.25" />
+<meta name="generator" content="Hugo 0.25.1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
@@ -28,6 +28,23 @@
 
 <main role="main" class="article-list">
   <h1 class="list-title">Android</h1>
+  
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/rxjava-fromcallable-vs-defer/">Rxjava fromCallable() Vs defer()</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-11">July 11, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    In this post we talk about how to use Observable.fromCallable() and Observable.defer() to convert exising functionality into the Rx.
+Imagine that you have a UserService class, in it there is a getUserFromDb() function. This function is developed before RxJava and cannot be changed. But somehow you need a function which returns a Observable&lt;User&gt;. What could you do?
+The UserService Example public class UserService { /** * Gets User from database, this should not be run in UI thread.  <a href="http://lvguowei.me/post/rxjava-fromcallable-vs-defer/">Read More...</a>
+  </section>
+</article>
+
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">

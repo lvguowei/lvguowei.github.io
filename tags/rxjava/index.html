@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
 <link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
-<title>Mastermind - Guowei Lv</title>
+<title>Rxjava - Guowei Lv</title>
 </head>
 <body>
 
@@ -27,20 +27,21 @@
 <div class="container">
 
 <main role="main" class="article-list">
-  <h1 class="list-title">Mastermind</h1>
+  <h1 class="list-title">Rxjava</h1>
   
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/master-mind-tdd/">Master Mind in TDD</a></h2>
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/rxjava-fromcallable-vs-defer/">Rxjava fromCallable() Vs defer()</a></h2>
   <div class="meta">
 
     <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2016-11-21">November 21, 2016</time></span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-11">July 11, 2017</time></span>
 
   </div>
   <section class="summary">
-    In one of Uncle Bob&rsquo;s video, he talked about this game called &ldquo;Master Mind&rdquo; when he was teaching Single Responsibility Principle(SRP). After googled the game, turns out that it is actually a quite famous board game. For more information about the game, please look here -&gt; wiki.
-The game can be played by two people. One comes up with a code, the other one tries to guess. The one who comes up with the code has to score the guesser&rsquo;s guess based on some rules.  <a href="http://lvguowei.me/post/master-mind-tdd/">Read More...</a>
+    In this post we talk about how to use Observable.fromCallable() and Observable.defer() to convert exising functionality into the Rx.
+Imagine that you have a UserService class, in it there is a getUserFromDb() function. This function is developed before RxJava and cannot be changed. But somehow you need a function which returns a Observable&lt;User&gt;. What could you do?
+The UserService Example public class UserService { /** * Gets User from database, this should not be run in UI thread.  <a href="http://lvguowei.me/post/rxjava-fromcallable-vs-defer/">Read More...</a>
   </section>
 </article>
 
@@ -50,7 +51,7 @@ The game can be played by two people. One comes up with a code, the other one tr
 </div>
 <footer>
   <div class="container">
-    <span class="copyright">&copy; 2016  Guowei Lv</span>
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
   </div>
 </footer>
 
