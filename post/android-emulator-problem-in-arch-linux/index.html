@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.25.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>Android Emulator Problem In Arch Linux - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-12">July 12, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/misc">misc</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/android">Android</a>
+
+        <a href="http://lvguowei.me/tags/androidstudio">AndroidStudio</a>
+
+        <a href="http://lvguowei.me/tags/android-emulator">Android Emulator</a>
+
+        <a href="http://lvguowei.me/tags/arch-linux">Arch Linux</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">Android Emulator Problem In Arch Linux</h1>
+  <section class="body" itemprop="articleBody">
+    <p>I don&rsquo;t remember since when, but now whenever I upgrade Android Studio from pacman, I cannot open my emulator, with some <code>libGL error: unable to load driver: i965_dri.so</code> error.</p>
+
+<p>I tried to follow the solution online but found none of them is working out of the box, because Android Sdk changed some paths. Here is what actualy works now:</p>
+
+<ol>
+<li>cd ANDROID_SDK_PATH/emulator/lib64/libstdc++/</li>
+<li>mv libstdc++.so.6 libstdc++.so.6.bak</li>
+<li>ln -s /usr/lib64/libstdc++.so.6 libstdc++.so.6</li>
+</ol>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lvguoweime" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+

@@ -46,6 +46,23 @@
     
     
 <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/android-emulator-problem-in-arch-linux/">Android Emulator Problem In Arch Linux</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-12">July 12, 2017</time></span>
+
+  </div>
+  <section class="summary">
+    I don&rsquo;t remember since when, but now whenever I upgrade Android Studio from pacman, I cannot open my emulator, with some libGL error: unable to load driver: i965_dri.so error.
+I tried to follow the solution online but found none of them is working out of the box, because Android Sdk changed some paths. Here is what actualy works now:
+ cd ANDROID_SDK_PATH/emulator/lib64/libstdc++/ mv libstdc++.so.6 libstdc++.so.6.bak ln -s /usr/lib64/libstdc++.so.6 libstdc++.so.6   
+  </section>
+</article>
+
+    
+    
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/rxjava-fromcallable-vs-defer/">Rxjava fromCallable() Vs defer()</a></h2>
   <div class="meta">
 
@@ -197,22 +214,6 @@ Remember what we have been taught in school? That mutex thing? Mutual Exclusive?
 </article>
 
     
-    
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="http://lvguowei.me/post/why-remove-dagger/">Why we stopped using dagger and some thoughts</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2017-06-27">June 27, 2017</time></span>
-
-  </div>
-  <section class="summary">
-    I decided to stop using Dagger2 in our company&rsquo;s android project. Why?
-Don&rsquo;t get me wrong, Dagger2 is still great. But though it is great, it is complex. Lots of concepts to wrap our heads around. What is a component, what is a module, what is the difference between subcomponent and dependency component, etc. In order to use it properly, we need to anwser all that questions, even you think you understand it, you still run into suprises now and then.  <a href="http://lvguowei.me/post/why-remove-dagger/">Read More...</a>
-  </section>
-</article>
-
-    
   </div>
 
   
@@ -228,6 +229,11 @@ Don&rsquo;t get me wrong, Dagger2 is still great. But though it is great, it is 
     
     <h2 class="category">
       <a href="http://lvguowei.me/categories/fragrance">Fragrance</a>
+      <small>(1)</small>
+    </h2>
+    
+    <h2 class="category">
+      <a href="http://lvguowei.me/categories/misc">Misc</a>
       <small>(1)</small>
     </h2>
     
@@ -273,11 +279,26 @@ Don&rsquo;t get me wrong, Dagger2 is still great. But though it is great, it is 
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/android">android</a>
-      <small>(13)</small>
+      <small>(14)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/android-emulator">android-emulator</a>
+      <small>(1)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/androidstudio">androidstudio</a>
+      <small>(1)</small>
     </span>
     
     <span class="tag">
       <a href="http://lvguowei.me/tags/arabic">arabic</a>
+      <small>(1)</small>
+    </span>
+    
+    <span class="tag">
+      <a href="http://lvguowei.me/tags/arch-linux">arch-linux</a>
       <small>(1)</small>
     </span>
     
