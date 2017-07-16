@@ -206,6 +206,10 @@
 
 <p>There is a <a href="https://google.github.io/android-testing-support-library/docs/espresso/cheatsheet/">cheat sheet</a> that is quite useful.</p>
 
+<h2 id="using-uiautomatorviewer">Using uiautomatorviewer</h2>
+
+<p>Notice that in the previous test, we find the view by making a text match, this has several problems. The text can change quite often and what if the app is internationalized? All these makes the test to be fragile. We can eliminate these shortcomings by using the view&rsquo;s id. But finding the view&rsquo;s id can be cumbersome. Here is what uiautomatorviewer can help. Using it, we can very quickly access the view&rsquo;s information including its id. Launch it (in ANDROID-SDK-PATH/Sdk/tools/bin/) and should be easy to figure out how to use it.</p>
+
   </section>
 
   <br/>
