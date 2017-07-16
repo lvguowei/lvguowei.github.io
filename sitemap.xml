@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing/</loc>
+    <lastmod>2017-07-13T13:03:12+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/post/android-emulator-problem-in-arch-linux/</loc>
     <lastmod>2017-07-12T14:13:07+03:00</lastmod>
   </url>
@@ -368,7 +373,7 @@
   
   <url>
     <loc>http://lvguowei.me/tags/android/</loc>
-    <lastmod>2017-07-12T14:13:07+03:00</lastmod>
+    <lastmod>2017-07-13T13:03:12+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -510,6 +515,12 @@
   </url>
   
   <url>
+    <loc>http://lvguowei.me/tags/espresso/</loc>
+    <lastmod>2017-07-13T13:03:12+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://lvguowei.me/categories/finnish-learning/</loc>
     <lastmod>2016-10-16T14:11:16+03:00</lastmod>
     <priority>0</priority>
@@ -541,7 +552,7 @@
   
   <url>
     <loc>http://lvguowei.me/</loc>
-    <lastmod>2017-07-12T14:13:07+03:00</lastmod>
+    <lastmod>2017-07-13T13:03:12+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -661,13 +672,13 @@
   
   <url>
     <loc>http://lvguowei.me/post/</loc>
-    <lastmod>2017-07-12T14:13:07+03:00</lastmod>
+    <lastmod>2017-07-13T13:03:12+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/categories/programming/</loc>
-    <lastmod>2017-07-11T17:13:32+03:00</lastmod>
+    <lastmod>2017-07-13T13:03:12+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -734,6 +745,12 @@
   <url>
     <loc>http://lvguowei.me/tags/tdd/</loc>
     <lastmod>2017-03-20T20:27:39+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://lvguowei.me/tags/testing/</loc>
+    <lastmod>2017-07-13T13:03:12+03:00</lastmod>
     <priority>0</priority>
   </url>
   
