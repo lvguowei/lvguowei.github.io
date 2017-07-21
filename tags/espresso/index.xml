@@ -6,10 +6,20 @@
     <description>Recent content in Espresso on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Jul 2017 11:48:08 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jul 2017 16:44:41 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/tags/espresso/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>All You Need To Know About Android Espresso Testing (Part III)</title>
+      <link>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-3/</link>
+      <pubDate>Fri, 21 Jul 2017 16:44:41 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-3/</guid>
+      <description>In part II, we wrote a test case to verify that the app can create a task and the task will be seen on the screen. In this part III, we will demonstrate one technique on writing tests that involves a RecyclerView.
+First we repeatly add some tasks, and then we verify that the last added task is on display. Note that since we are using a RecyclerView, the last item might not be seen, so we need to scroll the RecyclerView before checking.</description>
+    </item>
     
     <item>
       <title>All You Need To Know About Android Espresso Testing (Part II)</title>
