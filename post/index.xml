@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jul 2017 09:06:31 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jul 2017 11:48:08 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>All You Need To Know About Android Espresso Testing (Part II)</title>
+      <link>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-2/</link>
+      <pubDate>Fri, 21 Jul 2017 11:48:08 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-2/</guid>
+      <description>In Part I we talked about how to setup Espresso testing framework, what is the activity testing rule and how to use uiautomatorviewer to help us find id of the view quickly.
+In this Part II, we will write some tests against a simple TODO list application. Lets get started.
+About the App under test This is a very simple app with basically 2 screens. One to display a list of tasks:</description>
+    </item>
     
     <item>
       <title>How To Follow Hand Made Hero On Linux</title>
