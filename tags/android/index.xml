@@ -6,10 +6,20 @@
     <description>Recent content in Android on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Jul 2017 16:44:41 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jul 2017 18:19:35 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>All You Need To Know About Android Espresso Testing (Part IV)</title>
+      <link>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-4/</link>
+      <pubDate>Fri, 21 Jul 2017 18:19:35 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-4/</guid>
+      <description>In previous article, we talked about how to scroll to a certain position in RecyclerView in the test. In this article, we further discuss how to write a custom matcher and use it to scroll the RecyclerView.
+Let&amp;rsquo;s say that we want to scroll to certain item in RecyclerView, but we don&amp;rsquo;t know the position. We can then create a custom Matcher, and use the matcher to determine which item to scroll to.</description>
+    </item>
     
     <item>
       <title>All You Need To Know About Android Espresso Testing (Part III)</title>

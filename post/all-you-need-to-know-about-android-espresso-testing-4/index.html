@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Guowei Lv">
+<meta name="generator" content="Hugo 0.25.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://lvguowei.me/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="http://lvguowei.me/index.xml" type="application/rss+xml" title="Guowei Lv">
+<title>All You Need To Know About Android Espresso Testing (Part IV) - Guowei Lv</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="http://lvguowei.me/">[Guowei Lv]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2017-07-21">July 21, 2017</time></span>
+
+
+    <span class="key">in</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/categories/programming">programming</a>
+
+    </span>
+
+
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+
+        <a href="http://lvguowei.me/tags/android">Android</a>
+
+        <a href="http://lvguowei.me/tags/espresso">Espresso</a>
+
+        <a href="http://lvguowei.me/tags/testing">Testing</a>
+
+    </span>
+
+  </div>
+  <h1 class="headline" itemprop="headline">All You Need To Know About Android Espresso Testing (Part IV)</h1>
+  <section class="body" itemprop="articleBody">
+    <p>In previous article, we talked about how to scroll to a certain position in <code>RecyclerView</code> in the test. In this article, we further discuss how to write a custom matcher and use it to scroll the <code>RecyclerView</code>.</p>
+
+<p>Let&rsquo;s say that we want to scroll to certain item in <code>RecyclerView</code>, but we don&rsquo;t know the position. We can then create a custom <code>Matcher</code>, and use the matcher to determine which item to scroll to. We can write the matcher like this:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Matchers</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Matcher</span><span class="o">&lt;</span><span class="n">View</span><span class="o">&gt;</span> <span class="nf">withTaskViewName</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">expected</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">TypeSafeMatcher</span><span class="o">&lt;</span><span class="n">View</span><span class="o">&gt;()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">matchesSafely</span><span class="o">(</span><span class="n">View</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">item</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">item</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">task_item_task_name</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">TextView</span> <span class="n">taskName</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">item</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">task_item_task_name</span><span class="o">);</span>
+                    <span class="k">return</span> <span class="o">!</span><span class="n">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">taskName</span><span class="o">.</span><span class="na">getText</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="n">taskName</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">toString</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">expected</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">describeTo</span><span class="o">(</span><span class="n">Description</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">description</span><span class="o">.</span><span class="na">appendText</span><span class="o">(</span><span class="s">&quot;Looked for &quot;</span> <span class="o">+</span> <span class="n">expected</span> <span class="o">+</span> <span class="s">&quot; in the task_item_layout.xml file&quot;</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>The matcher is rather simple, we just say that given a view, if we can find that there is a <code>TextView</code> with such and such id, and it contains such and such text, then we consider it a match, otherwise no match.</p>
+
+<p>One thing to note is that we are not checking anyting in this test, this is because if the matcher doesn&rsquo;t find a match, the scroll action will fail, so the test will fail.</p>
+
+<p>Now the test becomes:</p>
+
+<p><div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">task_list</span><span class="o">)).</span><span class="na">perform</span><span class="o">(</span><span class="n">RecyclerViewActions</span><span class="o">.</span><span class="na">scrollTo</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">withTaskViewName</span><span class="o">(</span><span class="s">&quot;task 10&quot;</span><span class="o">)));</span>
+</code></pre></div>
+</p>
+
+<p>Find the source code <a href="https://github.com/lvguowei/EspressoExample/tree/c421022e8e12f2726de7a3b6d73dd21cda81dc5d">here</a>.</p>
+
+<p>~To be continued~</p>
+
+  </section>
+
+  <br/>
+
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lvguoweime" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+</main>
+
+
+</div>
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2017  Guowei Lv</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
