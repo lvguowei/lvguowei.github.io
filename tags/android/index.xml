@@ -154,18 +154,6 @@ Don&amp;rsquo;t get me wrong, Dagger2 is still great. But though it is great, it
     </item>
     
     <item>
-      <title>Android Kata View Property Animator</title>
-      <link>http://lvguowei.me/post/android-kata-view-property-animator/</link>
-      <pubDate>Tue, 28 Mar 2017 20:49:08 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/android-kata-view-property-animator/</guid>
-      <description>Since I have been doing programming kata, why not adopt the same kata concept in Android programming?
-Over the years I have accumulated some useful tools / tricks that I can show in kata form.
-The goal is to keep it simple and easy to grasp and to the point.
-This is the first one, which shows how to use ViewPropertyAnimator to animate show and hide of the FAB button.</description>
-    </item>
-    
-    <item>
       <title>My Second Android Library</title>
       <link>http://lvguowei.me/post/second-android-lib/</link>
       <pubDate>Mon, 26 Dec 2016 10:23:15 +0200</pubDate>
