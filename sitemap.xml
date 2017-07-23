@@ -183,7 +183,7 @@
   </url>
   
   <url>
-    <loc>http://lvguowei.me/post/programming-kata/</loc>
+    <loc>http://lvguowei.me/post/programming-kata-day-1/</loc>
     <lastmod>2017-02-06T20:42:29+02:00</lastmod>
   </url>
   
@@ -369,12 +369,6 @@
   
   <url>
     <loc>http://lvguowei.me/about/</loc>
-  </url>
-  
-  <url>
-    <loc>http://lvguowei.me/tags/adventofcode/</loc>
-    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -667,13 +661,13 @@
   
   <url>
     <loc>http://lvguowei.me/tags/krita/</loc>
-    <lastmod>2016-12-05T18:50:50+02:00</lastmod>
+    <lastmod>2016-12-05T18:30:50+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://lvguowei.me/tags/krita/</loc>
-    <lastmod>2016-12-05T18:30:50+02:00</lastmod>
+    <lastmod>2016-12-05T18:50:50+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -786,12 +780,6 @@
   </url>
   
   <url>
-    <loc>http://lvguowei.me/categories/programming-kata/</loc>
-    <lastmod>2017-03-06T21:02:55+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://lvguowei.me/tags/programming-kata/</loc>
     <lastmod>2017-03-28T20:49:08+03:00</lastmod>
     <priority>0</priority>
@@ -799,7 +787,7 @@
   
   <url>
     <loc>http://lvguowei.me/categories/programming-kata/</loc>
-    <lastmod>2017-02-06T20:42:29+02:00</lastmod>
+    <lastmod>2017-03-06T21:02:55+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -877,7 +865,7 @@
   
   <url>
     <loc>http://lvguowei.me/tags/</loc>
-    <lastmod>2017-02-20T20:05:17+02:00</lastmod>
+    <lastmod>2016-11-20T14:51:39+02:00</lastmod>
     <priority>0</priority>
   </url>
   

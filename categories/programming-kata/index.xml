@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming Kata on Guowei Lv</title>
+    <title>Programming kata on Guowei Lv</title>
     <link>http://lvguowei.me/categories/programming-kata/</link>
-    <description>Recent content in Programming Kata on Guowei Lv</description>
+    <description>Recent content in Programming kata on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Mar 2017 21:02:55 +0200</lastBuildDate>
@@ -145,6 +145,19 @@ Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\
       <guid>http://lvguowei.me/post/programming-kata-day-2/</guid>
       <description>Problem: Write a function to calculate fibonacci number in constant space complexity.
 (defn fib [n] (loop [a 0 b 1 i n] (if (= 0 i) a (recur b (+ a b) (dec i)))))  </description>
+    </item>
+    
+    <item>
+      <title>Programming Kata Day 1</title>
+      <link>http://lvguowei.me/post/programming-kata-day-1/</link>
+      <pubDate>Mon, 06 Feb 2017 20:42:29 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/post/programming-kata-day-1/</guid>
+      <description>From today, I will practice one programming kata per day and post the content here.
+Here goes the first one:
+ My friend John likes to go to the cinema. He can choose between system A and system B.
+System A : buy a ticket (15 dollars) every time
+System B : buy a card (500 dollars) and every time buy a ticket the price of which is 0.90 times the price he paid for the previous one.</description>
     </item>
     
     <item>

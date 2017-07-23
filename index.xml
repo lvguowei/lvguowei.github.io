@@ -398,11 +398,11 @@ Solution Solution 1 (defn disemvowel [string] (reduce (fn [result next] (if (#{\
     </item>
     
     <item>
-      <title>Programming Kata</title>
-      <link>http://lvguowei.me/post/programming-kata/</link>
+      <title>Programming Kata Day 1</title>
+      <link>http://lvguowei.me/post/programming-kata-day-1/</link>
       <pubDate>Mon, 06 Feb 2017 20:42:29 +0200</pubDate>
       
-      <guid>http://lvguowei.me/post/programming-kata/</guid>
+      <guid>http://lvguowei.me/post/programming-kata-day-1/</guid>
       <description>From today, I will practice one programming kata per day and post the content here.
 Here goes the first one:
  My friend John likes to go to the cinema. He can choose between system A and system B.
