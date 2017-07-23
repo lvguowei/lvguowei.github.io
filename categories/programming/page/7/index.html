@@ -51,7 +51,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-02-12T16:06:17&#43;02:00"/>
+<meta property="og:updated_time" content="2017-02-03T20:36:18&#43;02:00"/>
 
 
 
@@ -249,7 +249,7 @@ ga('send', 'pageview');
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/perfume-shop-puzzle/">Perfume Shop Puzzle</a></h2>
+            <h2><a href="http://lvguowei.me/post/nested-for-loops-in-clojure/">Nested For Loops in Clojure</a></h2>
         
         
     </div>
@@ -259,8 +259,8 @@ ga('send', 'pageview');
         
 
         <time class="published"
-            datetime='2017-02-12'>
-            February 12, 2017</time>
+            datetime='2017-02-03'>
+            February 3, 2017</time>
         <span class="author"></span>
         
             <p>1 minute read</p>
@@ -271,11 +271,12 @@ ga('send', 'pageview');
 
     
 
-    <p>Solving hard puzzle programming challenges with logic programming is real fun. I solved one puzzle called &ldquo;Perfume Shop Puzzle&rdquo; by using the core.logic in Clojure. Check it out here: github.</p>
+    <p>One awkwardness I haven&rsquo;t really get rid of when using Clojure is for loops. Especially nested for loops that modifies some global variables. I find some solutions online where people use nested recursion or atoms, but can we just use one level of recursion? Let&rsquo;s try out with a coding kata.
+Problem: Given an array of numbers, find the biggest sum of any two numbers. The same item in array cannot be used twice.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/perfume-shop-puzzle/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/nested-for-loops-in-clojure/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -314,7 +315,7 @@ ga('send', 'pageview');
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/programming-kata-day-4/">Programming Kata Day 4</a></h2>
+            <h2><a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/">Why component dependency cycle is bad</a></h2>
         
         
     </div>
@@ -324,11 +325,11 @@ ga('send', 'pageview');
         
 
         <time class="published"
-            datetime='2017-02-12'>
-            February 12, 2017</time>
+            datetime='2017-01-01'>
+            January 1, 2017</time>
         <span class="author"></span>
         
-            <p>1 minute read</p>
+            <p>3 minute read</p>
         
         
     </div>
@@ -336,12 +337,12 @@ ga('send', 'pageview');
 
     
 
-    <p>Problem Implement take-nth.
-Solutions Solution 1 (defn my-take-nth <a href="loop [i 0 result []] (if (= i (count col)) result (if (= 0 (mod i n)) (recur (inc i) (conj result (nth col i))) (recur (inc i) result)))">n col</a>)  solution 2 (defn my-take-nth2 <a href="-&amp;gt;&amp;gt; col (map-indexed (fn [i x] [i x])) (filter (fn [[i x]] (= 0 (mod i 2)))) (mapv (fn [[i x]] x))">n col</a>)</p>
+    <p>I have been working on some Clojure project at work for several months now, one little thing bothers me now and then is that it doesn&rsquo;t allow dependency cycle in project. For example if a.clj requires b.clj, b.clj requires c.clj, then c.clj cannot require a.clj, in other words, c.clj cannot use anything inside a.clj.
+At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in a while we have to solve such problems by creating a new namespace and move the common function into it.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/programming-kata-day-4/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -380,7 +381,7 @@ Solutions Solution 1 (defn my-take-nth <a href="loop [i 0 result []] (if (= i (c
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/programming-kata-day-3/">programming kata day 3</a></h2>
+            <h2><a href="http://lvguowei.me/post/second-android-lib/">My Second Android Library</a></h2>
         
         
     </div>
@@ -390,8 +391,8 @@ Solutions Solution 1 (defn my-take-nth <a href="loop [i 0 result []] (if (= i (c
         
 
         <time class="published"
-            datetime='2017-02-10'>
-            February 10, 2017</time>
+            datetime='2016-12-26'>
+            December 26, 2016</time>
         <span class="author"></span>
         
             <p>1 minute read</p>
@@ -402,15 +403,12 @@ Solutions Solution 1 (defn my-take-nth <a href="loop [i 0 result []] (if (= i (c
 
     
 
-    <p>Problem Trolls are attacking your comment section!
-A common way to deal with this situation is to remove all of the vowels from the trolls&rsquo; comments, neutralizing the threat.
-Your task is to write a function that takes a string and return a new string with all vowels removed.
-For example, the string &ldquo;This website is for losers LOL!&rdquo; would become &ldquo;Ths wbst s fr lsrs LL!&rdquo;.
-Solution Solution 1 (defn disemvowel <a href="reduce (fn [result next] (if (#{A E I O U a e i o u} next) result (str result next))) &amp;quot;&amp;quot; string">string</a>)  Solution 2 (defn disemvowel <a href="apply str (remove (set &amp;quot;AEIOUaeiou&amp;quot;) string)">string</a>)</p>
+    <p>I published my second android library project, a date and time picker dialog that mimic the one in Google Map app.
+Go check it out here!</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/programming-kata-day-3/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/second-android-lib/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -449,7 +447,7 @@ Solution Solution 1 (defn disemvowel <a href="reduce (fn [result next] (if (#{A 
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/programming-kata-day-2/">Programming Kata Day 2</a></h2>
+            <h2><a href="http://lvguowei.me/post/first-android-lib/">My first Android library!</a></h2>
         
         
     </div>
@@ -459,8 +457,8 @@ Solution Solution 1 (defn disemvowel <a href="reduce (fn [result next] (if (#{A 
         
 
         <time class="published"
-            datetime='2017-02-07'>
-            February 7, 2017</time>
+            datetime='2016-12-23'>
+            December 23, 2016</time>
         <span class="author"></span>
         
             <p>1 minute read</p>
@@ -471,12 +469,12 @@ Solution Solution 1 (defn disemvowel <a href="reduce (fn [result next] (if (#{A 
 
     
 
-    <p>Problem: Write a function to calculate fibonacci number in constant space complexity.
-(defn fib <a href="loop [a 0 b 1 i n] (if (= 0 i) a (recur b (+ a b) (dec i)))">n</a>)</p>
+    <p>I published my first android library for creating customized progressbar.
+Go check here!</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/programming-kata-day-2/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/first-android-lib/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -515,7 +513,7 @@ Solution Solution 1 (defn disemvowel <a href="reduce (fn [result next] (if (#{A 
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/programming-kata/">Programming Kata</a></h2>
+            <h2><a href="http://lvguowei.me/post/stub-and-mock-harmful/">Are Stubs and Mocks Harmful?</a></h2>
         
         
     </div>
@@ -525,11 +523,11 @@ Solution Solution 1 (defn disemvowel <a href="reduce (fn [result next] (if (#{A 
         
 
         <time class="published"
-            datetime='2017-02-06'>
-            February 6, 2017</time>
+            datetime='2016-12-18'>
+            December 18, 2016</time>
         <span class="author"></span>
         
-            <p>1 minute read</p>
+            <p>5 minute read</p>
         
         
     </div>
@@ -537,15 +535,12 @@ Solution Solution 1 (defn disemvowel <a href="reduce (fn [result next] (if (#{A 
 
     
 
-    <p>From today, I will practice one programming kata per day and post the content here.
-Here goes the first one:
- My friend John likes to go to the cinema. He can choose between system A and system B.
-System A : buy a ticket (15 dollars) every time
-System B : buy a card (500 dollars) and every time buy a ticket the price of which is 0.90 times the price he paid for the previous one.</p>
+    <p>I stumbled upon this video, and boy it is so amazing! (if you ignore the annoying audience asking non-stop some annoying questions). This is clearly one of the most inspiring videos I have ever watched. So I must take some notes down and spread the idea as well.
+I deeply believe that it is actually easy to make things complicated, on the contrary, it is hard to make things simple and elegant.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/programming-kata/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/stub-and-mock-harmful/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -801,7 +796,7 @@ System B : buy a card (500 dollars) and every time buy a ticket the price of whi
                         <article>
                             <header>
                                 <a href="http://lvguowei.me/categories/programming/">programming</a>
-                                <span style="float:right;">56</span>
+                                <span style="float:right;">51</span>
                             </header>
                         </article>
                     </li>
@@ -811,6 +806,15 @@ System B : buy a card (500 dollars) and every time buy a ticket the price of whi
                             <header>
                                 <a href="http://lvguowei.me/categories/finnish-learning/">Finnish Learning</a>
                                 <span style="float:right;">10</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="http://lvguowei.me/categories/android-development/">Android Development</a>
+                                <span style="float:right;">5</span>
                             </header>
                         </article>
                     </li>

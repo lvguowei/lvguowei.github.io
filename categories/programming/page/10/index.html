@@ -51,7 +51,7 @@
 
 
 
-<meta property="og:updated_time" content="2016-10-15T19:38:57&#43;03:00"/>
+<meta property="og:updated_time" content="2016-05-29T21:32:14&#43;03:00"/>
 
 
 
@@ -249,7 +249,7 @@ ga('send', 'pageview');
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/replace-nested-conditional-with-guard-clauses/">Replace Nested Conditional With Guard Clauses</a></h2>
+            <h2><a href="http://lvguowei.me/post/time-and-space-of-recursion/">Time and Space of Recursion</a></h2>
         
         
     </div>
@@ -259,8 +259,8 @@ ga('send', 'pageview');
         
 
         <time class="published"
-            datetime='2016-10-15'>
-            October 15, 2016</time>
+            datetime='2016-05-29'>
+            May 29, 2016</time>
         <span class="author"></span>
         
             <p>1 minute read</p>
@@ -271,14 +271,16 @@ ga('send', 'pageview');
 
     
 
-    <p>I couldn&rsquo;t remember who said that one of his favorite refactoring techniques is Replace Nested Conditional with Guard Clauses. When I looked into it, it did put a smile on my face despite its simplicity.
-This is NOT about coding aesthetics, this is all about clarity.
- A method has conditional behavior that does not make clear the normal path of execution.
-Use guard clauses for all the special cases.</p>
+    <p>今天通过一个例子，来谈一谈第归的时间和空间效应。
+例子很简单，计算 a 的 n 次方。
+我们来对比一下两种第归算法的时间和空间的消耗。
+第一个方法很直接。思想就是要计算 a 的 n 次方， 只要计算 a 的 (n - 1) 次方， 然后结果在乘以 a 。如下：
+(define (expt a n) (if (= n 0) 1 (* a (expt a (- n 1)))))  为了更直观的理解这个算法，我们来计算一个例子， 2 的 3 次方。
+(expt 2 3) (* 2 (expt 2 2)) (* 2 (* 2 (expt 2 1))) (* 2 (* 2 (* 2 (expt 2 0)))) (* 2 (* 2 (* 2 1))) (* 2 (* 2 2)) (* 2 4) 8  我们能能明显看到这个算法的“形状”是一个三角形。每一行代表一次计算，也可以理解成时间的消耗。而每一列则代表计算机需要记住的内容，比如说一共要乘以几个2，也可以理解成空间的消耗。我们可以看到，随着 n 的增大， 这个算法的时间和空间消耗也随之增大。而且增大的速度都是线性的。时间的消耗随着 n 的增大而增大很好理解， n 大了， 计算花的时间也相应长了。但是空间消耗可不可以不增大呢？下面我们就来看另一种算法。</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/replace-nested-conditional-with-guard-clauses/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/time-and-space-of-recursion/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -317,7 +319,7 @@ Use guard clauses for all the special cases.</p>
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/unidirectional-to-bidirectional/">Unidirectional to Bidirectional</a></h2>
+            <h2><a href="http://lvguowei.me/post/new-and-old-for-loop/">Old and New For Loop in C&#43;&#43;</a></h2>
         
         
     </div>
@@ -327,142 +329,8 @@ Use guard clauses for all the special cases.</p>
         
 
         <time class="published"
-            datetime='2016-10-15'>
-            October 15, 2016</time>
-        <span class="author"></span>
-        
-            <p>1 minute read</p>
-        
-        
-    </div>
-</header>
-
-    
-
-    <p>It is very common in relational database that we have the following structure: A customer table has columns: customer-id, name. And an order table has columns: order-id, customer-id, order-date.
-See that there is a customer-id in the order table, so that we can use it to get orders belongs to a certain customer. But there is no knowledge about the orders in customer table.
-This is fine with database, but if we try to map this directly to java classes, we may end up with something like this:</p>
-
-    <footer>
-        <ul class="actions">
-            <li><a href="http://lvguowei.me/post/unidirectional-to-bidirectional/" class="button big">Continue Reading</a></li>
-        </ul>
-        <ul class="stats">
-    
-        
-
-        
-        
-            <li>
-                
-                
-                    
-
-                    
-
-                    
-
-                    
-                        Category
-                    
-                
-            </li>
-        
-    
-
-    
-    
-        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
-    
-</ul>
-
-    </footer>
-</article>
-
-        
-            <article class="post">
-    <header>
-    <div class="title">
-        
-            <h2><a href="http://lvguowei.me/post/duplicate-observed-data/">Duplicate Observed Data</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-            
-        
-
-        <time class="published"
-            datetime='2016-10-15'>
-            October 15, 2016</time>
-        <span class="author"></span>
-        
-            <p>1 minute read</p>
-        
-        
-    </div>
-</header>
-
-    
-
-    <p>This is from the famous Refactoring book by Martin Fowler. When I was reading it, it feels very similar to the very popular MVP or MVVM.
-The key idea is that in system that has user interface, the business logic should be separated from the user interface.
-One example I can think of is the registration form, where there are input fields like username, email, phone number and password. We can have some logic that disable the Register button until all fields are filled and the phone number and email valid.</p>
-
-    <footer>
-        <ul class="actions">
-            <li><a href="http://lvguowei.me/post/duplicate-observed-data/" class="button big">Continue Reading</a></li>
-        </ul>
-        <ul class="stats">
-    
-        
-
-        
-        
-            <li>
-                
-                
-                    
-
-                    
-
-                    
-
-                    
-                        Category
-                    
-                
-            </li>
-        
-    
-
-    
-    
-        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
-    
-</ul>
-
-    </footer>
-</article>
-
-        
-            <article class="post">
-    <header>
-    <div class="title">
-        
-            <h2><a href="http://lvguowei.me/post/good-taste/">Do you have a good taste of what you are doing?</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-            
-        
-
-        <time class="published"
-            datetime='2016-10-08'>
-            October 8, 2016</time>
+            datetime='2016-05-15'>
+            May 15, 2016</time>
         <span class="author"></span>
         
             <p>2 minute read</p>
@@ -473,13 +341,13 @@ One example I can think of is the registration form, where there are input field
 
     
 
-    <p>There is this stereotype impression about technology industry, that it is a cruel game only for energetic and ambitious young men, when you get old, you will be kicked out mercilessly.
-This doesn&rsquo;t bother me so much since I was still young a few years ago, but since now I am getting older it starts to act as a background noise that grabbed me more and more attention.
-Is this the truth?</p>
+    <p>The difference between the subscription based for loop and the newly introduced range based loop may be a bit confusing. Let&rsquo;s clear things up.
+Here are some sample code:
+void testFor() { cout &lt;&lt; &quot;&mdash; For loop &mdash;&quot; &lt;&lt; endl; string s(&quot;hello&quot;); // subscription can modify for (string::size_type i = 0; i &lt; s.size (); i++) { s[i] = toupper (s[i]); } cout &lt;&lt; s &lt;&lt; endl; vector&lt;int&gt; v {1, 2, 3}; // subscription can modify for (vector&lt;int&gt;::size_type i = 0; i &lt; v.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/good-taste/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/new-and-old-for-loop/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -518,7 +386,7 @@ Is this the truth?</p>
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/matrix-concentric-shift/">matrix concentric shift</a></h2>
+            <h2><a href="http://lvguowei.me/post/cpp-answer-2-5-2/">C&#43;&#43; Primer Exercise Answer (Section 2.5.2)</a></h2>
         
         
     </div>
@@ -528,11 +396,11 @@ Is this the truth?</p>
         
 
         <time class="published"
-            datetime='2016-10-06'>
-            October 6, 2016</time>
+            datetime='2016-05-08'>
+            May 8, 2016</time>
         <span class="author"></span>
         
-            <p>5 minute read</p>
+            <p>1 minute read</p>
         
         
     </div>
@@ -540,11 +408,158 @@ Is this the truth?</p>
 
     
 
-    <p>Table of Contents  1. Problem 2. Analysis 3. Source Code 4. Build script 5. How to run    I suck at algorithms, even though I have a Machine Learning and Algorithms master degree. It makes me frown everytime in coding interviews. So I decided to practice more often, hope that I can get better at it. At least not afraid of it. Now this is the first one.</p>
+    <p>#include &lt;iostream&gt; using namespace std; int main(int argc, char *argv[]) { int i = 0, &amp;r = i; auto a = r; const int ci = i, &amp;cr = ci; auto b = ci; auto c = cr; auto d = &amp;i; auto e = &amp;ci; const auto f = ci; auto &amp;g = ci; //auto &amp;h = 42; const auto &amp;j = 42; a = 42; // ok b = 42; // ok c = 42; // ok d = 42; // no, d is a pointer e = 42; // no, e is a pointer g = 42; // no, g is a reference cannot rebind return 0; }</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/matrix-concentric-shift/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/cpp-answer-2-5-2/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/recursion-example/">Simple example of recursion</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2016-05-05'>
+            May 5, 2016</time>
+        <span class="author"></span>
+        
+            <p>1 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>今天读到SICP里的一个介绍recursion的例子，用牛顿猜想来计算平方根。
+首先，介绍了计算机程序和数学方程的区别。数学方程大多用的是描述法（declarative）。比如说这个平方根，数学上只需要说：
+如果x的平方等于y，而且x大于0，那么x就是y的平方根。
+这是一种很高层次的描述，通过描述，来限制答案的域。如果能直接用到计算机里，问题就简单了。大概写出来的程序就是这个样子：
+func sqrt(x): @ * @ = x; @ &gt; 0; return @;  让计算机去处理计算细节。这当然是一种理想的情况，如果都能这样写程序，那就完事大吉了。这就叫描述性编程(Declarative Programming)。
+当然现在还做不到这么绝对，所以我们只能自己写如何进行细节的计算来得到我们的结果。这就叫做命令式变成(Imperative Programming)。
+总体来说，描述性编程比命令式编程要容易理解的多，因为不用自己下达命令给计算机，只需要对问题进行描述，计算机自己会找到答案。典型的例子就是xml配置文件，人们把对系统的需求和配置写在一个单独的xml文件里面，然后让计算机自己去执行相应的命令。
+好了，现在进入正题。牛顿猜想的原理如下：
+要计算x的平方根，先猜想一个答案y，然后用
+(y + x / y) / 2
+来得到新的优化过猜想。反复进行，知道得到满意的猜想。
+首先，我们先来定义一些辅助方程。
+(define (abs x) (if (&lt; x 0) (- x) x)) (define (square x) (* x x)) (define (average x y) (/ (+ x y) 2))  接下来我们来写主程序。
+(define (sqrt-iter guess x) (if (good-enough? guess x) guess (sqrt-iter (improve guess x) x)))  这个程序用第归的方法实现了牛顿猜想。</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/recursion-example/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/keep-it-fun/">keep it fun</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2016-05-04'>
+            May 4, 2016</time>
+        <span class="author"></span>
+        
+            <p>2 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>最近因为工作的原因在学clojure，其实我一直都想学一个LISP语言，现在终于有人付钱让我学啦，呵呵。
+最早接触到LISP是因为Emacs。当年在研究生时给大学的自然语言研究组帮忙的时候，教授就是Emacs的资深（20年+）用户，我也就开始一点一点的接触了，后来经过一段时间的压迫性的苦练，终于入门了。有一天无意中发现了Emacs Lisp Intro，就开始学习emacs lisp，可惜半途而废了。
+因为clojure还比较新，所以没有什么太多资料。我就买了一些关于LISP的经典书籍，比如这个 《Structure and Interpretation of Computer Programs》。但由于本人的拖延症的病情，所以打算从今天开始读第一章了（第二遍尝试）。。。
+在开篇有一段引言如下：
+ ``I think that it&rsquo;s extraordinarily important that we in computer science keep fun in computing. When it started out, it was an awful lot of fun. Of course, the paying customers got shafted every now and then, and after a while we began to take their complaints seriously. We began to feel as if we really were responsible for the successful, error-free perfect use of these machines.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/keep-it-fun/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -800,7 +815,7 @@ Is this the truth?</p>
                         <article>
                             <header>
                                 <a href="http://lvguowei.me/categories/programming/">programming</a>
-                                <span style="float:right;">56</span>
+                                <span style="float:right;">51</span>
                             </header>
                         </article>
                     </li>
@@ -810,6 +825,15 @@ Is this the truth?</p>
                             <header>
                                 <a href="http://lvguowei.me/categories/finnish-learning/">Finnish Learning</a>
                                 <span style="float:right;">10</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="http://lvguowei.me/categories/android-development/">Android Development</a>
+                                <span style="float:right;">5</span>
                             </header>
                         </article>
                     </li>

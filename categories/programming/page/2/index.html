@@ -51,7 +51,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-07-11T17:13:32&#43;03:00"/>
+<meta property="og:updated_time" content="2017-07-05T21:42:18&#43;03:00"/>
 
 
 
@@ -249,7 +249,7 @@ ga('send', 'pageview');
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/rxjava-fromcallable-vs-defer/">Rxjava fromCallable() Vs defer()</a></h2>
+            <h2><a href="http://lvguowei.me/post/the-pleasure-of-hand-made-programs/">The Pleasure Of Hand Made Programs</a></h2>
         
         
     </div>
@@ -259,8 +259,8 @@ ga('send', 'pageview');
         
 
         <time class="published"
-            datetime='2017-07-11'>
-            July 11, 2017</time>
+            datetime='2017-07-05'>
+            July 5, 2017</time>
         <span class="author"></span>
         
             <p>2 minute read</p>
@@ -271,13 +271,12 @@ ga('send', 'pageview');
 
     
 
-    <p>In this post we talk about how to use Observable.fromCallable() and Observable.defer() to convert exising functionality into the Rx.
-Imagine that you have a UserService class, in it there is a getUserFromDb() function. This function is developed before RxJava and cannot be changed. But somehow you need a function which returns a Observable&lt;User&gt;. What could you do?
-The UserService Example public class UserService { /** * Gets User from database, this should not be run in UI thread.</p>
+    <p>Some time ago I read this article about Why Mit Stopped Teaching SICP. Gerry Sussman said that nowadays people do not often need to build something from scratch again, there exists massive and huge library code for nearly everything. So today&rsquo;s programming work is more like poking around other people&rsquo;s code until it works.
+I&rsquo;ve beening doing Android dev for some time now, and I have to say that I sadly agree with him.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/rxjava-fromcallable-vs-defer/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/the-pleasure-of-hand-made-programs/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -316,7 +315,7 @@ The UserService Example public class UserService { /** * Gets User from database
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/android-custom-view-101-5/">Android Custom View 101 (Part V)</a></h2>
+            <h2><a href="http://lvguowei.me/post/android-custom-view-101/">Android Custom Views 101 (Part I)</a></h2>
         
         
     </div>
@@ -326,210 +325,8 @@ The UserService Example public class UserService { /** * Gets User from database
         
 
         <time class="published"
-            datetime='2017-07-09'>
-            July 9, 2017</time>
-        <span class="author"></span>
-        
-            <p>2 minute read</p>
-        
-        
-    </div>
-</header>
-
-    
-
-    <p>In this post, we will discuss how to implement a custom view group by extending an existing one, like a FrameLayout.
-Let&rsquo;s assume that we are building a layout for displaying user&rsquo;s avatar. The requirement is if a user has an avatar, show the avatar picture, if not, show their initials as text.
-So it would be good if we have some kind of AvatarView and Avatar data class (which contains name and avatar picture).</p>
-
-    <footer>
-        <ul class="actions">
-            <li><a href="http://lvguowei.me/post/android-custom-view-101-5/" class="button big">Continue Reading</a></li>
-        </ul>
-        <ul class="stats">
-    
-        
-
-        
-        
-            <li>
-                
-                
-                    
-
-                    
-
-                    
-
-                    
-                        Category
-                    
-                
-            </li>
-        
-    
-
-    
-    
-        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
-    
-</ul>
-
-    </footer>
-</article>
-
-        
-            <article class="post">
-    <header>
-    <div class="title">
-        
-            <h2><a href="http://lvguowei.me/post/android-custom-view-101-4/">Android Custom Views 101 (Part IV)</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-            
-        
-
-        <time class="published"
-            datetime='2017-07-09'>
-            July 9, 2017</time>
-        <span class="author"></span>
-        
-            <p>2 minute read</p>
-        
-        
-    </div>
-</header>
-
-    
-
-    <p>In this installment, we talk about how to implement custom view group.
-Custom View VS Custom ViewGroup When we think about a view, it is usually very simple and self contained. View represents, draws and handles interaction for a part of the screen.
-Whereas ViewGroup is more about a binding relationship between views. ViewGroup is a specialized View that contains other Views. It has children.
-As discussed before, in order for custom view to work correctly, it has to implement two methods: onDraw() and onMeasure(), and there is no need to implement onLayout() cause there is no children to layout.</p>
-
-    <footer>
-        <ul class="actions">
-            <li><a href="http://lvguowei.me/post/android-custom-view-101-4/" class="button big">Continue Reading</a></li>
-        </ul>
-        <ul class="stats">
-    
-        
-
-        
-        
-            <li>
-                
-                
-                    
-
-                    
-
-                    
-
-                    
-                        Category
-                    
-                
-            </li>
-        
-    
-
-    
-    
-        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
-    
-</ul>
-
-    </footer>
-</article>
-
-        
-            <article class="post">
-    <header>
-    <div class="title">
-        
-            <h2><a href="http://lvguowei.me/post/android-custom-views-101-3/">Android Custom Views 101 (Part III)</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-            
-        
-
-        <time class="published"
-            datetime='2017-07-08'>
-            July 8, 2017</time>
-        <span class="author"></span>
-        
-            <p>2 minute read</p>
-        
-        
-    </div>
-</header>
-
-    
-
-    <p>In this post, we finally gonna take a look at how to implement onMeasure() properly.
-When implementing a custom view, we should always consider its lower and upper size limit. In this case since the format of the time is fixed (hh:mm:ss). So we just need to get the width and height of it.
-Suppose we set the MAX_TIME = &quot;00:00:00&quot;, then to get its width in pixel we can do:</p>
-
-    <footer>
-        <ul class="actions">
-            <li><a href="http://lvguowei.me/post/android-custom-views-101-3/" class="button big">Continue Reading</a></li>
-        </ul>
-        <ul class="stats">
-    
-        
-
-        
-        
-            <li>
-                
-                
-                    
-
-                    
-
-                    
-
-                    
-                        Category
-                    
-                
-            </li>
-        
-    
-
-    
-    
-        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
-    
-</ul>
-
-    </footer>
-</article>
-
-        
-            <article class="post">
-    <header>
-    <div class="title">
-        
-            <h2><a href="http://lvguowei.me/post/android-custom-views-101-2/">Android Custom Views 101 (Part II)</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-            
-        
-
-        <time class="published"
-            datetime='2017-07-08'>
-            July 8, 2017</time>
+            datetime='2017-07-05'>
+            July 5, 2017</time>
         <span class="author"></span>
         
             <p>3 minute read</p>
@@ -540,13 +337,212 @@ Suppose we set the MAX_TIME = &quot;00:00:00&quot;, then to get its width in pix
 
     
 
-    <p>In Part I, we talked about how to create a simple custom view. But we don&rsquo;t really implement the onMeasure(). In this post, we will analyze what problems we will have if we omit the onMeasure().
-You can think of how the measurements are made as a conversation between the child and parent views.
-The child tells its parent how it wants to be laid out by using LayoutParams. This can either be set in xml file or programatically.</p>
+    <p>Creating your own custom android views can be useful and daunting at the same time. For a long time there is nobody really talks about it in a approachable way, until this lady Huyen Tue Dao. Let&rsquo;s try to follow her approach and create some custom view!
+In this part, we will create a very simple timer view that takes up the whole screen and display the current time.
+ So let&rsquo;s get started.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/android-custom-views-101-2/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/android-custom-view-101/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/strategy-pattern-and-lambda/">Strategy Pattern And Lambda</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2017-07-03'>
+            July 3, 2017</time>
+        <span class="author"></span>
+        
+            <p>2 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>While reading Effective Java Item 21: Use function objects to represent strategies, something hit my mind and now I&rsquo;m writing it down.
+All these new lambda thing is really what is called the Strategy pattern in the OOP world, or would it be more appropriate to say that the Strategy Pattern in Design patterns is really what lambda is.
+The essence of all these, can be boiled down to one simple idea, pass functionalities around.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/strategy-pattern-and-lambda/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/why-synchronize/">Why Synchronize?</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2017-07-01'>
+            July 1, 2017</time>
+        <span class="author"></span>
+        
+            <p>2 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>We are going to write a program, a bit program, lots of stuff happening here and there, ok, big program. Now, lots of threads of course, loads and loads of them, we have to synchronize, yes we do, I think so, yeah, synchronize very important stuff, good idea, but, why?
+Remember what we have been taught in school? That mutex thing? Mutual Exclusive? That 2 threads are trying to read and write some mutual value at the same time and create a big mess?</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/why-synchronize/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/why-remove-dagger/">Why we stopped using dagger and some thoughts</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2017-06-27'>
+            June 27, 2017</time>
+        <span class="author"></span>
+        
+            <p>2 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>I decided to stop using Dagger2 in our company&rsquo;s android project. Why?
+Don&rsquo;t get me wrong, Dagger2 is still great. But though it is great, it is complex. Lots of concepts to wrap our heads around. What is a component, what is a module, what is the difference between subcomponent and dependency component, etc. In order to use it properly, we need to anwser all that questions, even you think you understand it, you still run into suprises now and then.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/why-remove-dagger/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -802,7 +798,7 @@ The child tells its parent how it wants to be laid out by using LayoutParams. Th
                         <article>
                             <header>
                                 <a href="http://lvguowei.me/categories/programming/">programming</a>
-                                <span style="float:right;">56</span>
+                                <span style="float:right;">51</span>
                             </header>
                         </article>
                     </li>
@@ -812,6 +808,15 @@ The child tells its parent how it wants to be laid out by using LayoutParams. Th
                             <header>
                                 <a href="http://lvguowei.me/categories/finnish-learning/">Finnish Learning</a>
                                 <span style="float:right;">10</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="http://lvguowei.me/categories/android-development/">Android Development</a>
+                                <span style="float:right;">5</span>
                             </header>
                         </article>
                     </li>

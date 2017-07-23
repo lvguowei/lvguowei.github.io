@@ -51,7 +51,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-06-18T18:02:02&#43;03:00"/>
+<meta property="og:updated_time" content="2017-03-06T21:02:55&#43;02:00"/>
 
 
 
@@ -249,7 +249,7 @@ ga('send', 'pageview');
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/hand-made-hero/">Hand Made Hero is AWESOME!</a></h2>
+            <h2><a href="http://lvguowei.me/post/programming-kata-day-13/">Programming Kata Day 13</a></h2>
         
         
     </div>
@@ -259,8 +259,8 @@ ga('send', 'pageview');
         
 
         <time class="published"
-            datetime='2017-06-18'>
-            June 18, 2017</time>
+            datetime='2017-03-06'>
+            March 6, 2017</time>
         <span class="author"></span>
         
             <p>1 minute read</p>
@@ -271,13 +271,12 @@ ga('send', 'pageview');
 
     
 
-    <p>I purchased the pre-order Hand Made Hero game. I think it&rsquo;s great value for learning, there is this super awesome guy who has tons of experience talking to you at least 1 hour per day for over a year. And it cost only $15. I must have lost my mind if I missed this.
-Two interesting observations:
- This guy is against OOP This guy prefers C to C++  This kind of &ldquo;against C++ and OOP and all kind of complex nonsense shit&rdquo; thing (this and this) hit me several times and I really like to know about their argument.</p>
+    <p>Problem The elevator can be on first floor or second floor The elevator can be either openned or closed. The elevator can go up or down. But when it goes up or down, the door has to be closed. The door can open or close, but it cannot open when it is already openned or close when it is already closed.
+Write a function that takes a list of actions with :done indicating the end, and return if this sequence is legal or not.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/hand-made-hero/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/programming-kata-day-13/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -316,7 +315,7 @@ Two interesting observations:
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/imessage-recorder-android-clone/">An Android version of the iMessage voice note recorder</a></h2>
+            <h2><a href="http://lvguowei.me/post/clojure-tail-recursion/">Clojure Tail Recursion</a></h2>
         
         
     </div>
@@ -326,8 +325,75 @@ Two interesting observations:
         
 
         <time class="published"
-            datetime='2017-06-12'>
-            June 12, 2017</time>
+            datetime='2017-02-27'>
+            February 27, 2017</time>
+        <span class="author"></span>
+        
+            <p>2 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>What this recur and tail calls optimization is all about in Clojure? This blog post is trying to give a short yet easy to remember explanation.
+Before explaining anything, let&rsquo;s look at how we can implement + using recursion.
+This is actually an interesting task, implement our +, since most of the time + is a built-in function. So to make things a bit more clear, let&rsquo;s assume that our computer is drunk and forgets about how to do +, but it still remembers how to increment and decrement by 1.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/clojure-tail-recursion/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/programming-kata-day-12/">programming kata day 12</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2017-02-26'>
+            February 26, 2017</time>
         <span class="author"></span>
         
             <p>1 minute read</p>
@@ -338,11 +404,14 @@ Two interesting observations:
 
     
 
-    <p>I created a copy of the voice recorder in the iMessage app for android and made a library out of it. Check it out here!</p>
+    <p>Problem Implement a unit converter that uses the given the following metric
+(def metric {:meter 1 :km 1000 :cm <sup>1</sup>&frasl;<sub>100</sub> :mm [<sup>1</sup>&frasl;<sub>10</sub> :cm]})  The converter should anwser questions like:
+How many meters are there in 10 km and 20 cm?
+Solution (defn convert <a href="reduce (fn [result [mag unit]] (let [val (metric unit)] (if (vector? val) (+ result (* mag (convert context val))) (+ result (* mag val))))) 0 (partition 2 descriptor)">context descriptor</a>) (convert metric [1 :meter]) (convert metric [3 :km 10 :meter])</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/imessage-recorder-android-clone/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/programming-kata-day-12/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -381,7 +450,7 @@ Two interesting observations:
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/understand-clojure-transducers/">Understand Clojure Transducers 1</a></h2>
+            <h2><a href="http://lvguowei.me/post/programming-kata-day-11/">programming kata day 11</a></h2>
         
         
     </div>
@@ -391,11 +460,11 @@ Two interesting observations:
         
 
         <time class="published"
-            datetime='2017-04-02'>
-            April 2, 2017</time>
+            datetime='2017-02-25'>
+            February 25, 2017</time>
         <span class="author"></span>
         
-            <p>2 minute read</p>
+            <p>1 minute read</p>
         
         
     </div>
@@ -403,15 +472,12 @@ Two interesting observations:
 
     
 
-    <p>In this post, we will define what is a transducer.
-First, let&rsquo;s take a closer look at map.
-(map inc [1 2 3])  A straightforward way to explain what has happened is this: Increment each item by one in a list.
-At first thought, this sounds like one step operation.
-Now let&rsquo;s change the requirement a bit. We want to increment each element by one and then sum them together.</p>
+    <p>Problem This coding adventure comes from Advend Of Code Day 2
+Solution Github</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/understand-clojure-transducers/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/programming-kata-day-11/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -450,7 +516,7 @@ Now let&rsquo;s change the requirement a bit. We want to increment each element 
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/android-kata-view-property-animator/">Android Kata View Property Animator</a></h2>
+            <h2><a href="http://lvguowei.me/post/programming-kata-day-10/">programming kata day 10</a></h2>
         
         
     </div>
@@ -460,11 +526,11 @@ Now let&rsquo;s change the requirement a bit. We want to increment each element 
         
 
         <time class="published"
-            datetime='2017-03-28'>
-            March 28, 2017</time>
+            datetime='2017-02-23'>
+            February 23, 2017</time>
         <span class="author"></span>
         
-            <p>2 minute read</p>
+            <p>1 minute read</p>
         
         
     </div>
@@ -472,80 +538,12 @@ Now let&rsquo;s change the requirement a bit. We want to increment each element 
 
     
 
-    <p>Since I have been doing programming kata, why not adopt the same kata concept in Android programming?
-Over the years I have accumulated some useful tools / tricks that I can show in kata form.
-The goal is to keep it simple and easy to grasp and to the point.
-This is the first one, which shows how to use ViewPropertyAnimator to animate show and hide of the FAB button.</p>
+    <p>Problem Here is a list of students&rsquo; exam scores. Write a function to sort them based on given criteria. Like Math first, then Physics and then chemistry and then English.
+(def exam-scores [{:math 78 :physics 80 :english 97 :chemistry 65} {:math 78 :physics 80 :english 66 :chemistry 65} {:math 78 :physics 54 :english 97 :chemistry 65} {:math 78 :physics 80 :english 97 :chemistry 61} {:math 100 :physics 89 :english 47 :chemistry 85} {:math 98 :physics 80 :english 79 :chemistry 65}])  Solution (defn rank <a href="reverse  (sort-by  (fn [score] (mapv score criteria)) scores)">scores &amp; criteria</a>)  Note The sort-by in Clojure is very powerful, the idea is to reduce each row into one value that we know how to sort, like numbers, strings or lists.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/android-kata-view-property-animator/" class="button big">Continue Reading</a></li>
-        </ul>
-        <ul class="stats">
-    
-        
-
-        
-        
-            <li>
-                
-                
-                    
-
-                    
-
-                    
-
-                    
-                        Category
-                    
-                
-            </li>
-        
-    
-
-    
-    
-        <li><a href='http://lvguowei.me/categoriesprogramming'>programming</a></li>
-    
-</ul>
-
-    </footer>
-</article>
-
-        
-            <article class="post">
-    <header>
-    <div class="title">
-        
-            <h2><a href="http://lvguowei.me/post/mock-objects-dimistified/">Mock Objects Demystified</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-            
-        
-
-        <time class="published"
-            datetime='2017-03-20'>
-            March 20, 2017</time>
-        <span class="author"></span>
-        
-            <p>3 minute read</p>
-        
-        
-    </div>
-</header>
-
-    
-
-    <p>If you have ever tried writing any non trivial tests, mocks should not be a stranger to you. But what about some other &ldquo;mock&rdquo; like objects like stubs, spies and such? How are they different from each other? In this blog post, I will explain it as simple and easy to remember as possible.
-Everything is a test double. Test double is just a general name for all mock like objects.</p>
-
-    <footer>
-        <ul class="actions">
-            <li><a href="http://lvguowei.me/post/mock-objects-dimistified/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/programming-kata-day-10/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -801,7 +799,7 @@ Everything is a test double. Test double is just a general name for all mock lik
                         <article>
                             <header>
                                 <a href="http://lvguowei.me/categories/programming/">programming</a>
-                                <span style="float:right;">56</span>
+                                <span style="float:right;">51</span>
                             </header>
                         </article>
                     </li>
@@ -811,6 +809,15 @@ Everything is a test double. Test double is just a general name for all mock lik
                             <header>
                                 <a href="http://lvguowei.me/categories/finnish-learning/">Finnish Learning</a>
                                 <span style="float:right;">10</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="http://lvguowei.me/categories/android-development/">Android Development</a>
+                                <span style="float:right;">5</span>
                             </header>
                         </article>
                     </li>

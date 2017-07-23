@@ -6,9 +6,73 @@
     <description>Recent content in Categories on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Fri, 21 Jul 2017 18:19:35 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android Development</title>
+      <link>http://lvguowei.me/categories/android-development/</link>
+      <pubDate>Fri, 21 Jul 2017 18:19:35 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/android-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android Library</title>
+      <link>http://lvguowei.me/categories/android-library/</link>
+      <pubDate>Mon, 12 Jun 2017 12:22:15 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/android-library/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android Programming</title>
+      <link>http://lvguowei.me/categories/android-programming/</link>
+      <pubDate>Tue, 11 Jul 2017 17:13:32 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/android-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Books</title>
+      <link>http://lvguowei.me/categories/books/</link>
+      <pubDate>Sat, 09 Jul 2016 19:22:34 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; Primer</title>
+      <link>http://lvguowei.me/categories/c&#43;&#43;-primer/</link>
+      <pubDate>Sun, 15 May 2016 20:46:45 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/c&#43;&#43;-primer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure</title>
+      <link>http://lvguowei.me/categories/clojure/</link>
+      <pubDate>Sun, 02 Apr 2017 08:35:01 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/clojure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Concurrent Programming</title>
+      <link>http://lvguowei.me/categories/concurrent-programming/</link>
+      <pubDate>Sat, 01 Jul 2017 14:16:31 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/concurrent-programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Finnish Learning</title>
@@ -20,20 +84,29 @@
     </item>
     
     <item>
-      <title>Fragrance</title>
-      <link>http://lvguowei.me/categories/fragrance/</link>
-      <pubDate>Sun, 09 Oct 2016 21:23:38 +0300</pubDate>
+      <title>Hand Made Hero</title>
+      <link>http://lvguowei.me/categories/hand-made-hero/</link>
+      <pubDate>Thu, 20 Jul 2017 09:06:31 +0300</pubDate>
       
-      <guid>http://lvguowei.me/categories/fragrance/</guid>
+      <guid>http://lvguowei.me/categories/hand-made-hero/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Misc</title>
-      <link>http://lvguowei.me/categories/misc/</link>
-      <pubDate>Wed, 12 Jul 2017 14:13:07 +0300</pubDate>
+      <title>Object Oriented Design</title>
+      <link>http://lvguowei.me/categories/object-oriented-design/</link>
+      <pubDate>Mon, 03 Jul 2017 12:01:35 +0300</pubDate>
       
-      <guid>http://lvguowei.me/categories/misc/</guid>
+      <guid>http://lvguowei.me/categories/object-oriented-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Object Oriented Design</title>
+      <link>http://lvguowei.me/categories/object-oriented-design/</link>
+      <pubDate>Sun, 20 Nov 2016 14:51:39 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/categories/object-oriented-design/</guid>
       <description></description>
     </item>
     
@@ -47,11 +120,65 @@
     </item>
     
     <item>
-      <title>Programming</title>
-      <link>http://lvguowei.me/categories/programming/</link>
-      <pubDate>Fri, 21 Jul 2017 18:19:35 +0300</pubDate>
+      <title>Perfume</title>
+      <link>http://lvguowei.me/categories/perfume/</link>
+      <pubDate>Sun, 09 Oct 2016 21:23:38 +0300</pubDate>
       
-      <guid>http://lvguowei.me/categories/programming/</guid>
+      <guid>http://lvguowei.me/categories/perfume/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming Kata</title>
+      <link>http://lvguowei.me/categories/programming-kata/</link>
+      <pubDate>Mon, 06 Mar 2017 21:02:55 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/categories/programming-kata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming kata</title>
+      <link>http://lvguowei.me/categories/programming-kata/</link>
+      <pubDate>Mon, 06 Feb 2017 20:42:29 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/categories/programming-kata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ranting</title>
+      <link>http://lvguowei.me/categories/ranting/</link>
+      <pubDate>Wed, 05 Jul 2017 21:42:18 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/ranting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Refactoring</title>
+      <link>http://lvguowei.me/categories/refactoring/</link>
+      <pubDate>Sat, 15 Oct 2016 19:38:57 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/refactoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SICP</title>
+      <link>http://lvguowei.me/categories/sicp/</link>
+      <pubDate>Sun, 29 May 2016 21:32:14 +0300</pubDate>
+      
+      <guid>http://lvguowei.me/categories/sicp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test Driven Development</title>
+      <link>http://lvguowei.me/categories/test-driven-development/</link>
+      <pubDate>Mon, 20 Mar 2017 20:27:39 +0200</pubDate>
+      
+      <guid>http://lvguowei.me/categories/test-driven-development/</guid>
       <description></description>
     </item>
     

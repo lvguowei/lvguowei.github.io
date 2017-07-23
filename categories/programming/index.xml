@@ -6,41 +6,10 @@
     <description>Recent content in Programming on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Jul 2017 18:19:35 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jul 2017 09:06:31 +0300</lastBuildDate>
     
 	<atom:link href="http://lvguowei.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>All You Need To Know About Android Espresso Testing (Part IV)</title>
-      <link>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-4/</link>
-      <pubDate>Fri, 21 Jul 2017 18:19:35 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-4/</guid>
-      <description>In previous article, we talked about how to scroll to a certain position in RecyclerView in the test. In this article, we further discuss how to write a custom matcher and use it to scroll the RecyclerView.
-Let&amp;rsquo;s say that we want to scroll to certain item in RecyclerView, but we don&amp;rsquo;t know the position. We can then create a custom Matcher, and use the matcher to determine which item to scroll to.</description>
-    </item>
-    
-    <item>
-      <title>All You Need To Know About Android Espresso Testing (Part III)</title>
-      <link>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-3/</link>
-      <pubDate>Fri, 21 Jul 2017 16:44:41 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-3/</guid>
-      <description>In part II, we wrote a test case to verify that the app can create a task and the task will be seen on the screen. In this part III, we will demonstrate one technique on writing tests that involves a RecyclerView.
-First we repeatly add some tasks, and then we verify that the last added task is on display. Note that since we are using a RecyclerView, the last item might not be seen, so we need to scroll the RecyclerView before checking.</description>
-    </item>
-    
-    <item>
-      <title>All You Need To Know About Android Espresso Testing (Part II)</title>
-      <link>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-2/</link>
-      <pubDate>Fri, 21 Jul 2017 11:48:08 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing-2/</guid>
-      <description>In Part I we talked about how to setup Espresso testing framework, what is the activity testing rule and how to use uiautomatorviewer to help us find id of the view quickly.
-In this Part II, we will write some tests against a simple TODO list application. Lets get started.
-About the App under test This is a very simple app with basically 2 screens. One to display a list of tasks:</description>
-    </item>
     
     <item>
       <title>How To Follow Hand Made Hero On Linux</title>
@@ -50,18 +19,6 @@ About the App under test This is a very simple app with basically 2 screens. One
       <guid>http://lvguowei.me/post/how-to-follow-hand-made-hero-on-linux/</guid>
       <description>If you are a Linux person and you want to follow the awesome Hand Made Hero, here are how I am doing it(on Arch Linux).
  Install VirtualBox. Create a Windows virtual machine(at least Win7 + SP1, you can download a ISO image from here), pay attention to the hard drive size, 25G is too small, increase it to like 50G at least. In order to make the full scren mode work, we have to install something called Guest Addition.</description>
-    </item>
-    
-    <item>
-      <title>All You Need To Know About Android Espresso Testing (Part I)</title>
-      <link>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing/</link>
-      <pubDate>Thu, 13 Jul 2017 13:03:12 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/all-you-need-to-know-about-android-espresso-testing/</guid>
-      <description>The Espresso testing framework really makes it easy to write UI tests for Android. In this first installment, I will go through how to set it up and write our first test case.
-Let&amp;rsquo;s get started.
-Set up Espresso Add the following dependencies to your gradle build file.
-dependencies { // Other dependencies ... androidTestCompile &amp;#39;com.android.support.test.espresso:espresso-core:2.2.2&amp;#39; }  Understand the Rules in JUnit Why do they exist? We all know that in JUnit there is a setup method(annotated as @Before) and a teardown method(annotated as @After).</description>
     </item>
     
     <item>
@@ -84,18 +41,6 @@ The UserService Example public class UserService { /** * Gets User from database
       <description>In this post, we will discuss how to implement a custom view group by extending an existing one, like a FrameLayout.
 Let&amp;rsquo;s assume that we are building a layout for displaying user&amp;rsquo;s avatar. The requirement is if a user has an avatar, show the avatar picture, if not, show their initials as text.
 So it would be good if we have some kind of AvatarView and Avatar data class (which contains name and avatar picture).</description>
-    </item>
-    
-    <item>
-      <title>Android Custom Views 101 (Part IV)</title>
-      <link>http://lvguowei.me/post/android-custom-view-101-4/</link>
-      <pubDate>Sun, 09 Jul 2017 16:41:23 +0300</pubDate>
-      
-      <guid>http://lvguowei.me/post/android-custom-view-101-4/</guid>
-      <description>In this installment, we talk about how to implement custom view group.
-Custom View VS Custom ViewGroup When we think about a view, it is usually very simple and self contained. View represents, draws and handles interaction for a part of the screen.
-Whereas ViewGroup is more about a binding relationship between views. ViewGroup is a specialized View that contains other Views. It has children.
-As discussed before, in order for custom view to work correctly, it has to implement two methods: onDraw() and onMeasure(), and there is no need to implement onLayout() cause there is no children to layout.</description>
     </item>
     
     <item>
