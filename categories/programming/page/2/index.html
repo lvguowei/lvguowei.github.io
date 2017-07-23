@@ -397,7 +397,7 @@ So it would be good if we have some kind of AvatarView and Avatar data class (wh
             July 9, 2017</time>
         <span class="author"></span>
         
-            <p>1 minute read</p>
+            <p>2 minute read</p>
         
         
     </div>
@@ -406,10 +406,9 @@ So it would be good if we have some kind of AvatarView and Avatar data class (wh
     
 
     <p>In this installment, we talk about how to implement custom view group.
-There are two ways of doing custom view groups: 1. Extends an existing ViewGroup, like LinearLayout or FrameLayout. 2. Extends the base ViewGroup class.
-Normally, the first way will do the trick. But in this post, we are talking about the second one.
-Basically you have to implement both onMeasure() and onLayout().
-The details are kind of straightforward, take a look at the commented source code</p>
+Custom View VS Custom ViewGroup When we think about a view, it is usually very simple and self contained. View represents, draws and handles interaction for a part of the screen.
+Whereas ViewGroup is more about a binding relationship between views. ViewGroup is a specialized View that contains other Views. It has children.
+As discussed before, in order for custom view to work correctly, it has to implement two methods: onDraw() and onMeasure(), and there is no need to implement onLayout() cause there is no children to layout.</p>
 
     <footer>
         <ul class="actions">

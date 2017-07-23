@@ -44,18 +44,16 @@
 <meta name="twitter:text:title" content="Android Custom Views 101 (Part IV)"/>
 <meta name="twitter:title" content="Android Custom Views 101 (Part IV)"/>
 <meta name="twitter:description" content="In this installment, we talk about how to implement custom view group.
-There are two ways of doing custom view groups: 1. Extends an existing ViewGroup, like LinearLayout or FrameLayout. 2. Extends the base ViewGroup class.
-Normally, the first way will do the trick. But in this post, we are talking about the second one.
-Basically you have to implement both onMeasure() and onLayout().
-The details are kind of straightforward, take a look at the commented source code"/>
+Custom View VS Custom ViewGroup When we think about a view, it is usually very simple and self contained. View represents, draws and handles interaction for a part of the screen.
+Whereas ViewGroup is more about a binding relationship between views. ViewGroup is a specialized View that contains other Views. It has children.
+As discussed before, in order for custom view to work correctly, it has to implement two methods: onDraw() and onMeasure(), and there is no need to implement onLayout() cause there is no children to layout."/>
 
 
         <meta property="og:title" content="Android Custom Views 101 (Part IV)" />
 <meta property="og:description" content="In this installment, we talk about how to implement custom view group.
-There are two ways of doing custom view groups: 1. Extends an existing ViewGroup, like LinearLayout or FrameLayout. 2. Extends the base ViewGroup class.
-Normally, the first way will do the trick. But in this post, we are talking about the second one.
-Basically you have to implement both onMeasure() and onLayout().
-The details are kind of straightforward, take a look at the commented source code" />
+Custom View VS Custom ViewGroup When we think about a view, it is usually very simple and self contained. View represents, draws and handles interaction for a part of the screen.
+Whereas ViewGroup is more about a binding relationship between views. ViewGroup is a specialized View that contains other Views. It has children.
+As discussed before, in order for custom view to work correctly, it has to implement two methods: onDraw() and onMeasure(), and there is no need to implement onLayout() cause there is no children to layout." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://lvguowei.me/post/android-custom-view-101-4/" />
 
@@ -77,14 +75,13 @@ The details are kind of straightforward, take a look at the commented source cod
         
 <meta itemprop="name" content="Android Custom Views 101 (Part IV)">
 <meta itemprop="description" content="In this installment, we talk about how to implement custom view group.
-There are two ways of doing custom view groups: 1. Extends an existing ViewGroup, like LinearLayout or FrameLayout. 2. Extends the base ViewGroup class.
-Normally, the first way will do the trick. But in this post, we are talking about the second one.
-Basically you have to implement both onMeasure() and onLayout().
-The details are kind of straightforward, take a look at the commented source code">
+Custom View VS Custom ViewGroup When we think about a view, it is usually very simple and self contained. View represents, draws and handles interaction for a part of the screen.
+Whereas ViewGroup is more about a binding relationship between views. ViewGroup is a specialized View that contains other Views. It has children.
+As discussed before, in order for custom view to work correctly, it has to implement two methods: onDraw() and onMeasure(), and there is no need to implement onLayout() cause there is no children to layout.">
 
 
 <meta itemprop="dateModified" content="2017-07-09T16:41:23&#43;03:00" />
-<meta itemprop="wordCount" content="78">
+<meta itemprop="wordCount" content="288">
 
 
 
@@ -345,7 +342,7 @@ ga('send', 'pageview');
             July 9, 2017</time>
         <span class="author"></span>
         
-            <p>1 minute read</p>
+            <p>2 minute read</p>
         
         
     </div>
@@ -403,7 +400,23 @@ ga('send', 'pageview');
     
 
     <div id="content">
-        <p>In this installment, we talk about how to implement custom view group.</p>
+        
+
+<p>In this installment, we talk about how to implement custom view group.</p>
+
+<h2 id="custom-view-vs-custom-viewgroup">Custom View VS Custom ViewGroup</h2>
+
+<p>When we think about a view, it is usually very simple and self contained. <strong>View represents, draws and handles interaction for a part of the screen.</strong></p>
+
+<p>Whereas ViewGroup is more about a binding relationship between views. <strong>ViewGroup is a specialized View that contains other Views. It has children.</strong></p>
+
+<p>As discussed before, in order for custom view to work correctly, it has to implement two methods: <code>onDraw()</code> and <code>onMeasure()</code>, and there is no need to implement <code>onLayout()</code> cause there is no children to layout. But for custom ViewGroup, it is a bit different. It has to implement <code>onMeasure()</code> to measure each child, and it has to implement <code>onLayout()</code> to layout each child, but there is no need to implement <code>onDraw()</code>. If for some reason we do need to draw something in layout, we can set the <code>setWillNotDraw</code> to false.</p>
+
+<p>There are basically two types of custom ViewGroup:</p>
+
+<p>First, <strong>hardcoded children</strong>, which means that it contains particular views with particular ids. Normally we choose this way to gain performance, or it can also be used to modularize complex layouts.</p>
+
+<p>Second, <strong>dynamic children</strong>, which children views  are added dynamically by user. This makes no assumptions of what views are added of what types. Just like for example <strong>LinearLayout</strong>.</p>
 
 <p>There are two ways of doing custom view groups:
 1. Extends an existing <code>ViewGroup</code>, like <code>LinearLayout</code> or <code>FrameLayout</code>.
