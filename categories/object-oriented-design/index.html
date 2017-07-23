@@ -51,7 +51,7 @@
 
 
 
-<meta property="og:updated_time" content="2016-11-20T14:51:39&#43;02:00"/>
+<meta property="og:updated_time" content="2017-07-03T12:01:35&#43;03:00"/>
 
 
 
@@ -249,7 +249,7 @@ ga('send', 'pageview');
     <header>
     <div class="title">
         
-            <h2><a href="http://lvguowei.me/post/payroll-case-study/">Payroll Case Study</a></h2>
+            <h2><a href="http://lvguowei.me/post/strategy-pattern-and-lambda/">Strategy Pattern And Lambda</a></h2>
         
         
     </div>
@@ -259,11 +259,11 @@ ga('send', 'pageview');
         
 
         <time class="published"
-            datetime='2016-11-20'>
-            November 20, 2016</time>
+            datetime='2017-07-03'>
+            July 3, 2017</time>
         <span class="author"></span>
         
-            <p>1 minute read</p>
+            <p>2 minute read</p>
         
         
     </div>
@@ -271,12 +271,13 @@ ga('send', 'pageview');
 
     
 
-    <p>I was watching some Uncle Bob video some day which talked about how to design the architecture of a system. In that video, he gave a case study of a payroll system, I found the souce code and it is actually implemented in C++, so I ported a Java version.
-This is a very good example because it feels more realistic than most dummy demos out there. It also shows how to use POJO classes to layout the foundation without going too much into peripheral details like database.</p>
+    <p>While reading Effective Java Item 21: Use function objects to represent strategies, something hit my mind and now I&rsquo;m writing it down.
+All these new lambda thing is really what is called the Strategy pattern in the OOP world, or would it be more appropriate to say that the Strategy Pattern in Design patterns is really what lambda is.
+The essence of all these, can be boiled down to one simple idea, pass functionalities around.</p>
 
     <footer>
         <ul class="actions">
-            <li><a href="http://lvguowei.me/post/payroll-case-study/" class="button big">Continue Reading</a></li>
+            <li><a href="http://lvguowei.me/post/strategy-pattern-and-lambda/" class="button big">Continue Reading</a></li>
         </ul>
         <ul class="stats">
     
@@ -309,7 +310,294 @@ This is a very good example because it feels more realistic than most dummy demo
 
     
     
-        <li><a href='http://lvguowei.me/categories/object-oriented-design'>object Oriented Design</a></li>
+        <li><a href='http://lvguowei.me/categories/object-oriented-design'>Object Oriented Design</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/">Why component dependency cycle is bad</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2017-01-01'>
+            January 1, 2017</time>
+        <span class="author"></span>
+        
+            <p>3 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>I have been working on some Clojure project at work for several months now, one little thing bothers me now and then is that it doesn&rsquo;t allow dependency cycle in project. For example if a.clj requires b.clj, b.clj requires c.clj, then c.clj cannot require a.clj, in other words, c.clj cannot use anything inside a.clj.
+At first, I thought this is a bit odd, java doesn&rsquo;t have that. And once in a while we have to solve such problems by creating a new namespace and move the common function into it.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/why-component-dependency-cycle-is-bad/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+  <li>
+    
+    
+    
+
+    
+
+    
+                        
+                        
+                            
+                        
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categories/object-oriented-design'>Object Oriented Design</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/coffee-maker/">Coffee Maker - An OOD case study</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2016-12-18'>
+            December 18, 2016</time>
+        <span class="author"></span>
+        
+            <p>3 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>This case study is to show case how to design classes that interact with each other to form a component.
+The problem is to implement a software component that controls a coffee maker.
+Requirement  The Mark IV Special makes up to 12 cups of coffee at a time. The user places a filter in the filter holder, fills the filter with coffee grounds, and slides the filter holder into its receptacle.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/coffee-maker/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+  <li>
+    
+    
+    
+
+    
+
+    
+                        
+                        
+                            
+                        
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categories/object-oriented-design'>Object Oriented Design</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/interface-segregation-principle-android-logger/">Use Interface Segregation Principle to Implement an Android Logger</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2016-12-08'>
+            December 8, 2016</time>
+        <span class="author"></span>
+        
+            <p>1 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>Recently at work we has been talking about implementing some kind of Analytic interface for all the analytic libraries we are using, like Localytics and Firebase and so on. Basically it is just a fat interface with a long list of event logging functions, like logSignIn(), logSignOut(), logSellProduct(), logOpenMap() and so on. There are about 40 such methods in that interface. So this is how we implemented it in the first place.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/interface-segregation-principle-android-logger/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+  <li>
+    
+    
+    
+
+    
+
+    
+                        
+                        
+                            
+                        
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categories/object-oriented-design'>Object Oriented Design</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://lvguowei.me/post/expense-report-case-study/">Expense Report Case Study</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2016-12-06'>
+            December 6, 2016</time>
+        <span class="author"></span>
+        
+            <p>2 minute read</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>One day, I was watching another Uncle Bob&rsquo;s video (yes, they are addictive), when I see one example he gave when talking about open closed principle, it ringed a bell in my head. This looked familiar! The type in some data classes, some switchs or ifs, some &amp;&amp;s and ||s all dancing around in the class. I can almost hear them teasing: &ldquo;Come and catch me! Come and catch me!&rdquo;.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://lvguowei.me/post/expense-report-case-study/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+  <li>
+    
+    
+    
+
+    
+
+    
+                        
+                        
+                            
+                        
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='http://lvguowei.me/categories/object-oriented-design'>Object Oriented Design</a></li>
     
 </ul>
 
@@ -325,7 +613,8 @@ This is a very good example because it feels more realistic than most dummy demo
     
 
     
-        <li><a href="#" class="disabled button big next">Next Page</a></li>
+        <li><a href="http://lvguowei.me/categories/object-oriented-design/page/2/"
+                class="button big next">Next Page</a></li>
     
 </ul>
 
