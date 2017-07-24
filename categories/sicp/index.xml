@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SICP on Guowei Lv</title>
-    <link>http://lvguowei.me/categories/sicp/</link>
+    <link>https://www.lvguowei.me/categories/sicp/</link>
     <description>Recent content in SICP on Guowei Lv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 29 May 2016 21:32:14 +0300</lastBuildDate>
     
-	<atom:link href="http://lvguowei.me/categories/sicp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.lvguowei.me/categories/sicp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Time and Space of Recursion</title>
-      <link>http://lvguowei.me/post/time-and-space-of-recursion/</link>
+      <link>https://www.lvguowei.me/post/time-and-space-of-recursion/</link>
       <pubDate>Sun, 29 May 2016 21:32:14 +0300</pubDate>
       
-      <guid>http://lvguowei.me/post/time-and-space-of-recursion/</guid>
+      <guid>https://www.lvguowei.me/post/time-and-space-of-recursion/</guid>
       <description>今天通过一个例子，来谈一谈第归的时间和空间效应。
 例子很简单，计算 a 的 n 次方。
 我们来对比一下两种第归算法的时间和空间的消耗。
@@ -27,10 +27,10 @@
     
     <item>
       <title>Simple example of recursion</title>
-      <link>http://lvguowei.me/post/recursion-example/</link>
+      <link>https://www.lvguowei.me/post/recursion-example/</link>
       <pubDate>Thu, 05 May 2016 15:33:59 +0300</pubDate>
       
-      <guid>http://lvguowei.me/post/recursion-example/</guid>
+      <guid>https://www.lvguowei.me/post/recursion-example/</guid>
       <description>今天读到SICP里的一个介绍recursion的例子，用牛顿猜想来计算平方根。
 首先，介绍了计算机程序和数学方程的区别。数学方程大多用的是描述法（declarative）。比如说这个平方根，数学上只需要说：
 如果x的平方等于y，而且x大于0，那么x就是y的平方根。
